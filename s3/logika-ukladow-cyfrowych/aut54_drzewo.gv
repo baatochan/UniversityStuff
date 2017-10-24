@@ -1,0 +1,74 @@
+digraph {
+	rankdir = BT;
+	ordering = out;
+
+
+	"a (y3)" [shape = box];
+	"b (y0)" [shape = box];
+	"d (y1)" [shape = box];
+	"o (y1)" [shape = box];
+	"u (y2)" [shape = box];
+
+	"e (y1)" [shape = diamond; style=filled; fillcolor = gray;]
+	"f (y0)" [shape = diamond; style=filled; fillcolor = gray;]
+	"g (y0)" [shape = diamond; style=filled; fillcolor = gray;]
+	"c (y2)" [shape = diamond; style=filled; fillcolor = gray;]
+	"n (y1)" [shape = diamond; style=filled; fillcolor = gray;]
+	"p (y1)" [shape = diamond; style=filled; fillcolor = gray;]
+	"t (y1)" [shape = diamond; style=filled; fillcolor = gray;]
+	"v (y1)" [shape = diamond; style=filled; fillcolor = gray;]
+	"ae (y1)" [shape = diamond; style=filled; fillcolor = gray;]
+	"e (y1)" [shape = diamond; style=filled; fillcolor = gray;]
+	"ac (y2)" [shape = diamond; style=filled; fillcolor = gray;]
+	"ad (y3)" [shape = diamond; style=filled; fillcolor = gray;]
+
+
+	"a (y3)" -> "b (y0)" [label="z1"];
+	"a (y3)" -> "d (y1)" [label="z2"];
+	"a (y3)" -> "c (y2)" [label="z3"];
+	"b (y0)" -> "e (y1)" [label="z1"];
+	"b (y0)" -> "f (y0)" [label="z2"];
+	"b (y0)" -> "g (y0)" [label="z3"];
+	"e (y1)" -> "h (y1)" [label="z1"];
+	"e (y1)" -> "i (y1)" [label="z2"];
+	"e (y1)" -> "j (y1)" [label="z3"];
+	"f (y0)" -> "ar (y1)" [label="z1"];
+	"f (y0)" -> "as (y0)" [label="z2"];
+	"f (y0)" -> "at (y0)" [label="z3"];
+	"g (y0)" -> "au (y1)" [label="z1"];
+	"g (y0)" -> "av (y0)" [label="z2"];
+	"g (y0)" -> "aw (y0)" [label="z3"];
+	"c (y2)" -> "k (y2)" [label="z1"];
+	"c (y2)" -> "l (y3)" [label="z2"];
+	"c (y2)" -> "m (y1)" [label="z3"];
+	"d (y1)" -> "n (y1)" [label="z1"];
+	"d (y1)" -> "o (y1)" [label="z2"];
+	"d (y1)" -> "p (y1)" [label="z3"];
+	"n (y1)" -> "q (y1)" [label="z1"];
+	"n (y1)" -> "r (y1)" [label="z2"];
+	"n (y1)" -> "s (y1)" [label="z3"];
+	"o (y1)" -> "t (y1)" [label="z1"];
+	"o (y1)" -> "u (y2)" [label="z2"];
+	"o (y1)" -> "v (y1)" [label="z3"];
+	"p (y1)" -> "w (y1)" [label="z1"];
+	"p (y1)" -> "x (y2)" [label="z2"];
+	"p (y1)" -> "y (y1)" [label="z3"];
+	"t (y1)" -> "z (y1)" [label="z1"];
+	"t (y1)" -> "aa (y2)" [label="z2"];
+	"t (y1)" -> "ab (y1)" [label="z3"];
+	"u (y2)" -> "ac (y2)" [label="z1"];
+	"u (y2)" -> "ad (y3)" [label="z2"];
+	"u (y2)" -> "ae (y1)" [label="z3"];
+	"v (y1)" -> "af (y1)" [label="z1"];
+	"v (y1)" -> "ag (y1)" [label="z2"];
+	"v (y1)" -> "ah (y1)" [label="z3"];
+	"ac (y2)" -> "ai (y2)" [label="z1"];
+	"ac (y2)" -> "aj (y3)" [label="z2"];
+	"ac (y2)" -> "ak (y1)" [label="z3"];
+	"ad (y3)" -> "al (y0)" [label="z1"];
+	"ad (y3)" -> "an (y1)" [label="z2"];
+	"ad (y3)" -> "am (y2)" [label="z3"];
+	"ae (y1)" -> "ao (y1)" [label="z1"];
+	"ae (y1)" -> "ap (y1)" [label="z2"];
+	"ae (y1)" -> "aq (y1)" [label="z3"];
+}

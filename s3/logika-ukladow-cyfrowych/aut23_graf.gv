@@ -1,0 +1,11 @@
+digraph {
+
+	"b1 (y2)" -> "b2 (y3)" [label="z1"; len="3"];
+	"b1 (y2)" -> "b4 (y2)" [label="z2"; len="2"];
+	"b2 (y3)" -> "b2 (y3)" [label="z1"; len="5"];
+	"b2 (y3)" -> "b3 (y1)" [label="z2"; len="3"];
+	"b3 (y1)" -> "b1 (y2)" [label="z1"; len="2"];
+	"b3 (y1)" -> "b4 (y2)" [label="z2"; len="2"];
+	"b4 (y2)" -> "b1 (y2)" [label="z1"; len="2"];
+	"b4 (y2)" -> "b2 (y3)" [label="z2"; len="2"];
+}

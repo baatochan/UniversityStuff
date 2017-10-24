@@ -1,0 +1,33 @@
+digraph {
+	rankdir = BT;
+	ordering = out;
+
+	"a (y2)" [shape = box]
+	"b (y3)" [shape = box]
+	"c (y2)" [shape = box]
+	"g (y1)" [shape = box]
+	"d (y2)" [shape = diamond; style=filled; fillcolor = gray;]
+	"e (y3)" [shape = diamond; style=filled; fillcolor = gray;]
+	"f (y3)" [shape = diamond; style=filled; fillcolor = gray;]
+	"j (y2)" [shape = diamond; style=filled; fillcolor = gray;]
+	"k (y2)" [shape = diamond; style=filled; fillcolor = gray;]
+
+	"a (y2)" -> "b (y3)" [label="z1"];
+	"a (y2)" -> "c (y2)" [label="z2"];
+	"c (y2)" -> "d (y2)" [label="z1"];
+	"c (y2)" -> "e (y3)" [label="z2"];
+	"b (y3)" -> "f (y3)" [label="z1"];
+	"f (y3)" -> "h (y3)" [label="z1"];	
+	"f (y3)" -> "i (y1)" [label="z2"];
+	"b (y3)" -> "g (y1)" [label="z2"];
+	"g (y1)" -> "j (y2)" [label="z1"];
+	"g (y1)" -> "k (y2)" [label="z2"];
+	"j (y2)" -> "l (y3)" [label="z1"];
+	"j (y2)" -> "m (y2)" [label="z2"];
+	"k (y2)" -> "n (y2)" [label="z1"];
+	"k (y2)" -> "o (y3)" [label="z2"];
+	"d (y2)" -> "p (y3)" [label="z1"];
+	"d (y2)" -> "q (y2)" [label="z2"];
+	"e (y3)" -> "r (y3)" [label="z1"];
+	"e (y3)" -> "s (y1)" [label="z2"];
+}

@@ -1,0 +1,18 @@
+digraph {
+	"b1 (y3)" -> "b2 (y1)" [label="z2"; length="5";];
+	"b1 (y3)" -> "b5 (y0)" [label="z1"; length="5";];
+	"b1 (y3)" -> "b4 (y2)" [label="z3"; length="5";];
+	"b2 (y1)" -> "b2 (y1)" [label="z1"; length="5";];
+	"b2 (y1)" -> "b3 (y1)" [label="z2"; length="5";];
+	"b2 (y1)" -> "b3 (y1)" [label="z3"; length="5";];
+	"b3 (y1)" -> "b3 (y1)" [label="z1"; length="5";];
+	"b3 (y1)" -> "b4 (y2)" [label="z2"; length="5";];
+	"b3 (y1)" -> "b2 (y1)" [label="z3"; length="5";];
+	"b4 (y2)" -> "b4 (y2)" [label="z1"; length="5";];
+	"b4 (y2)" -> "b1 (y3)" [label="z2"; length="5";];
+	"b4 (y2)" -> "b2 (y1)" [label="z3"; length="5";];
+	"b5 (y0)" -> "b2 (y1)" [label="z1"; length="5";];
+	"b5 (y0)" -> "b5 (y0)" [label="z2"; length="5";];
+	"b5 (y0)" -> "b5 (y0)" [label="z3"; length="5";];
+	
+}
