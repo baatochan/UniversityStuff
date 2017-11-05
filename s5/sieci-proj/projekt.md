@@ -1,5 +1,5 @@
 # Technologie Sieciowe 2 - Projekt
-*Krzysztof Agieńczuk, <TODO: podaj numer indexu>*  
+*Krzysztof Agieńczuk, 225970*  
 *Bartosz Rodziewicz, 226105*
 
 ### Terminy oddania etapów:
