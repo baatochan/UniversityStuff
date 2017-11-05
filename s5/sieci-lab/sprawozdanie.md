@@ -39,68 +39,68 @@ W celu określenia ilości danych przesyłanych przez konkretny program wykorzys
 ![Radio](radio.png)
 * Testowana stacja: Radio Wrocław
 * Ruch na sekundę:
- * Download: 141 kbit/s = 18 kBps
- * Upload: 5 kbit/s = 1 kBps
+  * Download: 141 kbit/s = 18 kBps
+  * Upload: 5 kbit/s = 1 kBps
 * Zmienność użycia w czasie:
- * Download: ±5 kbit/s
- * Upload: ±2 kbit/s
+  * Download: ±5 kbit/s
+  * Upload: ±2 kbit/s
 * Całkowity ruch:
- * Download: 15 MB
- * Upload: 1 MB
+  * Download: 15 MB
+  * Upload: 1 MB
 
 #### Przegladanie internetu
 ![Internet](internet.png)
 * Testowane strony:
- * Onet
- * WP
- * Radio Wrocław
+  * Onet
+  * WP
+  * Radio Wrocław
 * Ruch na sekundę:
- * Download: 129 kbit/s = 16 kBps
- * Upload: 9 kbit/s = 1 kBps
+  * Download: 129 kbit/s = 16 kBps
+  * Upload: 9 kbit/s = 1 kBps
 * Zmienność użycia w czasie:
- * Download: mocno zmienne w czasie
- * Upload: mocno zmienne w czasie
+  * Download: mocno zmienne w czasie
+  * Upload: mocno zmienne w czasie
 * Całkowity ruch:
- * Download: 14 MB
- * Upload: 1 MB
+  * Download: 14 MB
+  * Upload: 1 MB
 
 #### Telewizja internetowa
 ![TVdown](tvdown.png)
 ![TVup](tvup.png)
 * Testowana usługa: Youtube
 * Ruch na sekundę:
- * Download: 1333 kbit/s = 166 kBps
- * Upload: 74 kbit/s = 9 kBps
+  * Download: 1333 kbit/s = 166 kBps
+  * Upload: 74 kbit/s = 9 kBps
 * Zmienność użycia w czasie
- * Download: ±100 kbit/s
- * Upload: ±10 kbit/s
+  * Download: ±100 kbit/s
+  * Upload: ±10 kbit/s
 * Całkowity ruch:
- * Download: 146 MB
- * Upload: 8 MB
+  * Download: 146 MB
+  * Upload: 8 MB
 
 #### Poczta elektroniczna
 ![Emaildown](emaildown.png)
 ![Emailup](emailup.png)
 * Ruch na sekundę:
- * Download: 2834 bit/s = 354 Bps
- * Upload: 6581 bit/s = 823 Bps
+  * Download: 2834 bit/s = 354 Bps
+  * Upload: 6581 bit/s = 823 Bps
 * Zmienność użycia w czasie
- * Download: mocno zmienne w czasie
- * Upload: mocno zmienne w czasie
+  * Download: mocno zmienne w czasie
+  * Upload: mocno zmienne w czasie
 * Całkowity ruch:
- * Download: 311 kB
- * Upload: 723 kB
+  * Download: 311 kB
+  * Upload: 723 kB
 
 #### Pobieranie po FTP
 * Ruch na sekundę:
- * Download: 3198 kbit/s = 400 kBps
- * Upload: 70 kbit/s = 9 kBps
+  * Download: 3198 kbit/s = 400 kBps
+  * Upload: 70 kbit/s = 9 kBps
 * Zmienność użycia w czasie:
- * Download: niewielka
- * Upload: niewielka
+  * Download: niewielka
+  * Upload: niewielka
 * Całkowity ruch:
- * Download: 351 MB
- * Upload: 8 MB
+  * Download: 351 MB
+  * Upload: 8 MB
 
 #### Wysyłanie po FTP
 ![FTPup](ftpup.png)
