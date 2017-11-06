@@ -66,6 +66,7 @@ W celu określenia ilości danych przesyłanych przez konkretny program wykorzys
 
 #### Telewizja internetowa
 ![TVdown](tvdown.png)
+
 ![TVup](tvup.png)
 * Testowana usługa: Youtube
 * Ruch na sekundę:
@@ -80,6 +81,7 @@ W celu określenia ilości danych przesyłanych przez konkretny program wykorzys
 
 #### Poczta elektroniczna
 ![Emaildown](emaildown.png)
+
 ![Emailup](emailup.png)
 * Ruch na sekundę:
   * Download: 2834 bit/s = 354 Bps
