@@ -1,51 +1,51 @@
 
-Przedsiêbiorstwo/instytucja:;;Agencja_turystyczna
+PrzedsiÄ™biorstwo/instytucja:;;Agencja_turystyczna
 
-;Liczba u¿ytkowników (komputerów)
+;Liczba uÅ¼ytkownikÃ³w (komputerÃ³w)
 ;Budynek 1;;;;Budynek 2
-Grupa robocza;Piêtro 1;Piêtro 2;Piêtro 3;Piêtro 4;Piêtro 1;
+Grupa robocza;PiÄ™tro 1;PiÄ™tro 2;PiÄ™tro 3;PiÄ™tro 4;PiÄ™tro 1;
 Sprzedawcy;30;22;43;58;66;
 Konsultanci;53;24;75;9;10;
-Ksiêgowoœæ;37;46;63;57;57;
+KsiÄ™gowoÅ›Ä‡;37;46;63;57;57;
 ;Liczba drukarek
 ;2;3;1;1;3;
-;Liczba punktów dostêpowych WiFi
+;Liczba punktÃ³w dostÄ™powych WiFi
 ;0;2;2;0;0;
-;Liczba urz¹dzeñ bezprzewodowych
+;Liczba urzÄ…dzeÅ„ bezprzewodowych
 ;0;8;9;0;0;
 
-Odleg³oœc pomiêdzy budynkami:;;;274m (w³aœciwie nie jest to potrzebne w projekcie)
-£¹cze pomiêdzy budynkami:;;;Optyczne wielomodowe
+OdlegÅ‚oÅ›c pomiÄ™dzy budynkami:;;;274m (wÅ‚aÅ›ciwie nie jest to potrzebne w projekcie)
+ÅÄ…cze pomiÄ™dzy budynkami:;;; Optyczne wielomodowe
 
 Punkty dystrybucyjne: 
-Oznaczenie;Lokalizacja;Pod³¹czone punkty abonenckie
-MDF;Bud. 1, Piêtro 1;Bud. 1, Piêtro 1,;
-IDF1;Bud. 1, Piêtro 4;Bud. 1, Piêtro 2,3,4,;
-IDF2;Bud. 2, Piêtro 1;Bud. 2;
+Oznaczenie;Lokalizacja;PodÅ‚Ä…czone punkty abonenckie
+MDF;Bud. 1, PiÄ™tro 1;Bud. 1, PiÄ™tro 1,;
+IDF1;Bud. 1, PiÄ™tro 4;Bud. 1, PiÄ™tro 2,3,4,;
+IDF2;Bud. 2, PiÄ™tro 1;Bud. 2;
 
 
-Wymagania dot. przep³ywów pomiêdzy pracownikami a serwerami lokalnymi (transfer przypadaj¹cy na jednego u¿ytkownika) - dotyczy równie¿ u¿ytkowników WiFi
+Wymagania dot. przepÅ‚ywÃ³w pomiÄ™dzy pracownikami a serwerami lokalnymi (transfer przypadajÄ…cy na jednego uÅ¼ytkownika) - dotyczy rÃ³wnieÅ¼ uÅ¼ytkownikÃ³w WiFi
 
-;Transfer do serwerów lokalnych i drukarek (down \ up) [kb/s]
+;Transfer do serwerÃ³w lokalnych i drukarek (down \ up) [kb/s]
 Grupa rob. / Serwer;Serwer1;Serwer2;Drukarka
 Sprzedawcy;500\600;0\0;10\190;
 Konsultanci;0\0;0\0;10\140;
-Ksiêgowoœæ;250\900;0\0;10\120;
+KsiÄ™gowoÅ›Ä‡;250\900;0\0;10\120;
 WiFi;200\200;0\0;10\170;
 
-Prognozowany ruch do Internetu z posiadanych przez firmê serwerów internetowych
+Prognozowany ruch do Internetu z posiadanych przez firmÄ™ serwerÃ³w internetowych
 
-;Transfer do\z Internetu na jedn¹ sesjê (internautê) [kb/s] 
+;Transfer do\z Internetu na jednÄ… sesjÄ™ (internautÄ™) [kb/s] 
 Serwery internetowe;Do Internetu;Z Internetu;Liczba jednoczesnych sesji
 Serwer WWW;140;30;44
 Serwer FTP;380;60;15
 
 
-Wymagania dot. przep³ywów generowanych przez aplikacje u¿ytkownika z\do internetu  (transfer przypadaj¹cy na jednego u¿ytkownika)  - dotyczy równie¿ u¿ytkowników WiFi
+Wymagania dot. przepÅ‚ywÃ³w generowanych przez aplikacje uÅ¼ytkownika z\do internetu  (transfer przypadajÄ…cy na jednego uÅ¼ytkownika)  - dotyczy rÃ³wnieÅ¼ uÅ¼ytkownikÃ³w WiFi
 
 ;Transfer z/do Internetu (down \ up) [kb/s]
-Grupa rob./Aplikacja;Przegl¹darka;Wideokonferencja;VoIP;Klient_FTP;Komunikator;Praca_w_chmurze;Poczta;
+Grupa rob./Aplikacja;PrzeglÄ…darka;Wideokonferencja;VoIP;Klient_FTP;Komunikator;Praca_w_chmurze;Poczta;
 Sprzedawcy;0\0;40\40;20\20;45\18;15\15;27\44;19\14;
 Konsultanci;0\0;40\40;20\20;51\17;15\15;25\46;23\15;
-Ksiêgowoœæ;0\0;40\40;20\20;0\0;15\15;0\0;22\30;
+KsiÄ™gowoÅ›Ä‡;0\0;40\40;20\20;0\0;15\15;0\0;22\30;
 WiFi;56\10;40\40;20\20;0\0;0\0;60\26;24\29;
