@@ -92,3 +92,64 @@ Transfer z/do Internetu (down \ up) [kb/s]
 1. Stworzone zostaną 4 punkty dostępowe WiFi, w celu zapewnienia możliwości obsługi bezprzewodowych urządzeń biurowych
 1. Infrastrukturę planujemy oprzeć na urządzeniach firmy CISCO, z uwzględnieniem sprzętu będącego już w posiadaniu firmy
 1. Komputery zostaną wyposażone we wszelkie potrzebne oprogramowanie (konsultowane z klientem), którego koszt zostanie wliczony do kosztorysu projektu
+
+## Projekt sieci
+### Projekt logiczny sieci wraz z opisem koncepcji rozwiązania i uzasadnieniem
+
+![Wizualizacja sieci](wizualizacja sieci.png)
+
+Zaproponowana sieć będzie się składać z 2 przełączników tzw. szkieletowych, łączących punkty dostępowe MDF i IDF 1 oraz 2. Firma posiada 2 łącza internetowe, umieszczone na jednym routerze, przy czym drugie z nich jest łączem zapasowym, operującym na 40% przepustowości pierwszego i jest używane tylko w sytuacji awarii głównego łącza.
+
+Jako przełączniki szkieletowe użyte zostaną przełączniki firmy Cisco model Catalyst WS-C3650-24TS, posiadające po 24 porty. Jest to wystarczająco do ich zastosowania. Przełączniki w punktach dostępowych to, mające po 48 portów, Cisco Catalyst WS-C3650-48TS Gigabit Ethernet, które można dodatkowo spinać w magistralę, tworząc jeden duży przełącznik logiczny. W węźle MDF spięte zostaną 3 przełączniki, w węźle IDF1 - 7 przełączników, w węźle IDF2 spięte będą 3 przełączniki. To rozwiązanie udostępni (z odpowiednim zapasem) odpowiednią ilość portów do połączenia odpowiednich grup pracowników VLANami.
+
+Access Pointy podłączone zostaną do grupy przełączników IDF1, ponieważ mają obsługiwać 1 i 2 piętro budynku nr 1.
+
+### Wybór urządzeń sieciowych
+
+#### Przełączniki:
+* Cisco Catalyst WS-C3650-24TS Gigabit Ethernet (x2)
+* Cisco Catalyst WS-C3650-48TS Gigabit Ethernet (x13)
+
+#### Router:
+* Router Cisco 4451 Gigabit Ethernet (x1)
+
+#### AP:
+* Cisco Small Business 500 Series Wireless Access Point (x4)
+
+### Projekt adresacji IP
+
+Sieć zostanie logicznie podzielona na podsieci odpowiadające grupom roboczym i pozostałym zaplanowanym VLAN-om. Wykorzystana zostanie sieć 192.168.0.0/16, podzielona na podsieci o 23 bitowej masce dla grup roboczych, 24 bitowej dla urządzeń oraz 30 bitowej masce dla sieci punkt-punkt. Adresem bramy domyślnej będzie zawsze pierwszy adres urządzenia dostępny w danej podsieci tj. 192.168.X.1. Adresy urządzeń dostępowych będą przydzielane statycznie. Serwery lokalne, punkty dostępowe WiFi, przełączniki konfigurowalne oraz drukarki otrzymają adresy statyczne: serwer nr 1 – 192.168.10.2, serwer nr 2 – 192.168.10.3, drukarki – 192.168.7.2-192.168.7.12, punkty dostępowe Wi-Fi – 192.168.8.2-192.168.8.6, przełącznik szkieletowy nr 1 – 192.168.X+1.253 (w każdej podsieci/VLAN-ie), przełącznik szkieletowy nr 2 – 192.168.X+1.254 (w każdej podsieci/VLAN-ie), przełączniki dostępowe – 192.168.11.2-192.168.11.4, serwery Internetowe, w strefie DMZ, otrzymają adresy prywatne z puli 192.168.9.0/24 – serwer WWW: 192.168.9.2, serwer FTP: 192.168.9.3. Wybrane usługi tych serwerów zostaną udostępnione publicznie, poprzez przekierowanie ruchu sieciowego na wybranych portach z adresów publicznych przypisanych do routera, na w/w adresy prywatne. Routing będzie możliwy pomiędzy wszystkimi podsieciami w sieci lokalnej, za wyjątkiem adresów serwerów znajdujących się w strefie DMZ
+
+#### Przewidziane są następujące podsieci:
+**Sprzedawcy** – 219+20% = 262 urządzenia  
+VLAN 10 192.168.1.0/23 (brama domyślna: 192.168.1.1)
+
+**Konsultanci** – 171+20%= 205 urządzeń  
+VLAN 20 192.168.3.0/23 (brama domyślna: 192.168.3.1)
+
+**Księgowość** – 260+20% = 312 urządzenia  
+VLAN 30 192.168.5.0/23 (brama domyślna: 192.168.5.1)
+
+**Drukarki** – 10 drukarek  
+VLAN 40 192.168.7.0/24 (brama domyślna: 192.168.7.1)
+
+**Urządzenia bezprzewodowe** (zarówno końcowe jak i dostępowe) – 21 urządzeń  
+VLAN 50 192.168.8.0/24 (brama domyślna: 192.168.8.1)
+
+**Serwery internetowe** w strefie zdemilitaryzowanej – 2 urządzenia  
+VLAN 60 192.168.9.0/24 (brama domyślna: 192.168.9.1)
+
+**Serwery lokalne** – 2 urządzenia  
+VLAN 70 192.168.10.0/24 (brama domyślna: 192.168.10.1)
+
+**Przełączniki dostępowe** (dostęp do ich konfiguracji) – 3 grupy urządzeń  
+VLAN 80 192.168.11.0/24 (brama domyślna: 192.168.11.1)
+
+**Połączenie** między przełącznikiem szkieletowym nr 1, a routerem  
+192.168.12.0/30 (router: 192.168.12.1, przełącznik: 192.168.12.2)
+
+**Połączenie** między przełącznikiem szkieletowym nr 2, a routerem  
+192.168.12.4/30 (router: 192.168.12.5, przełącznik: 192.168.12.6)
+
+**Połączenie** między przełącznikami szkieletowymi: nr 1 i 2  
+192.168.12.8/30 (przełącznik1: 192.168.12.9, przełącznik: 192.168.12.10)
