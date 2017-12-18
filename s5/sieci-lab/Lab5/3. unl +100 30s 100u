@@ -1,0 +1,21 @@
+Lifting the server siege...      done.
+siege aborted due to excessive socket failure; you
+can change the failure threshold in $HOME/.siegerc
+
+Transactions:                   7004 hits
+Availability:                  87.09 %
+Elapsed time:                  29.69 secs
+Data transferred:              14.47 MB
+Response time:                  0.16 secs
+Transaction rate:             235.92 trans/sec
+Throughput:                     0.49 MB/sec
+Concurrency:                   38.80
+Successful transactions:        7004
+Failed transactions:            1038
+Longest transaction:            3.38
+Shortest transaction:           0.00
+
+\FILE: siege.log
+You can disable this annoying message by editing
+the C:\siege-windows\etc\siegerc file; change
+the directive 'show-logfile' to false.
