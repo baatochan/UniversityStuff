@@ -90,8 +90,9 @@ Transfer z/do Internetu (down \ up) [kb/s]
 1. Projekt zostanie wykonany w technologii GigabitEthernet
 1. Zostaną wykonane sieci wirtualne VLAN, w celu ułatwienia komunikacji między pracownikami jednego działu, pracującymi w różnych budynkach
 1. Stworzone zostaną 4 punkty dostępowe WiFi, w celu zapewnienia możliwości obsługi bezprzewodowych urządzeń biurowych
-1. Infrastrukturę planujemy oprzeć na urządzeniach firmy CISCO, z uwzględnieniem sprzętu będącego już w posiadaniu firmy
-1. Komputery zostaną wyposażone we wszelkie potrzebne oprogramowanie (konsultowane z klientem), którego koszt zostanie wliczony do kosztorysu projektu
+1. Infrastruktura zostanie oparta na urządzeniach firmy CISCO, z uwzględnieniem sprzętu będącego już w posiadaniu firmy
+1. Oddanie sieci z skonfigurowanymi urządzeniami, gotowymi do użycia
+1. Estetyka wykonania projektu - ukrycie kabli pod podłogą, w podwieszonych sufitach i listwach przypodłogowych
 
 ## Projekt sieci
 ### Projekt logiczny sieci wraz z opisem koncepcji rozwiązania i uzasadnieniem
