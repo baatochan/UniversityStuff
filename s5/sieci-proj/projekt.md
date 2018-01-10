@@ -252,10 +252,29 @@ Włączone zostanie zapisywanie (logowanie) zdarzeń, typu próba nieautoryzowan
 
 Wszystkie punkty dostępowe WiFi zostaną zabezpieczone hasłami, a użytkownicy będą się do nich logować przy pomocy unikalnych loginów dla każdego pracownika. Uniemożliwi to dostęp dla osób postronnych przez sieć bezprzewodową.
 
-Analogicznym działaniem mającym na celu zabezpieczenie sieci Ethernet będzie wyłączenie nieużywanych portów. Na stacjach roboczych zostaną zainstalowane programy antywirusowe. 
+Analogicznym działaniem mającym na celu zabezpieczenie sieci Ethernet będzie wyłączenie nieużywanych portów. Na stacjach roboczych zostaną zainstalowane programy antywirusowe.
 
 Dodatkowo, nieprzewidziane  w naszym projekcie, lecz zalecane w dalszej perspektywie jest przeszkolenie pracowników z zakresu niebezpieczeństw sieci i monitoring urządzeń peryferyjnych podłączanych do stacji roboczych.
 
 ### Kosztorys
 
+| Nazwa | Ilość | Cena jednostkowa [brutto PLN] | Wartość [brutto PLN] |
+| :-: | :-: | :-: | :-: |
+| Cisco Catalyst WS-C3650-24TS Gigabit Ethernet | 2 | 10 052.73 | 20105.46 |
+| Cisco Catalyst WS-C3650-48TS Gigabit Ethernet | 13 | 18 877.24 | 245404.12 |
+| Router Cisco ISR4451-X—VSEC/K9 | 1 | 51 658.52 | 51 658.52 |
+| Cisco Small Business WAP 561-E-K9 | 4 | 997.57 | 3990.28 |
+| Opłata aktywacyjna - łącze główne | 1 | 99.00 | 99.00 |
+| Opłata aktywacyjna - łącze zapasowe | 1 | 199.00 | 199.00 |
+| Miesiąc abonamentu - łącze główne | 24 | 155.00 | 3720.00 |
+| Miesiąc abonamentu - łącze zapasowe | 24 | 71.00 | 1704.00 |
+| **Całość** | | | **326880.38** |
+
 ## Karty katalogowe proponowanych urządzeń
+
+| Nazwa | Link |
+| :-: | :-: |
+| Cisco Catalyst WS-C3650-24TS Gigabit Ethernet | https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-3650-series-switches/datasheet-c78-729449.html |
+| Cisco Catalyst WS-C3650-48TS Gigabit Ethernet | https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-3650-series-switches/datasheet-c78-729449.html |
+| Router Cisco ISR4451-X—VSEC/K9 | https://www.cisco.com/c/en/us/products/collateral/routers/4000-series-integrated-services-routers-isr/datasheet-c78-732542.html |
+| Cisco Small Business WAP 561-E-K9 | https://www.cisco.com/c/en/us/products/collateral/wireless/small-business-500-series-wireless-access-points/data_sheet_c78-727995.html |
