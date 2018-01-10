@@ -168,7 +168,7 @@ VLAN 80 192.168.11.0/24 (brama domyślna: 192.168.11.1)
 | WiFi | 17 | 56 | 40 | 20 | 0 | 0 | 60 | 24 |
 | Całkowite użycie | - | 952 | 26680 | 13340 | 18576 | 9750 | 11208 | 14222 |
 
-Sumarycznie: 94728 kb/s
+Sumarycznie: 106588 kbps
 
 #### Upload
 
@@ -180,6 +180,6 @@ Sumarycznie: 94728 kb/s
 | WiFi | 17 | 10 | 40 | 20 | 0 | 0 | 26 | 29 |
 | Całkowite użycie | - | 170 | 26680 | 13340 | 6849 | 9750 | 17944 | 13924 |
 
-Sumarycznie: 88657 kb/s
+Sumarycznie: 90877 kbps
 
-Minimalne łączę dla naszej firmy: symetryczne 100Mbit/s, z propozycja powieskszenia do ~250Mbit/s
+Usługę dostarczy firma Moico, zapewniając symetryczne łącze 1 Gbps. Łącze zapasowe zostanie wykupione w firmie REDE, z prędkością 100/100 Mbps
