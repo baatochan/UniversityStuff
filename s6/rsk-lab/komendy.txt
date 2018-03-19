@@ -45,3 +45,19 @@ show flash
 delete vlan.dat
 erase startup-config
 reload
+
+vlan #num#
+name #name#
+exit
+
+int #num#
+switchport mode trunk
+switchport access vlan #num#
+switchport mode access
+exit
+
+interface #vlanX#
+ip address 192.168.10.11 255.255.255.0
+exit
+
+ip default-gateway 192.168.1.1
