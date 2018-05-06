@@ -25,6 +25,7 @@ crypto key generate rsa modulus 1024
 int #num#
 ip address #ip-add# #mask#
 description #desc#
+clock rate 128000
 no shutdown
 exit
 
