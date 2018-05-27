@@ -62,3 +62,7 @@ ip address 192.168.10.11 255.255.255.0
 exit
 
 ip default-gateway 192.168.1.1
+
+ip domain-name #domain#
+
+sdm prefer dual-ipv4-and-ipv6 default
