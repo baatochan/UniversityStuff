@@ -1,0 +1,35 @@
+R1(config)#int g0/0
+R1(config-if)#ip hel
+R1(config-if)#ip helper
+R1(config-if)#ip helper-address 192.168.2.254
+R1(config-if)#exit
+R1(config)#int g0/1
+R1(config-if)#ip hel
+R1(config-if)#ip help
+R1(config-if)#ip helper-address 192.168.2.254
+R1(config-if)#show run int
+R1(config-if)#exit
+R1(config)#exit
+R1#show run interface g0/0
+Building configuration...
+
+Current configuration : 132 bytes
+!
+interface GigabitEthernet0/0
+ ip address 192.168.0.1 255.255.255.0
+ ip helper-address 192.168.2.254
+ duplex auto
+ speed auto
+end
+
+R1#show run interface g0/1
+Building configuration...
+
+Current configuration : 132 bytes
+!
+interface GigabitEthernet0/1
+ ip address 192.168.1.1 255.255.255.0
+ ip helper-address 192.168.2.254
+ duplex auto
+ speed auto
+end

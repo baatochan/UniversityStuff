@@ -1,0 +1,29 @@
+C:\Users\Student>ipconfig/all
+
+Windows IP Configuration
+
+   Host Name . . . . . . . . . . . . : KSSK
+   Primary Dns Suffix  . . . . . . . :
+   Node Type . . . . . . . . . . . . : Hybrid
+   IP Routing Enabled. . . . . . . . : No
+   WINS Proxy Enabled. . . . . . . . : No
+   DNS Suffix Search List. . . . . . : ccna-lab.com
+
+Ethernet adapter Ethernet 4:
+
+   Connection-specific DNS Suffix  . : ccna-lab.com
+   Description . . . . . . . . . . . : Intel(R) PRO/1000 MT Network Connection #2
+   Physical Address. . . . . . . . . : 08-00-27-69-DB-5B
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::d1c5:d1da:ae45:d382%6(Preferred)
+   IPv4 Address. . . . . . . . . . . : 192.168.0.11(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Lease Obtained. . . . . . . . . . : Monday, May 28, 2018 6:29:17 AM
+   Lease Expires . . . . . . . . . . : Wednesday, May 30, 2018 6:29:18 AM
+   Default Gateway . . . . . . . . . : 192.168.0.1
+   DHCP Server . . . . . . . . . . . : 192.168.2.254
+   DHCPv6 IAID . . . . . . . . . . . : 369623079
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-22-8B-80-F9-08-00-27-92-A9-41
+   DNS Servers . . . . . . . . . . . : 209.165.200.225
+   NetBIOS over Tcpip. . . . . . . . : Enabled
