@@ -24,7 +24,7 @@ Do transmisji danych pomiędzy oddziałami oraz na zewnątrz firmy wykorzystywan
 
 ### Ogólny opis koncepcji rozwiązania
 
-Model struktury teleinformatycznej firmy jest hierarchiczny (podzielony na centralę i pozostałe oddziały). Uwzględniając występującą w sieci komunikację pomiędzy poszczególnymi oddziałami, a także ich położenie geograficzne, za najlepszy wybór uznano konstrukcję sieci w topologii pierścienia, łączącej wszystkie oddziały.
+Model struktury teleinformatycznej firmy jest hierarchiczny (podzielony na centralę - będącą jednocześnie oddziałem - i pozostałe oddziały). Uwzględniając występującą w sieci komunikację pomiędzy poszczególnymi oddziałami, a także ich położenie geograficzne, za najlepszy wybór uznano konstrukcję sieci w topologii pierścienia.
 
 Sieć budowana jest z użyciem połączeń MetroEthernet firmy Orange, zgodnie z wymaganiami klienta.
 
@@ -68,7 +68,7 @@ Pierwszy z wymienionych czynników niezawodności, czyli awaryjność sprzętu, 
 
 Drugim sposobem na zminimalizowanie prawdopodobieństwa awarii sprzętowej jest zakup urządzeń firmy o uznanej marce i dużym doświadczeniu w dostarczaniu tego typu rozwiązań. W ramach projektu wybrano urządzenia firmy Juniper Networks, które nie tylko spełniają wymagania projektowanej sieci pod względem funkcjonalności, ale także cieszą się znakomitą renomą na rynku IT.
 
-Wykorzystanie sieci w technologii pierścienia zapewnia niską podatność sieci na awarię w pojedynczym oddziale, bądź na jednym odcinku sieci, ze względu na obecność dwóch tras pomiędzy każdymi dwoma węzłami. Jeszcze wyższą niezawodność może potencjalnie zapewnić możliwość rozbudowy sieci o dodatkowe połączenia. Pierwsze sugerowane takie połączenie to bezpośrednie łącze Opole - Wałbrzych. Nie zostało ono jednak uwzględnione w podstawowej wersji projektu.
+Konstrukcja sieci w technologii pierścienia zapewnia niską podatność sieci na awarię w pojedynczym oddziale, bądź na jednym odcinku sieci, ze względu na obecność dwóch tras pomiędzy każdymi dwoma węzłami. Jeszcze wyższą niezawodność może potencjalnie zapewnić możliwość rozbudowy sieci o dodatkowe połączenia. Pierwsze sugerowane takie połączenie to bezpośrednie łącze Opole - Wałbrzych. Nie zostało ono jednak uwzględnione w podstawowej wersji projektu.
 
 Usługa MetroEthernet firmy Orange zawiera SLA, co oznacza formalną gwarancję wysokiej jakości usług operatora - wysokiej dostępności usługi, krótkiego czasu usunięcia awarii oraz ograniczenia przerw w działaniu usługi.
 
@@ -101,53 +101,55 @@ Kędzierzyn-Koźle | Prudnik | 0/1/0
 Kędzierzyn-Koźle | Opole | 0/1/1
 Kędzierzyn-Koźle | ISP | 0/1/2
 
-Wpis "ISP" oznacza połaczenie do sieci Internet. Każdy oddział posiada światłowodowe połączenie internetowe dostarczane przez Orange. Centrala ma zapewnioną prędkość pobierania i wysyłania danych na poziomie odpowiednio 300 Mb/s i 30 Mb/s, a każdy z pozostałych oddziałów na poziomie 100 Mb/s i 10 Mb/s.
+Wpis "ISP" oznacza połączenie do sieci Internet. Każdy oddział posiada światłowodowe połączenie internetowe dostarczane przez Orange. Centrala ma zapewnioną prędkość pobierania i wysyłania danych na poziomie odpowiednio 300 Mb/s i 30 Mb/s, a każdy z pozostałych oddziałów na poziomie 100 Mb/s i 10 Mb/s.
 
-W każdym z węzłów tworzona jest statyczna tablica routingu, w której przez odpowiednie ustawienie wartości priorytetu (z zakresu 0-100) ustala się trasy podstawowe i alternatywne. Szeroki zakres priorytetów pozwala na łatwą ewentualną rozbudowę sieci o kolejne węzły bez konieczności całkowitej redefinicji tablic routingu. Tablice tworzone są w taki sposób, aby trasy o mniejszej liczbie przeskoków między węzłami miały wyższy priorytet.
+W każdym z węzłów tworzona jest statyczna tablica routingu, w której, przez odpowiednie ustawienie statycznego kosztu, ustala się trasy podstawowe i alternatywne. Szeroki zakres metryki tras pozwala na łatwą ewentualną rozbudowę sieci o kolejne węzły,1 bez konieczności całkowitej redefinicji tablic routingu. Tablice tworzone są w taki sposób, aby trasy o mniejszej liczbie przeskoków między węzłami były wybierane w pierwszej kolejności.
 
 #### Wyznaczanie średniego opóźnienia pakietu
 
 Średnie opóźnienie pakietu obliczono zgodnie z metodą zdefiniowaną w [1].
 
-Obliczenie opóźnienia rozpoczyna się od zdefiniowania parametrów opisujących połączenie, takich jak:
+Obliczanie opóźnienia rozpoczęło się od zdefiniowania parametrów opisujących połączenie, takich jak:
 
 * przepustowość użytego kanału,
 * rozmiar przesyłanych pakietów,
 * ilość danych przesyłanych pomiędzy węzłami.
 
-Większość par oddziałów łączy się ze sobą za pośrednictwem innych oddziałów. Należy obliczyć, jaka ilość danych przepływa poprzez poszczególne węzły.
+Większość par oddziałów łączy się ze sobą za pośrednictwem innych oddziałów. Należało obliczyć, jaka ilość danych przepływa poprzez poszczególne węzły.
 
-Ilość danych wysyłanych pomiędzy dwoma oddziałami to 10 MB w obie strony, centrala -> oddział to 20 MB, oddział -> centrala to 51.5 MB.
+Ilość danych wysyłanych pomiędzy dwoma oddziałami to 10 MB w obie strony, z centrali do oddziału 20 MB, a z oddziału do centrali 51.5 MB.
 
-Daje nam to następujący wzór na ilość danych w każdym kanale:  
-`P = X * (51.5 MB + 20 MB) + Y * 10 MB`, gdzie  
-`P` to właśnie ilość danych,  
-`X` to ilość oddziałów łączących się po tym odcinku z centralą, a  
-`Y` to ilość par oddziałów łączących się ze sobą po tym odcinku.
+Dla każdego kanału transmisyjnego ilość codziennie przesyłanych danych definiuje wzór:
 
-Mając ten wzór i dane dotyczące topologii sieci i tablic routingu można wyznaczyć `X` i `Y` dla każdego odcinka, a następnie wyznaczyć ilość danych. Mając ilość danych można oszacować przepływowość kanału, zakładając, że te dane będą wysyłane przez cały czas, gdy firma pracuje (9h dziennie). Danych wysyłanych w godzinach nocnych nie uwzględniamy w obliczeniach, ponieważ dadzą one niższe wartości przepływowości kanałów.
+`P = X * (51.5 MB + 20 MB) + Y * 10 MB`, gdzie
+* `P` to ilość danych,
+* `X` to ilość oddziałów łączących się po tym odcinku z centralą,
+* `Y` to ilość par oddziałów łączących się ze sobą po tym odcinku.
 
-| Połączenie | `X` | `Y` | Przesyłane dane [MB] | Przepływowość [Kbps] |
-| :-: | :-: | :-: | :-: | :-: |
-| Opole <-> Wrocław | 3 | 5 | 264.5 | 66.88 |
-| Wrocław <-> Świdnica | 2 | 4 | 183 | 46.27 |
-| Świdnica <-> Wałbrzych | 1 | 5 | 121.5 | 30.72 |
-| Wałbrzych <-> Prudnik | 0 | 4 | 40 | 10.11 |
-| Prudnik <-> Kędzierzyn-Koźle | 1 | 5 | 121.5 | 30.72 |
-| Kędzierzyn-Koźle <-> Opole | 2 | 4 | 183 | 46.27 |
+Mając ten wzór oraz dane dotyczące topologii sieci i tablic routingu można wyznaczyć `X` i `Y` dla każdego odcinka, a następnie wyznaczyć ilość danych. Na jej podstawie szacowana jest przepływność kanału, przy założeniu, że takie dane są przesyłane w sposób zbliżony do ciągłego w godzinach pracy firmy (9 godzin dziennie). Pakietów wysyłanych poza godzinami pracy nie uwzględniono w obliczeniach, ponieważ tworzą one niższe wartości przepływowości kanałów.
 
-Wyliczona przepływowość kanałów pokazuje, że teoretycznie można by wybrać przepustowości 128 Kbps i 64 Kbps. Jednak z uwagi na komfort użytkowania, jak i nieustanny rozwój technologii zalecamy wybranie kanałów o przepustowości przynajmniej 10 Mbps.
+Połączenie | `X` | `Y` | Przesyłane dane [MB] | Przepływowość [kb/s]
+---|---|---|---|---
+Opole - Wrocław | 3 | 5 | 264.5 | 66.88
+Wrocław - Świdnica | 2 | 4 | 183.0 | 46.27
+Świdnica - Wałbrzych | 1 | 5 | 121.5 | 30.72
+Wałbrzych - Prudnik | 0 | 4 | 40.0 | 10.11
+Prudnik - Kędzierzyn-Koźle | 1 | 5 | 121.5 | 30.72
+Kędzierzyn-Koźle - Opole | 2 | 4 | 183.0 | 46.27
+
+Wyliczona przepływowość kanałów pokazuje, że teoretycznie dopuszczalny byłby wybór łącz przepustowości 128 kb/s i 64 kb/s. Jednakże, z uwagi na komfort użytkowania, jak i nieustanny rozwój firm i technologii, zaleca się wybór kanałów o przepustowości przynajmniej 10 Mb/s.
+
+<div class="page-break"></div>
 
 Średnie opóźnienie pakietu obliczono ze wzoru:
 
-![Wzór](img/project_equation1.png)
+![Wzór](img/project_equation1.png =420x)
 
-Parametr `γ` obliczono sumując przepływności kanałów i dzieląc je przez rozmiar pakietu. Średni
-rozmiar pakietu przyjęto jako 1518 b (specyfikacja oferty firmy Orange). Po wykonaniu obliczeń parametr `γ` wynosi 155.81 pakiety/s.
+Parametr `γ` obliczono, sumując przepływności kanałów i dzieląc je przez rozmiar pakietu. Za średni rozmiar pakietu przyjęto 1518 B, podążając za zaleceniami firmy Orange. Po wykonaniu obliczeń parametr `γ` wynosi 155.81 pakietów na sekundę.
 
-Pozostałe parametry są znane, więc korzystając z arkusza kalkulacyjnego można obliczyć `T`, które wynosi 0.1 ms, co jest zdecydowanie niższym czasem niż zakładane w projekcie 700 ms. Dodatkowe opóźnienie wprowadzą urządzenia sieciowe, które jest szacowane na kilka dodatkowych ms.
+Pozostałe parametry są znane, więc korzystając z arkusza kalkulacyjnego można obliczyć `T`, które wynosi 0.1 ms, co jest nieporównywalnie krótszym czasem, niż wymagane przez klienta maksymalne 700 ms. Dodatkowe opóźnienie wprowadzą urządzenia sieciowe; jest ono szacowane na kilka dodatkowych milisekund.
 
-Uwzględniając tylko opóźnienie w przesyle pakietów zdecydowanie można było wybrać kanały o niższej przepustowości, co można wziąć pod uwagę, gdyby nastąpiła konieczność redukcji kosztów.
+Uwzględniając tylko opóźnienie w przesyle pakietów, można było bez przeszkód wybrać kanały o niższej przepustowości, co można wziąć pod uwagę, gdyby nastąpiła konieczność redukcji kosztów.
 
 ### Adresacja w sieci
 ##### Opole - Kędzierzyn-Koźle
@@ -167,6 +169,8 @@ Adres CIDR IPv4 | Przeznaczenie
 176.16.0.5/30 | Kędzierzyn-Koźle: 0/1/0
 176.16.0.6/30 | Prudnik: 0/1/1
 176.16.0.7/30 | Broadcast
+
+<div class="page-break"></div>
 
 ##### Prudnik - Wałbrzych
 
@@ -204,6 +208,8 @@ Adres CIDR IPv4 | Przeznaczenie
 176.16.0.22/30 | Opole: 0/1/1
 176.16.0.23/30 | Broadcast
 
+<div class="page-break"></div>
+
 ### Wykaz urządzeń
 
 Oddział | Rodzaj | Urządzenie | Ilość
@@ -220,3 +226,5 @@ Kędzierzyn-Koźle | Router | Juniper ACX1100-AC | 2
 1. Kasprzak, A., 1999. _Rozległe sieci komputerowe z komutacją pakietów_ (Oficyna Wydawnicza Politechniki Wrocławskiej, 1999)
 
 1. Juniper Networks, 2018. _ACX Series Universal Metro Routers_ (https://www.juniper.net/assets/us/en/local/pdf/datasheets/1000397-en.pdf)
+
+1. Orange Polska, 2017. _Regulamin usługi Miejski Ethernet_ (http://www.orange.pl/ocp-http/PL/Binary2/1993810/4083323399.pdf)
