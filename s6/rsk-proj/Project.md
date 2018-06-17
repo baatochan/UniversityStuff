@@ -34,9 +34,11 @@ Celem podniesienia niezawodności sieci zastosowane są:
 * możliwość rozbudowy sieci o kolejne połączenia;
 * dobór urządzeń sieciowych produkowanych przez firmy z wieloletnią renomą.
 
+<div class="page-break"></div>
+
 Jedną z cech prawidłowo zaprojektowanej sieci jest uwzględnienie potencjalnej przyszłej rozbudowy. Z tego powodu wykorzystane w projekcie routery posiadają dodatkowe, wolne porty, a jako tymczasowe rozwiązanie w przypadku szerzej zakrojonej rozbudowy można zastosować aktywne użycie routerów zapasowych, zakupionych na wypadek awarii (nie jest to jednak rozwiązanie wskazane, sugeruje się zakup nowych routerów).
 
-Każdy oddział ma zapewnione bezpośrednie przyłącze do sieci Internet.
+Każdy oddział posiada światłowodowe połączenie internetowe dostarczane przez Orange. Centrala ma zapewnioną prędkość pobierania i wysyłania danych na poziomie odpowiednio 300 Mb/s i 30 Mb/s, a każdy z pozostałych oddziałów na poziomie 100 Mb/s i 10 Mb/s.
 
 ### Dobór struktury sieci
 #### Topologia sieci
@@ -54,56 +56,232 @@ Wykorzystywane są połączenia MetroEthernet typu LINK, za pomocą których kom
 
 Redundancja połączeń między każdymi dwoma oddziałami jest ustanowiona dzięki połączeniu w topologii pierścienia.
 
+<div class="page-break"></div>
+
 #### Analiza niezawodnościowa
-
-Niezawodne działanie sieci jest bardzo istotne dla sprawnego funkcjonowania firmy.
-
-Na niezawodność sieci wpływa wiele czynników, takich, jak:
-* niezawodność urządzeń sieciowych,
-* topologia sieci,
-* niezawodność łącz telekomunikacyjnych zewnętrznego dostawcy,
-* możliwość transmisji danych poprzez sieć Internet.
-
-Pierwszy z wymienionych czynników niezawodności, czyli awaryjność sprzętu, jest minimalizowany przez zakup nadmiarowych routerów do wszystkich oddziałów. Dzięki takiemu rozwiązaniu, nawet w przypadku awarii urządzenia sieciowego, istnieje możliwość natychmiastowego przywrócenia sprawności węzła.
-
-Drugim sposobem na zminimalizowanie prawdopodobieństwa awarii sprzętowej jest zakup urządzeń firmy o uznanej marce i dużym doświadczeniu w dostarczaniu tego typu rozwiązań. W ramach projektu wybrano urządzenia firmy Juniper Networks, które nie tylko spełniają wymagania projektowanej sieci pod względem funkcjonalności, ale także cieszą się znakomitą renomą na rynku IT.
+##### Topologia sieci
 
 Konstrukcja sieci w technologii pierścienia zapewnia niską podatność sieci na awarię w pojedynczym oddziale, bądź na jednym odcinku sieci, ze względu na obecność dwóch tras pomiędzy każdymi dwoma węzłami. Jeszcze wyższą niezawodność może potencjalnie zapewnić możliwość rozbudowy sieci o dodatkowe połączenia. Pierwsze sugerowane takie połączenie to bezpośrednie łącze Opole - Wałbrzych. Nie zostało ono jednak uwzględnione w podstawowej wersji projektu.
 
+Poniższe tabele prezentują podstawowe i zapasowe trasy ustalone dla każdej pary węzłów źródłowego i docelowego.
+
+###### Trasy dla węzła Opole
+
+| Węzeł docelowy | Typ trasy | Przeskoki |
+| :-: | :-: | :-: |
+| Kędzierzyn-Koźle | **podstawowa** | Kędzierzyn-Koźle |
+| Kędzierzyn-Koźle | zapasowa | Wrocław, Świdnica, Wałbrzych, Prudnik, Kędzierzyn-Koźle |
+| Prudnik | **podstawowa** | Kędzierzyn-Koźle, Prudnik |
+| Prudnik | zapasowa | Wrocław, Świdnica, Wałbrzych, Prudnik |
+| Wałbrzych | **podstawowa** | Wrocław, Świdnica, Wałbrzych |
+| Wałbrzych | zapasowa | Kędzierzyn-Koźle, Prudnik, Wałbrzych |
+| Świdnica | **podstawowa** | Wrocław, Świdnica |
+| Świdnica | zapasowa | Kędzierzyn-Koźle, Prudnik, Wałbrzych, Świdnica |
+| Wrocław | **podstawowa** | Wrocław |
+| Wrocław | zapasowa | Kędzierzyn-Koźle, Prudnik, Wałbrzych, Świdnica, Wrocław |
+
+###### Trasy dla węzła Kędzierzyn-Koźle
+
+| Węzeł docelowy | Typ trasy | Przeskoki |
+| :-: | :-: | :-: |
+| Prudnik | **podstawowa** | Prudnik |
+| Prudnik | zapasowa | Opole, Wrocław, Świdnica, Wałbrzych, Prudnik |
+| Wałbrzych | **podstawowa** | Prudnik, Wałbrzych |
+| Wałbrzych | zapasowa | Opole, Wrocław, Świdnica, Wałbrzych |
+| Świdnica | **podstawowa** | Opole, Wrocław, Świdnica |
+| Świdnica | zapasowa | Prudnik, Wałbrzych, Świdnica |
+| Wrocław | **podstawowa** | Opole, Wrocław |
+| Wrocław | zapasowa | Prudnik, Wałbrzych, Świdnica, Wrocław |
+| Opole | **podstawowa** | Opole |
+| Opole | zapasowa | Prudnik, Wałbrzych, Świdnica, Wrocław, Opole |
+
+<div class="page-break"></div>
+
+###### Trasy dla węzła Prudnik
+
+| Węzeł docelowy | Typ trasy | Przeskoki |
+| :-: | :-: | :-: |
+| Wałbrzych | **podstawowa** | Wałbrzych |
+| Wałbrzych | zapasowa | Kędzierzyn-Koźle, Opole, Wrocław, Świdnica, Wałbrzych |
+| Świdnica | **podstawowa** | Wałbrzych, Świdnica |
+| Świdnica | zapasowa | Kędzierzyn-Koźle, Opole, Wrocław, Świdnica |
+| Wrocław | **podstawowa** | Kędzierzyn-Koźle, Opole, Wrocław |
+| Wrocław | zapasowa | Wałbrzych, Świdnica, Wrocław |
+| Opole | **podstawowa** | Kędzierzyn-Koźle, Opole |
+| Opole | zapasowa | Wałbrzych, Świdnica, Wrocław, Opole |
+| Kędzierzyn-Koźle | **podstawowa** | Kędzierzyn-Koźle |
+| Kędzierzyn-Koźle | zapasowa | Wałbrzych, Świdnica, Wrocław, Opole, Kędzierzyn-Koźle |
+
+###### Trasy dla węzła Wałbrzych
+
+| Węzeł docelowy | Typ trasy | Przeskoki |
+| :-: | :-: | :-: |
+| Świdnica | **podstawowa** | Świdnica |
+| Świdnica | zapasowa | Prudnik, Kędzierzyn-Koźle, Opole, Wrocław, Świdnica |
+| Wrocław | **podstawowa** | Świdnica, Wrocław |
+| Wrocław | zapasowa | Prudnik, Kędzierzyn-Koźle, Opole, Wrocław |
+| Opole | **podstawowa** | Świdnica, Wrocław, Opole |
+| Opole | zapasowa | Prudnik. Kędzierzyn-Koźle, Opole |
+| Kędzierzyn-Koźle | **podstawowa** | Prudnik. Kędzierzyn-Koźle |
+| Kędzierzyn-Koźle | zapasowa | Świdnica, Wrocław, Opole, Kędzierzyn-Koźle |
+| Prudnik | **podstawowa** | Prudnik |
+| Prudnik | zapasowa | Świdnica, Wrocław, Opole, Kędzierzyn-Koźle, Prudnik |
+
+<div class="page-break"></div>
+
+###### Trasy dla węzła Świdnica
+
+| Węzeł docelowy | Typ trasy | Przeskoki |
+| :-: | :-: | :-: |
+| Wrocław | **podstawowa** | Wrocław |
+| Wrocław | zapasowa | Wałbrzych, Prudnik, Kędzierzyn-Koźle, Opole, Wrocław |
+| Opole | **podstawowa** | Wrocław, Opole |
+| Opole | zapasowa | Wałbrzych, Prudnik. Kędzierzyn-Koźle, Opole |
+| Kędzierzyn-Koźle | **podstawowa** | Wrocław, Opole, Kędzierzyn-Koźle |
+| Kędzierzyn-Koźle | zapasowa | Wałbrzych, Prudnik. Kędzierzyn-Koźle |
+| Prudnik | **podstawowa** | Wałbrzych, Prudnik |
+| Prudnik | zapasowa | Wrocław, Opole, Kędzierzyn-Koźle, Prudnik |
+| Wałbrzych | **podstawowa** | Wałbrzych |
+| Wałbrzych | zapasowa | Wrocław, Opole, Kędzierzyn-Koźle, Prudnik, Wałbrzych |
+
+###### Trasy dla węzła Wrocław
+
+| Węzeł docelowy | Typ trasy | Przeskoki |
+| :-: | :-: | :-: |
+| Opole | **podstawowa** | Opole |
+| Opole | zapasowa | Świdnica, Wałbrzych, Prudnik. Kędzierzyn-Koźle, Opole |
+| Kędzierzyn-Koźle | **podstawowa** | Opole, Kędzierzyn-Koźle |
+| Kędzierzyn-Koźle | zapasowa | Świdnica, Wałbrzych, Prudnik. Kędzierzyn-Koźle |
+| Prudnik | **podstawowa** | Opole, Kędzierzyn-Koźle, Prudnik |
+| Prudnik | zapasowa | Świdnica, Wałbrzych, Prudnik |
+| Wałbrzych | **podstawowa** | Świdnica, Wałbrzych |
+| Wałbrzych | zapasowa | Opole, Kędzierzyn-Koźle, Prudnik, Wałbrzych |
+| Świdnica | **podstawowa** | Świdnica |
+| Świdnica | zapasowa | Opole, Kędzierzyn-Koźle, Prudnik, Wałbrzych, Świdnica |
+
+##### Niezawodność urządzeń sieciowych
+
+Awaryjność sprzętu, jest minimalizowana przez zakup nadmiarowych routerów do wszystkich oddziałów. Dzięki takiemu rozwiązaniu, nawet w przypadku awarii urządzenia sieciowego, istnieje możliwość natychmiastowego przywrócenia sprawności węzła.
+
+Drugim sposobem na zminimalizowanie prawdopodobieństwa awarii sprzętowej jest zakup urządzeń firmy o uznanej marce i dużym doświadczeniu w dostarczaniu tego typu rozwiązań. W ramach projektu wybrano urządzenia firmy Juniper Networks, które nie tylko spełniają wymagania projektowanej sieci pod względem funkcjonalności, ale także cieszą się znakomitą renomą na rynku IT.
+
+<div class="page-break"></div>
+
+##### Niezawodność łącz telekomunikacyjnych zewnętrznego dostawcy
+
 Usługa MetroEthernet firmy Orange zawiera SLA, co oznacza formalną gwarancję wysokiej jakości usług operatora - wysokiej dostępności usługi, krótkiego czasu usunięcia awarii oraz ograniczenia przerw w działaniu usługi.
+
+##### Możliwość transmisji danych poprzez sieć Internet
 
 Ostatnim filarem niezawodności sieci jest podłączenie każdego z oddziałów do sieci Internet. Pozwala to na utrzymanie funkcjonowania komunikacji pomiędzy odległymi lokalizacjami firmy - za pomocą szyfrowanych tuneli - nawet w wypadku awarii wielu z wymienionych wyżej elementów.
 
-#### Reguła doboru tras
+#### Reguły doboru tras
 
 Ze względu na nieskomplikowaną konstrukcję sieci, zdecydowano o wykorzystaniu statycznych reguł doboru tras.
 
-Porty routerów w poszczególnych węzłach zostały przypisane następująco:
+W każdym z węzłów tworzona jest statyczna tablica routingu, w której, przez odpowiednie ustawienie statycznego kosztu, ustala się trasy podstawowe i alternatywne. Szeroki zakres metryki tras pozwala na łatwą ewentualną rozbudowę sieci o kolejne węzły, bez konieczności całkowitej redefinicji tablic routingu. Tablice tworzone są w taki sposób, aby trasy o mniejszej liczbie przeskoków między węzłami były wybierane w pierwszej kolejności.
 
-Węzeł początkowy | Węzeł docelowy | Numer portu w węźle początkowym
----|---|---
-Opole | Kędzierzyn-Koźle | 0/1/0
-Opole | Wrocław | 0/1/1
-Opole | ISP | 0/1/2
-Wrocław | Opole | 0/1/0
-Wrocław | Świdnica | 0/1/1
-Wrocław | ISP | 0/1/2
-Świdnica | Wrocław | 0/1/0
-Świdnica | Wałbrzych | 0/1/1
-Świdnica | ISP | 0/1/2
-Wałbrzych | Świdnica | 0/1/0
-Wałbrzych | Prudnik | 0/1/1
-Wałbrzych | ISP | 0/1/2
-Prudnik | Wałbrzych | 0/1/0
-Prudnik | Kędzierzyn-Koźle | 0/1/1
-Prudnik | ISP | 0/1/2
-Kędzierzyn-Koźle | Prudnik | 0/1/0
-Kędzierzyn-Koźle | Opole | 0/1/1
-Kędzierzyn-Koźle | ISP | 0/1/2
+##### Tablica routingu dla węzła Opole
 
-Wpis "ISP" oznacza połączenie do sieci Internet. Każdy oddział posiada światłowodowe połączenie internetowe dostarczane przez Orange. Centrala ma zapewnioną prędkość pobierania i wysyłania danych na poziomie odpowiednio 300 Mb/s i 30 Mb/s, a każdy z pozostałych oddziałów na poziomie 100 Mb/s i 10 Mb/s.
+| Opis sieci docelowej | Adres sieci docelowej | Adres następnego przeskoku | Metryka trasy |
+| :-: | :-: | :-: | :-: |
+| LAN Wrocław | 176.16.1.22/30 | 176.16.0.21 | 20 |
+| LAN Wrocław | 176.16.1.22/30 | 176.16.0.2 | 100 |
+| LAN Świdnica | 176.16.1.18/30 | 176.16.0.21 | 40 |
+| LAN Świdnica | 176.16.1.18/30 | 176.16.0.2 | 80 |
+| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.21 | 50 |
+| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.2 | 70 |
+| LAN Prudnik | 176.16.1.10/30 | 176.16.0.2 | 40 |
+| LAN Prudnik | 176.16.1.10/30 | 176.16.0.21 | 80 |
+| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.2 | 20 |
+| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.21 | 80 |
+| Internet | 0.0.0.0/0 | 88.52.137.254 | - |
 
-W każdym z węzłów tworzona jest statyczna tablica routingu, w której, przez odpowiednie ustawienie statycznego kosztu, ustala się trasy podstawowe i alternatywne. Szeroki zakres metryki tras pozwala na łatwą ewentualną rozbudowę sieci o kolejne węzły,1 bez konieczności całkowitej redefinicji tablic routingu. Tablice tworzone są w taki sposób, aby trasy o mniejszej liczbie przeskoków między węzłami były wybierane w pierwszej kolejności.
+<div class="page-break"></div>
+
+##### Tablica routingu dla węzła Wrocław
+
+| Opis sieci docelowej | Adres sieci docelowej | Adres następnego przeskoku | Metryka trasy |
+| :-: | :-: | :-: | :-: |
+| LAN Świdnica | 176.16.1.18/30 | 176.16.0.17 | 20 |
+| LAN Świdnica | 176.16.1.18/30 | 176.16.0.22 | 100 |
+| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.17 | 40 |
+| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.22 | 80 |
+| LAN Prudnik | 176.16.1.10/30 | 176.16.0.22 | 50 |
+| LAN Prudnik | 176.16.1.10/30 | 176.16.0.17 | 70 |
+| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.22 | 40 |
+| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.17 | 80 |
+| LAN Opole | 176.16.1.2/30 | 176.16.0.22 | 20 |
+| LAN Opole | 176.16.1.2/30 | 176.16.0.17 | 100 |
+| Internet | 0.0.0.0/0 | 88.55.97.254 | - |
+
+##### Tablica routingu dla węzła Świdnica
+
+| Opis sieci docelowej | Adres sieci docelowej | Adres następnego przeskoku | Metryka trasy |
+| :-: | :-: | :-: | :-: |
+| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.13 | 20 |
+| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.18 | 100 |
+| LAN Prudnik | 176.16.1.10/30 | 176.16.0.13 | 40 |
+| LAN Prudnik | 176.16.1.10/30 | 176.16.0.18 | 80 |
+| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.18 | 50 |
+| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.13 | 70 |
+| LAN Opole | 176.16.1.2/30 | 176.16.0.18 | 40 |
+| LAN Opole | 176.16.1.2/30 | 176.16.0.13 | 80 |
+| LAN Wrocław | 176.16.1.22/30 | 176.16.0.18 | 20 |
+| LAN Wrocław | 176.16.1.22/30 | 176.16.0.13 | 100 |
+| Internet | 0.0.0.0/0 | 88.51.230.254 | - |
+
+<div class="page-break"></div>
+
+##### Tablica routingu dla węzła Wałbrzych
+
+| Opis sieci docelowej | Adres sieci docelowej | Adres następnego przeskoku | Metryka trasy |
+| :-: | :-: | :-: | :-: |
+| LAN Prudnik | 176.16.1.10/30 | 176.16.0.9 | 20 |
+| LAN Prudnik | 176.16.1.10/30 | 176.16.0.14 | 100 |
+| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.9 | 40 |
+| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.14 | 80 |
+| LAN Opole | 176.16.1.2/30 | 176.16.0.14 | 50 |
+| LAN Opole | 176.16.1.2/30 | 176.16.0.9 | 70 |
+| LAN Wrocław | 176.16.1.22/30 | 176.16.0.1 | 40 |
+| LAN Wrocław | 176.16.1.22/30 | 176.16.0.9 | 80 |
+| LAN Świdnica | 176.16.1.18/30 | 176.16.0.14 | 20 |
+| LAN Świdnica | 176.16.1.18/30 | 176.16.0.9 | 100 |
+| Internet | 0.0.0.0/0 | 88.51.230.254 | - |
+
+##### Tablica routingu dla węzła Prudnik
+
+| Opis sieci docelowej | Adres sieci docelowej | Adres następnego przeskoku | Metryka trasy |
+| :-: | :-: | :-: | :-: |
+| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.5 | 20 |
+| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.10 | 100 |
+| LAN Opole | 176.16.1.2/30 | 176.16.0.5 | 40 |
+| LAN Opole | 176.16.1.2/30 | 176.16.0.10 | 80 |
+| LAN Wrocław | 176.16.1.22/30 | 176.16.0.5 | 50 |
+| LAN Wrocław | 176.16.1.22/30 | 176.16.0.10 | 70 |
+| LAN Świdnica | 176.16.1.18/30 | 176.16.0.10 | 40 |
+| LAN Świdnica | 176.16.1.18/30 | 176.16.0.5 | 80 |
+| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.10 | 20 |
+| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.5 | 100 |
+| Internet | 0.0.0.0/0 | 88.52.146.254 | - |
+
+<div class="page-break"></div>
+
+##### Tablica routingu dla węzła Kędzierzyn-Koźle
+
+| Opis sieci docelowej | Adres sieci docelowej | Adres następnego przeskoku | Metryka trasy |
+| :-: | :-: | :-: | :-: |
+| LAN Opole | 176.16.1.2/30 | 176.16.0.1 | 20 |
+| LAN Opole | 176.16.1.2/30 | 176.16.0.6 | 100 |
+| LAN Wrocław | 176.16.1.22/30 | 176.16.0.1 | 40 |
+| LAN Wrocław | 176.16.1.22/30 | 176.16.0.6 | 80 |
+| LAN Świdnica | 176.16.1.18/30 | 176.16.0.1 | 50 |
+| LAN Świdnica | 176.16.1.18/30 | 176.16.0.6 | 70 |
+| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.6 | 40 |
+| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.1 | 80 |
+| LAN Prudnik | 176.16.1.10/30 | 176.16.0.6 | 20 |
+| LAN Prudnik | 176.16.1.10/30 | 176.16.0.1 | 100 |
+| Internet | 0.0.0.0/0 | 88.52.140.254 | - |
 
 #### Wyznaczanie średniego opóźnienia pakietu
 
@@ -128,18 +306,18 @@ Dla każdego kanału transmisyjnego ilość codziennie przesyłanych danych defi
 
 Mając ten wzór oraz dane dotyczące topologii sieci i tablic routingu można wyznaczyć `X` i `Y` dla każdego odcinka, a następnie wyznaczyć ilość danych. Na jej podstawie szacowana jest przepływność kanału, przy założeniu, że takie dane są przesyłane w sposób zbliżony do ciągłego w godzinach pracy firmy (9 godzin dziennie). Pakietów wysyłanych poza godzinami pracy nie uwzględniono w obliczeniach, ponieważ tworzą one niższe wartości przepływowości kanałów.
 
+<div class="page-break"></div>
+
 Połączenie | `X` | `Y` | Przesyłane dane [MB] | Przepływowość [kb/s]
 ---|---|---|---|---
-Opole - Wrocław | 3 | 5 | 264.5 | 66.88
-Wrocław - Świdnica | 2 | 4 | 183.0 | 46.27
-Świdnica - Wałbrzych | 1 | 5 | 121.5 | 30.72
-Wałbrzych - Prudnik | 0 | 4 | 40.0 | 10.11
-Prudnik - Kędzierzyn-Koźle | 1 | 5 | 121.5 | 30.72
-Kędzierzyn-Koźle - Opole | 2 | 4 | 183.0 | 46.27
+Węzeł Opole - Węzeł Wrocław | 3 | 5 | 264.5 | 66.88
+Węzeł Wrocław - Węzeł Świdnica | 2 | 4 | 183.0 | 46.27
+Węzeł Świdnica - Węzeł Wałbrzych | 1 | 5 | 121.5 | 30.72
+Węzeł Wałbrzych - Węzeł Prudnik | 0 | 4 | 40.0 | 10.11
+Węzeł Prudnik - Węzeł Kędzierzyn-Koźle | 1 | 5 | 121.5 | 30.72
+Węzeł Kędzierzyn-Koźle - Węzeł Opole | 2 | 4 | 183.0 | 46.27
 
 Wyliczona przepływowość kanałów pokazuje, że teoretycznie dopuszczalny byłby wybór łącz przepustowości 128 kb/s i 64 kb/s. Jednakże, z uwagi na komfort użytkowania, jak i nieustanny rozwój firm i technologii, zaleca się wybór kanałów o przepustowości przynajmniej 10 Mb/s.
-
-<div class="page-break"></div>
 
 Średnie opóźnienie pakietu obliczono ze wzoru:
 
@@ -151,75 +329,89 @@ Pozostałe parametry są znane, więc korzystając z arkusza kalkulacyjnego moż
 
 Uwzględniając tylko opóźnienie w przesyle pakietów, można było bez przeszkód wybrać kanały o niższej przepustowości, co można wziąć pod uwagę, gdyby nastąpiła konieczność redukcji kosztów.
 
+<div class="page-break"></div>
+
 ### Adresacja w sieci
-##### Opole - Kędzierzyn-Koźle
+##### Opole
 
-Adres CIDR IPv4 | Przeznaczenie
----|---
-176.16.0.0/30 | Sieć
-176.16.0.1/30 | Opole: 0/1/0
-176.16.0.2/30 | Kędzierzyn-Koźle: 0/1/1
-176.16.0.3/30 | Broadcast
+Opis sieci | Adres CIDR IPv4 | Przeznaczenie
+---|---|---
+Wrocław - Opole | 176.16.0.22/30 | Węzeł Opole: XE-0/1/0
+Opole - Kędzierzyn-Koźle | 176.16.0.1/30 | Węzeł Opole: XE-0/1/1
+Opole - LAN Opole | 176.16.1.1/30 | Węzeł Opole: GE-0/0/0
+Opole - LAN Opole | 176.16.1.2/30 | Brama LAN Opole
+Opole - Internet | 88.52.137.202/22 | Węzeł Opole: XE-0/1/2
+Opole - Internet | 88.52.137.254/22 | Brama ISP
 
-##### Kędzierzyn-Koźle - Prudnik
+##### Kędzierzyn-Koźle
 
-Adres CIDR IPv4 | Przeznaczenie
----|---
-176.16.0.4/30 | Sieć
-176.16.0.5/30 | Kędzierzyn-Koźle: 0/1/0
-176.16.0.6/30 | Prudnik: 0/1/1
-176.16.0.7/30 | Broadcast
+Opis sieci | Adres CIDR IPv4 | Przeznaczenie
+---|---|---
+Opole - Kędzierzyn-Koźle | 176.16.0.2/30 | Węzeł Kędzierzyn-Koźle: XE-0/1/0
+Kędzierzyn-Koźle - Prudnik | 176.16.0.5/30 | Węzeł Kędzierzyn-Koźle: XE-0/1/1
+Kędzierzyn-Koźle - LAN Kędzierzyn-Koźle | 176.16.1.5/30 | Węzeł Kędzierzyn-Koźle: GE-0/0/0
+Kędzierzyn-Koźle - LAN Kędzierzyn-Koźle | 176.16.1.6/30 | Brama LAN Kędzierzyn-Koźle
+Kędzierzyn-Koźle - Internet | 88.52.140.55/22 | Węzeł Kędzierzyn-Koźle: XE-0/1/2
+Kędzierzyn-Koźle - Internet | 88.52.140.254/22 | Brama ISP
+
+##### Prudnik
+
+Opis sieci | Adres CIDR IPv4 | Przeznaczenie
+---|---|---
+Kędzierzyn-Koźle - Prudnik | 176.16.0.6/30 | Węzeł Prudnik: XE-0/1/0
+Prudnik - Wałbrzych | 176.16.0.9/30 | Węzeł Prudnik: XE-0/1/1
+Prudnik - LAN Prudnik | 176.16.1.9/30 | Węzeł Prudnik: GE-0/0/0
+Prudnik - LAN Prudnik | 176.16.1.10/30 | Brama LAN Prudnik
+Prudnik - Internet | 88.52.146.184/22 | Węzeł Prudnik: XE-0/1/2
+Prudnik - Internet | 88.52.146.254/22 | Brama ISP
 
 <div class="page-break"></div>
 
-##### Prudnik - Wałbrzych
+##### Wałbrzych
 
-Adres CIDR IPv4 | Przeznaczenie
----|---
-176.16.0.8/30 | Sieć
-176.16.0.9/30 | Prudnik: 0/1/0
-176.16.0.10/30 | Wałbrzych: 0/1/1
-176.16.0.11/30 | Broadcast
+Opis sieci | Adres CIDR IPv4 | Przeznaczenie
+---|---|---
+Prudnik - Wałbrzych | 176.16.0.10/30 | Węzeł Wałbrzych: XE-0/1/0
+Wałbrzych - Świdnica | 176.16.0.13/30 | Węzeł Wałbrzych: XE-0/1/1
+Wałbrzych - LAN Wałbrzych | 176.16.1.13/30 | Węzeł Wałbrzych: GE-0/0/0
+Wałbrzych - LAN Wałbrzych | 176.16.1.14/30 | Brama LAN Wałbrzych
+Wałbrzych - Internet | 88.51.230.19/22 | Węzeł Wałbrzych: XE-0/1/2
+Wałbrzych - Internet | 88.51.230.254/22 | Brama ISP
 
-##### Wałbrzych - Świdnica
+##### Świdnica
 
-Adres CIDR IPv4 | Przeznaczenie
----|---
-176.16.0.12/30 | Sieć
-176.16.0.13/30 | Wałbrzych: 0/1/0
-176.16.0.14/30 | Świdnica: 0/1/1
-176.16.0.15/30 | Broadcast
+Opis sieci | Adres CIDR IPv4 | Przeznaczenie
+---|---|---
+Wałbrzych - Świdnica | 176.16.0.14/30 | Węzeł Świdnica: XE-0/1/0
+Świdnica - Wrocław | 176.16.0.17/30 | Węzeł Świdnica: XE-0/1/1
+Świdnica - LAN Świdnica | 176.16.1.17/30 | Węzeł Świdnica: GE-0/0/0
+Świdnica - LAN Świdnica | 176.16.1.18/30 | Brama LAN Świdnica
+Świdnica - Internet | 88.51.230.76/22 | Węzeł Świdnica: XE-0/1/2
+Świdnica - Internet | 88.51.230.254/22 | Brama ISP
 
-##### Świdnica - Wrocław
+##### Wrocław
 
-Adres CIDR IPv4 | Przeznaczenie
----|---
-176.16.0.16/30 | Sieć
-176.16.0.17/30 | Świdnica: 0/1/0
-176.16.0.18/30 | Wrocław: 0/1/1
-176.16.0.19/30 | Broadcast
-
-##### Wrocław - Opole
-
-Adres CIDR IPv4 | Przeznaczenie
----|---
-176.16.0.20/30 | Sieć
-176.16.0.21/30 | Wrocław: 0/1/0
-176.16.0.22/30 | Opole: 0/1/1
-176.16.0.23/30 | Broadcast
+Opis sieci | Adres CIDR IPv4 | Przeznaczenie
+---|---|---
+Świdnica - Wrocław | 176.16.0.18/30 | Wrocław: XE-0/1/0
+Wrocław - Opole | 176.16.0.21/30 | Wrocław: XE-0/1/1
+Wrocław - LAN Wrocław | 176.16.1.21/30 | Węzeł Wrocław: GE-0/0/0
+Wrocław - LAN Wrocław | 176.16.1.22/30 | Brama LAN Wrocław
+Wrocław - Internet | 88.55.97.244/22 | Węzeł Wrocław: XE-0/1/2
+Wrocław - Internet | 88.55.97.254/22 | Brama ISP
 
 <div class="page-break"></div>
 
 ### Wykaz urządzeń
 
-Oddział | Rodzaj | Urządzenie | Ilość
+Urządzenie | Rodzaj | Model | Ilość
 ---|---|---|---
-Opole | Router | Juniper ACX1100-AC | 2
-Wrocław | Router | Juniper ACX1100-AC | 2
-Świdnica | Router | Juniper ACX1100-AC | 2
-Wałbrzych | Router | Juniper ACX1100-AC | 2
-Prudnik | Router | Juniper ACX1100-AC | 2
-Kędzierzyn-Koźle | Router | Juniper ACX1100-AC | 2
+Węzeł Opole | Router | Juniper ACX1100-AC | 2
+Węzeł Wrocław | Router | Juniper ACX1100-AC | 2
+Węzeł Świdnica | Router | Juniper ACX1100-AC | 2
+Węzeł Wałbrzych | Router | Juniper ACX1100-AC | 2
+Węzeł Prudnik | Router | Juniper ACX1100-AC | 2
+Węzeł Kędzierzyn-Koźle | Router | Juniper ACX1100-AC | 2
 
 ### Literatura
 
