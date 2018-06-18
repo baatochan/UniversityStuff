@@ -185,16 +185,17 @@ W każdym z węzłów tworzona jest statyczna tablica routingu, w której, przez
 
 | Opis sieci docelowej | Adres sieci docelowej | Adres następnego przeskoku | Metryka trasy |
 | :-: | :-: | :-: | :-: |
-| LAN Wrocław | 176.16.1.22/30 | 176.16.0.21 | 20 |
-| LAN Wrocław | 176.16.1.22/30 | 176.16.0.2 | 100 |
-| LAN Świdnica | 176.16.1.18/30 | 176.16.0.21 | 40 |
-| LAN Świdnica | 176.16.1.18/30 | 176.16.0.2 | 80 |
-| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.21 | 50 |
-| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.2 | 70 |
-| LAN Prudnik | 176.16.1.10/30 | 176.16.0.2 | 40 |
-| LAN Prudnik | 176.16.1.10/30 | 176.16.0.21 | 80 |
-| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.2 | 20 |
-| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.21 | 80 |
+| LAN Opole | 176.16.1.0/30 | 176.16.1.2 | 1 |
+| LAN Wrocław | 176.16.1.20/30 | 176.16.0.21 | 20 |
+| LAN Wrocław | 176.16.1.20/30 | 176.16.0.2 | 100 |
+| LAN Świdnica | 176.16.1.16/30 | 176.16.0.21 | 40 |
+| LAN Świdnica | 176.16.1.16/30 | 176.16.0.2 | 80 |
+| LAN Wałbrzych | 176.16.1.12/30 | 176.16.0.21 | 50 |
+| LAN Wałbrzych | 176.16.1.12/30 | 176.16.0.2 | 70 |
+| LAN Prudnik | 176.16.1.8/30 | 176.16.0.2 | 40 |
+| LAN Prudnik | 176.16.1.8/30 | 176.16.0.21 | 80 |
+| LAN Kędzierzyn-Koźle | 176.16.1.4/30 | 176.16.0.2 | 20 |
+| LAN Kędzierzyn-Koźle | 176.16.1.4/30 | 176.16.0.21 | 80 |
 | Internet | 0.0.0.0/0 | 88.52.137.254 | - |
 
 <div class="page-break"></div>
@@ -203,32 +204,34 @@ W każdym z węzłów tworzona jest statyczna tablica routingu, w której, przez
 
 | Opis sieci docelowej | Adres sieci docelowej | Adres następnego przeskoku | Metryka trasy |
 | :-: | :-: | :-: | :-: |
-| LAN Świdnica | 176.16.1.18/30 | 176.16.0.17 | 20 |
-| LAN Świdnica | 176.16.1.18/30 | 176.16.0.22 | 100 |
-| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.17 | 40 |
-| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.22 | 80 |
-| LAN Prudnik | 176.16.1.10/30 | 176.16.0.22 | 50 |
-| LAN Prudnik | 176.16.1.10/30 | 176.16.0.17 | 70 |
-| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.22 | 40 |
-| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.17 | 80 |
-| LAN Opole | 176.16.1.2/30 | 176.16.0.22 | 20 |
-| LAN Opole | 176.16.1.2/30 | 176.16.0.17 | 100 |
+| LAN Wrocław | 176.16.1.20/30 | 176.16.1.22 | 1 |
+| LAN Świdnica | 176.16.1.16/30 | 176.16.0.17 | 20 |
+| LAN Świdnica | 176.16.1.16/30 | 176.16.0.22 | 100 |
+| LAN Wałbrzych | 176.16.1.12/30 | 176.16.0.17 | 40 |
+| LAN Wałbrzych | 176.16.1.12/30 | 176.16.0.22 | 80 |
+| LAN Prudnik | 176.16.1.8/30 | 176.16.0.22 | 50 |
+| LAN Prudnik | 176.16.1.8/30 | 176.16.0.17 | 70 |
+| LAN Kędzierzyn-Koźle | 176.16.1.4/30 | 176.16.0.22 | 40 |
+| LAN Kędzierzyn-Koźle | 176.16.1.4/30 | 176.16.0.17 | 80 |
+| LAN Opole | 176.16.1.0/30 | 176.16.0.22 | 20 |
+| LAN Opole | 176.16.1.0/30 | 176.16.0.17 | 100 |
 | Internet | 0.0.0.0/0 | 88.55.97.254 | - |
 
 ##### Tablica routingu dla węzła Świdnica
 
 | Opis sieci docelowej | Adres sieci docelowej | Adres następnego przeskoku | Metryka trasy |
 | :-: | :-: | :-: | :-: |
-| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.13 | 20 |
-| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.18 | 100 |
-| LAN Prudnik | 176.16.1.10/30 | 176.16.0.13 | 40 |
-| LAN Prudnik | 176.16.1.10/30 | 176.16.0.18 | 80 |
-| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.18 | 50 |
-| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.13 | 70 |
-| LAN Opole | 176.16.1.2/30 | 176.16.0.18 | 40 |
-| LAN Opole | 176.16.1.2/30 | 176.16.0.13 | 80 |
-| LAN Wrocław | 176.16.1.22/30 | 176.16.0.18 | 20 |
-| LAN Wrocław | 176.16.1.22/30 | 176.16.0.13 | 100 |
+| LAN Świdnica | 176.16.1.16/30 | 176.16.1.18 | 1 |
+| LAN Wałbrzych | 176.16.1.12/30 | 176.16.0.13 | 20 |
+| LAN Wałbrzych | 176.16.1.12/30 | 176.16.0.18 | 100 |
+| LAN Prudnik | 176.16.1.8/30 | 176.16.0.13 | 40 |
+| LAN Prudnik | 176.16.1.8/30 | 176.16.0.18 | 80 |
+| LAN Kędzierzyn-Koźle | 176.16.1.4/30 | 176.16.0.18 | 50 |
+| LAN Kędzierzyn-Koźle | 176.16.1.4/30 | 176.16.0.13 | 70 |
+| LAN Opole | 176.16.1.0/30 | 176.16.0.18 | 40 |
+| LAN Opole | 176.16.1.0/30 | 176.16.0.13 | 80 |
+| LAN Wrocław | 176.16.1.20/30 | 176.16.0.18 | 20 |
+| LAN Wrocław | 176.16.1.20/30 | 176.16.0.13 | 100 |
 | Internet | 0.0.0.0/0 | 88.51.230.254 | - |
 
 <div class="page-break"></div>
@@ -237,32 +240,34 @@ W każdym z węzłów tworzona jest statyczna tablica routingu, w której, przez
 
 | Opis sieci docelowej | Adres sieci docelowej | Adres następnego przeskoku | Metryka trasy |
 | :-: | :-: | :-: | :-: |
-| LAN Prudnik | 176.16.1.10/30 | 176.16.0.9 | 20 |
-| LAN Prudnik | 176.16.1.10/30 | 176.16.0.14 | 100 |
-| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.9 | 40 |
-| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.14 | 80 |
-| LAN Opole | 176.16.1.2/30 | 176.16.0.14 | 50 |
-| LAN Opole | 176.16.1.2/30 | 176.16.0.9 | 70 |
-| LAN Wrocław | 176.16.1.22/30 | 176.16.0.1 | 40 |
-| LAN Wrocław | 176.16.1.22/30 | 176.16.0.9 | 80 |
-| LAN Świdnica | 176.16.1.18/30 | 176.16.0.14 | 20 |
-| LAN Świdnica | 176.16.1.18/30 | 176.16.0.9 | 100 |
+| LAN Wałbrzych | 176.16.1.12/30 | 176.16.1.14 | 1 |
+| LAN Prudnik | 176.16.1.8/30 | 176.16.0.9 | 20 |
+| LAN Prudnik | 176.16.1.8/30 | 176.16.0.14 | 100 |
+| LAN Kędzierzyn-Koźle | 176.16.1.4/30 | 176.16.0.9 | 40 |
+| LAN Kędzierzyn-Koźle | 176.16.1.4/30 | 176.16.0.14 | 80 |
+| LAN Opole | 176.16.1.0/30 | 176.16.0.14 | 50 |
+| LAN Opole | 176.16.1.0/30 | 176.16.0.9 | 70 |
+| LAN Wrocław | 176.16.1.20/30 | 176.16.0.1 | 40 |
+| LAN Wrocław | 176.16.1.20/30 | 176.16.0.9 | 80 |
+| LAN Świdnica | 176.16.1.16/30 | 176.16.0.14 | 20 |
+| LAN Świdnica | 176.16.1.16/30 | 176.16.0.9 | 100 |
 | Internet | 0.0.0.0/0 | 88.51.230.254 | - |
 
 ##### Tablica routingu dla węzła Prudnik
 
 | Opis sieci docelowej | Adres sieci docelowej | Adres następnego przeskoku | Metryka trasy |
 | :-: | :-: | :-: | :-: |
-| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.5 | 20 |
-| LAN Kędzierzyn-Koźle | 176.16.1.6/30 | 176.16.0.10 | 100 |
-| LAN Opole | 176.16.1.2/30 | 176.16.0.5 | 40 |
-| LAN Opole | 176.16.1.2/30 | 176.16.0.10 | 80 |
-| LAN Wrocław | 176.16.1.22/30 | 176.16.0.5 | 50 |
-| LAN Wrocław | 176.16.1.22/30 | 176.16.0.10 | 70 |
-| LAN Świdnica | 176.16.1.18/30 | 176.16.0.10 | 40 |
-| LAN Świdnica | 176.16.1.18/30 | 176.16.0.5 | 80 |
-| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.10 | 20 |
-| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.5 | 100 |
+| LAN Prudnik | 176.16.1.8/30 | 176.16.1.10 | 1 |
+| LAN Kędzierzyn-Koźle | 176.16.1.4/30 | 176.16.0.5 | 20 |
+| LAN Kędzierzyn-Koźle | 176.16.1.4/30 | 176.16.0.10 | 100 |
+| LAN Opole | 176.16.1.0/30 | 176.16.0.5 | 40 |
+| LAN Opole | 176.16.1.0/30 | 176.16.0.10 | 80 |
+| LAN Wrocław | 176.16.1.20/30 | 176.16.0.5 | 50 |
+| LAN Wrocław | 176.16.1.20/30 | 176.16.0.10 | 70 |
+| LAN Świdnica | 176.16.1.16/30 | 176.16.0.10 | 40 |
+| LAN Świdnica | 176.16.1.16/30 | 176.16.0.5 | 80 |
+| LAN Wałbrzych | 176.16.1.12/30 | 176.16.0.10 | 20 |
+| LAN Wałbrzych | 176.16.1.12/30 | 176.16.0.5 | 100 |
 | Internet | 0.0.0.0/0 | 88.52.146.254 | - |
 
 <div class="page-break"></div>
@@ -271,16 +276,17 @@ W każdym z węzłów tworzona jest statyczna tablica routingu, w której, przez
 
 | Opis sieci docelowej | Adres sieci docelowej | Adres następnego przeskoku | Metryka trasy |
 | :-: | :-: | :-: | :-: |
-| LAN Opole | 176.16.1.2/30 | 176.16.0.1 | 20 |
-| LAN Opole | 176.16.1.2/30 | 176.16.0.6 | 100 |
-| LAN Wrocław | 176.16.1.22/30 | 176.16.0.1 | 40 |
-| LAN Wrocław | 176.16.1.22/30 | 176.16.0.6 | 80 |
-| LAN Świdnica | 176.16.1.18/30 | 176.16.0.1 | 50 |
-| LAN Świdnica | 176.16.1.18/30 | 176.16.0.6 | 70 |
-| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.6 | 40 |
-| LAN Wałbrzych | 176.16.1.14/30 | 176.16.0.1 | 80 |
-| LAN Prudnik | 176.16.1.10/30 | 176.16.0.6 | 20 |
-| LAN Prudnik | 176.16.1.10/30 | 176.16.0.1 | 100 |
+| LAN Kędzierzyn-Koźle | 176.16.1.4/30 | 176.16.1.6 | 1 |
+| LAN Opole | 176.16.1.0/30 | 176.16.0.1 | 20 |
+| LAN Opole | 176.16.1.0/30 | 176.16.0.6 | 100 |
+| LAN Wrocław | 176.16.1.20/30 | 176.16.0.1 | 40 |
+| LAN Wrocław | 176.16.1.20/30 | 176.16.0.6 | 80 |
+| LAN Świdnica | 176.16.1.16/30 | 176.16.0.1 | 50 |
+| LAN Świdnica | 176.16.1.16/30 | 176.16.0.6 | 70 |
+| LAN Wałbrzych | 176.16.1.12/30 | 176.16.0.6 | 40 |
+| LAN Wałbrzych | 176.16.1.12/30 | 176.16.0.1 | 80 |
+| LAN Prudnik | 176.16.1.8/30 | 176.16.0.6 | 20 |
+| LAN Prudnik | 176.16.1.8/30 | 176.16.0.1 | 100 |
 | Internet | 0.0.0.0/0 | 88.52.140.254 | - |
 
 #### Wyznaczanie średniego opóźnienia pakietu
