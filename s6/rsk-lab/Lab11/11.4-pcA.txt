@@ -1,0 +1,133 @@
+Microsoft Windows [Version 10.0.17134.48]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Users\Student>ipconfig/all
+
+Windows IP Configuration
+
+   Host Name . . . . . . . . . . . . : KSSK
+   Primary Dns Suffix  . . . . . . . :
+   Node Type . . . . . . . . . . . . : Hybrid
+   IP Routing Enabled. . . . . . . . : No
+   WINS Proxy Enabled. . . . . . . . : No
+   DNS Suffix Search List. . . . . . : ccna-lab.com
+
+Ethernet adapter Ethernet 4:
+
+   Connection-specific DNS Suffix  . : ccna-lab.com
+   Description . . . . . . . . . . . : Intel(R) PRO/1000 MT Network Connection #2
+   Physical Address. . . . . . . . . : 08-00-27-69-DB-5B
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+   IPv6 Address. . . . . . . . . . . : 2001:db8:acad:a:d1c5:d1da:ae45:d382(Preferred)
+   Temporary IPv6 Address. . . . . . : 2001:db8:acad:a:d8e5:e8d5:d6a3:da75(Preferred)
+   Link-local IPv6 Address . . . . . : fe80::d1c5:d1da:ae45:d382%6(Preferred)
+   IPv4 Address. . . . . . . . . . . : 192.168.0.11(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Lease Obtained. . . . . . . . . . : Monday, May 28, 2018 6:29:17 AM
+   Lease Expires . . . . . . . . . . : Wednesday, May 30, 2018 6:29:18 AM
+   Default Gateway . . . . . . . . . : fe80::1%6
+                                       192.168.0.1
+   DHCP Server . . . . . . . . . . . : 192.168.2.254
+   DHCPv6 IAID . . . . . . . . . . . : 369623079
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-22-8B-80-F9-08-00-27-92-A9-41
+   DNS Servers . . . . . . . . . . . : 209.165.200.225
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+C:\Users\Student>ipconfig/all
+
+Windows IP Configuration
+
+   Host Name . . . . . . . . . . . . : KSSK
+   Primary Dns Suffix  . . . . . . . :
+   Node Type . . . . . . . . . . . . : Hybrid
+   IP Routing Enabled. . . . . . . . : No
+   WINS Proxy Enabled. . . . . . . . : No
+   DNS Suffix Search List. . . . . . : ccna-statelessDHCPv6.com
+
+Ethernet adapter Ethernet 4:
+
+   Connection-specific DNS Suffix  . : ccna-lab.com
+   Description . . . . . . . . . . . : Intel(R) PRO/1000 MT Network Connection #2
+   Physical Address. . . . . . . . . : 08-00-27-69-DB-5B
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+   IPv6 Address. . . . . . . . . . . : 2001:db8:acad:a:d1c5:d1da:ae45:d382(Preferred)
+   Temporary IPv6 Address. . . . . . : 2001:db8:acad:a:d8e5:e8d5:d6a3:da75(Preferred)
+   Link-local IPv6 Address . . . . . : fe80::d1c5:d1da:ae45:d382%6(Preferred)
+   IPv4 Address. . . . . . . . . . . : 192.168.0.11(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Lease Obtained. . . . . . . . . . : Monday, May 28, 2018 6:29:18 AM
+   Lease Expires . . . . . . . . . . : Wednesday, May 30, 2018 6:29:18 AM
+   Default Gateway . . . . . . . . . : fe80::1%6
+                                       192.168.0.1
+   DHCP Server . . . . . . . . . . . : 192.168.2.254
+   DHCPv6 IAID . . . . . . . . . . . : 369623079
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-22-8B-80-F9-08-00-27-92-A9-41
+   DNS Servers . . . . . . . . . . . : 2001:db8:acad:a::abcd
+                                       209.165.200.225
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+   Connection-specific DNS Suffix Search List :
+                                       ccna-statelessDHCPv6.com
+
+C:\Users\Student>ipconfig/release6
+
+Windows IP Configuration
+
+Adapter Ethernet 4 is not enabled for DHCP.
+
+Ethernet adapter Ethernet 4:
+
+   Connection-specific DNS Suffix  . : ccna-lab.com
+   IPv6 Address. . . . . . . . . . . : 2001:db8:acad:a:d1c5:d1da:ae45:d382
+   Temporary IPv6 Address. . . . . . : 2001:db8:acad:a:d8e5:e8d5:d6a3:da75
+   Link-local IPv6 Address . . . . . : fe80::d1c5:d1da:ae45:d382%6
+   IPv4 Address. . . . . . . . . . . : 192.168.0.11
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : fe80::1%6
+                                       192.168.0.1
+
+C:\Users\Student>ipconfig/renew6
+
+Windows IP Configuration
+
+
+Ethernet adapter Ethernet 4:
+
+   Connection-specific DNS Suffix  . : ccna-lab.com
+   IPv6 Address. . . . . . . . . . . : 2001:db8:acad:a:d1c5:d1da:ae45:d382
+   Temporary IPv6 Address. . . . . . : 2001:db8:acad:a:d8e5:e8d5:d6a3:da75
+   Link-local IPv6 Address . . . . . : fe80::d1c5:d1da:ae45:d382%6
+   IPv4 Address. . . . . . . . . . . : 192.168.0.11
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : fe80::1%6
+                                       192.168.0.1
+
+C:\Users\Student>ipconfig/release6
+
+Windows IP Configuration
+
+Adapter Ethernet 4 is not enabled for DHCP.
+
+Ethernet adapter Ethernet 4:
+
+   Connection-specific DNS Suffix  . : ccna-lab.com
+   IPv6 Address. . . . . . . . . . . : 2001:db8:acad:a:d1c5:d1da:ae45:d382
+   Temporary IPv6 Address. . . . . . : 2001:db8:acad:a:d8e5:e8d5:d6a3:da75
+   Link-local IPv6 Address . . . . . : fe80::d1c5:d1da:ae45:d382%6
+   Default Gateway . . . . . . . . . : fe80::1%6
+
+C:\Users\Student>ipconfig/renew6
+
+Windows IP Configuration
+
+
+Ethernet adapter Ethernet 4:
+
+   Connection-specific DNS Suffix  . : ccna-lab.com
+   IPv6 Address. . . . . . . . . . . : 2001:db8:acad:a:d1c5:d1da:ae45:d382
+   Temporary IPv6 Address. . . . . . : 2001:db8:acad:a:d8e5:e8d5:d6a3:da75
+   Link-local IPv6 Address . . . . . : fe80::d1c5:d1da:ae45:d382%6
+   Default Gateway . . . . . . . . . : fe80::1%6
+
+C:\Users\Student>

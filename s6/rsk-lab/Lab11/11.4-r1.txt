@@ -1,0 +1,444 @@
+Router>PA_INIT_FAILED: Performance Agent failed to initialize (Missing Data License)
+*May 28 06:22:02.215: %VPN_HW-6-INFO_LOC: Crypto engine: onboard 0  State changed to: Initialized
+*May 28 06:22:02.219: %VPN_HW-6-INFO_LOC: Crypto engine: onboard 0  State changed to: Enabled
+*May 28 06:22:06.887: %LINK-3-UPDOWN: Interface GigabitEthernet0/0, changed state to down
+*May 28 06:22:06.887: %LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed state to up
+*May 28 06:22:06.887: %LINK-3-UPDOWN: Interface Serial0/0/0, changed state to up
+*May 28 06:22:06.891: %LINK-3-UPDOWN: Interface Serial0/0/1, changed state to down
+*May 28 06:22:07.943: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to down
+*May 28 06:22:07.943: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to up
+*May 28 06:22:07.943: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0/0, changed state to up
+*May 28 06:22:07.943: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0/1, changed state to down
+*May 28 06:23:31.175: %LINK-5-CHANGED: Interface Serial0/0/0, changed state to administratively down
+*May 28 06:23:31.407: %LINK-5-CHANGED: Interface Embedded-Service-Engine0/0, changed state to administratively down
+*May 28 06:23:31.407: %LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to administratively down
+*May 28 06:23:31.407: %LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state to administratively down
+*May 28 06:23:31.407: %LINK-5-CHANGED: Interface Serial0/0/1, changed state to administratively down
+*May 28 06:23:32.175: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0/0, changed state to down
+*May 28 06:23:32.407: %LINEPROTO-5-UPDOWN: Line protocol on Interface Embedded-Service-Engine0/0, changed state to down
+*May 28 06:23:32.407: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to down
+*May 28 06:23:33.791: %IP-5-WEBINST_KILL: Terminating DNS process
+*May 28 06:23:37.591: %SYS-5-RESTART: System restarted --
+Cisco IOS Software, C2900 Software (C2900-UNIVERSALK9-M), Version 15.4(3)M1, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2014 by Cisco Systems, Inc.
+Compiled Sat 25-Oct-14 03:34 by prod_rel_team
+*May 28 06:23:38.271: %SYS-6-BOOTTIME: Time taken to reboot after reload =  246 seconds
+*May 28 06:23:38.883: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*May 28 06:23:38.883: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+*May 28 06:23:38.883: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*May 28 06:23:38.883: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+Router>enable
+Router#hostname
+*May 28 06:23:57.643: %PNP-6-HTTP_CONNECTING: PnP Discovery trying to connect to PnP server http://devicehelper.cisco.com/pnp/HELLOR1
+        ^
+% Invalid input detected at '^' marker.
+
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostn
+Router(config)#hostname R1
+R1(config)#no ip dom
+R1(config)#no ip domain
+*May 28 06:24:17.643: %PNP-6-HTTP_CONNECTING: PnP Discovery trying to connect to PnP server http://devicehelper.cisco.com/pnp/HELLO-loo
+R1(config)#no ip domain-lookup
+R1(config)#int g0/1
+R1(config-if)#ipv6 ad
+R1(config-if)#ipv6 address 2001:db8:acad:a::1/64
+R1(config-if)#exit
+R1(config)#ipv6 un
+R1(config)#ipv6 unicast-routing
+R1(config)#int g0/1
+R1(config-if)#ipv
+R1(config-if)#ipv6 add
+R1(config-if)#ipv6 address fe80::1 link-local
+R1(config-if)#no shut
+R1(config-if)#
+*May 28 06:27:17.939: %LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed state to down
+*May 28 06:27:20.887: %LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed state to up
+*May 28 06:27:21.887: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to up
+R1(config-if)#exit
+R1(config)#exit
+R1#show
+*May 28 06:27:45.451: %SYS-5-CONFIG_I: Configured from console by consoleip
+R1#show ipv
+R1#show ipv6 int
+R1#show ipv6 interface g0/1
+GigabitEthernet0/1 is up, line protocol is up
+  IPv6 is enabled, link-local address is FE80::1
+  No Virtual link-local address(es):
+  Global unicast address(es):
+    2001:DB8:ACAD:A::1, subnet is 2001:DB8:ACAD:A::/64
+  Joined group address(es):
+    FF02::1
+    FF02::1:FF00:1
+  MTU is 1500 bytes
+  ICMP error messages limited to one every 100 milliseconds
+  ICMP redirects are enabled
+  ICMP unreachables are sent
+  ND DAD is enabled, number of DAD attempts: 1
+  ND reachable time is 30000 milliseconds (using 30000)
+  ND advertised reachable time is 0 (unspecified)
+  ND advertised retransmit interval is 0 (unspecified)
+  ND router advertisements are sent every 200 seconds
+  ND router advertisements live for 1800 seconds
+  ND advertised default router preference is Medium
+  Hosts use stateless autoconfig for addresses.
+R1#
+*May 28 06:32:22.887: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to down
+*May 28 06:32:23.887: %LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed state to down
+R1#show ipv6 interface g0/1
+GigabitEthernet0/1 is down, line protocol is down
+  IPv6 is tentative, link-local address is FE80::1 [TEN]
+  No Virtual link-local address(es):
+  Global unicast address(es):
+    2001:DB8:ACAD:A::1, subnet is 2001:DB8:ACAD:A::/64 [TEN]
+  Joined group address(es):
+    FF02::1
+  MTU is 1500 bytes
+  ICMP error messages limited to one every 100 milliseconds
+  ICMP redirects are enabled
+  ICMP unreachables are sent
+  ND DAD is enabled, number of DAD attempts: 1
+  ND reachable time is 30000 milliseconds (using 30000)
+  ND advertised reachable time is 0 (unspecified)
+  ND advertised retransmit interval is 0 (unspecified)
+  ND router advertisements are sent every 200 seconds
+  ND router advertisements live for 1800 seconds
+  ND advertised default router preference is Medium
+  Hosts use stateless autoconfig for addresses.
+R1#
+*May 28 06:35:09.887: %LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed state to up
+*May 28 06:35:10.887: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to upshow ipv6 interface g0/1
+GigabitEthernet0/1 is up, line protocol is up
+  IPv6 is enabled, link-local address is FE80::1
+  No Virtual link-local address(es):
+  Global unicast address(es):
+    2001:DB8:ACAD:A::1, subnet is 2001:DB8:ACAD:A::/64
+  Joined group address(es):
+    FF02::1
+    FF02::1:FF00:1
+  MTU is 1500 bytes
+  ICMP error messages limited to one every 100 milliseconds
+  ICMP redirects are enabled
+  ICMP unreachables are sent
+  ND DAD is enabled, number of DAD attempts: 1
+  ND reachable time is 30000 milliseconds (using 30000)
+  ND advertised reachable time is 0 (unspecified)
+  ND advertised retransmit interval is 0 (unspecified)
+  ND router advertisements are sent every 200 seconds
+  ND router advertisements live for 1800 seconds
+  ND advertised default router preference is Medium
+  Hosts use stateless autoconfig for addresses.
+R1#show ipv6 interface g0/1
+GigabitEthernet0/1 is up, line protocol is up
+  IPv6 is enabled, link-local address is FE80::1
+  No Virtual link-local address(es):
+  Global unicast address(es):
+    2001:DB8:ACAD:A::1, subnet is 2001:DB8:ACAD:A::/64
+  Joined group address(es):
+    FF02::1
+    FF02::1:FF00:1
+  MTU is 1500 bytes
+  ICMP error messages limited to one every 100 milliseconds
+  ICMP redirects are enabled
+  ICMP unreachables are sent
+  ND DAD is enabled, number of DAD attempts: 1
+  ND reachable time is 30000 milliseconds (using 30000)
+  ND advertised reachable time is 0 (unspecified)
+  ND advertised retransmit interval is 0 (unspecified)
+  ND router advertisements are sent every 200 seconds
+  ND router advertisements live for 1800 seconds
+  ND advertised default router preference is Medium
+  Hosts use stateless autoconfig for addresses.
+R1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#ivp6 dhcp pool IPV6POOL-A
+            ^
+% Invalid input detected at '^' marker.
+
+R1(config)#ipv6 dhcp pool IPV6POOL-A
+R1(config-dhcpv6)#doma
+R1(config-dhcpv6)#domain-name ccna-statelessDHCPv6.com
+R1(config-dhcpv6)#dns
+R1(config-dhcpv6)#dns-server 2001:db8:acad:a::abcd
+R1(config-dhcpv6)#exit
+R1(config)#int g0/1
+R1(config-if)#ipv
+R1(config-if)#ipv6 dh
+R1(config-if)#ipv6 dhcp s
+R1(config-if)#ipv6 dhcp server IPV6POOL-A
+R1(config-if)#ipv
+R1(config-if)#ipv6 nd ot
+R1(config-if)#ipv6 nd other-config-flag
+R1(config-if)#end
+R1#
+*May 28 06:41:42.743: %SYS-5-CONFIG_I: Configured from console by console
+R1#show ipv6 int
+R1#show ipv6 interface g0/1
+GigabitEthernet0/1 is up, line protocol is up
+  IPv6 is enabled, link-local address is FE80::1
+  No Virtual link-local address(es):
+  Global unicast address(es):
+    2001:DB8:ACAD:A::1, subnet is 2001:DB8:ACAD:A::/64
+  Joined group address(es):
+    FF02::1
+    FF02::1:2
+    FF02::1:FF00:1
+    FF05::1:3
+  MTU is 1500 bytes
+  ICMP error messages limited to one every 100 milliseconds
+  ICMP redirects are enabled
+  ICMP unreachables are sent
+  ND DAD is enabled, number of DAD attempts: 1
+  ND reachable time is 30000 milliseconds (using 30000)
+  ND advertised reachable time is 0 (unspecified)
+  ND advertised retransmit interval is 0 (unspecified)
+  ND router advertisements are sent every 200 seconds
+  ND router advertisements live for 1800 seconds
+  ND advertised default router preference is Medium
+  Hosts use stateless autoconfig for addresses.
+  Hosts use DHCP to obtain other configuration.
+R1#show ipv6 d
+R1#show ipv6 dhcp bind
+R1#show ipv6 dhcp binding
+R1#show ipv6 dhcp pool
+DHCPv6 pool: IPV6POOL-A
+  DNS server: 2001:DB8:ACAD:A::ABCD
+  Domain name: ccna-statelessDHCPv6.com
+  Active clients: 0
+R1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#ivp6 d
+R1(config)#ivp6 dh
+R1(config)#ivp6 dhcp pool IPV6POOL-A
+            ^
+% Invalid input detected at '^' marker.
+
+R1(config)#ipv6 dhcp pool IPV6POOL-A
+R1(config-dhcpv6)#ad
+R1(config-dhcpv6)#address pr
+R1(config-dhcpv6)#address prefix 2001:db8:acad:a::/64
+R1(config-dhcpv6)#no d
+R1(config-dhcpv6)#no do
+R1(config-dhcpv6)#no domain-name ccna-statlessDHCPv6.com
+R1(config-dhcpv6)#dom
+R1(config-dhcpv6)#no domain-name ccna-statelessDHCPv6.com
+R1(config-dhcpv6)#dom
+R1(config-dhcpv6)#domain-name ccna-StatefulDHCPv6.com
+R1(config-dhcpv6)#exit
+R1(config)#exit
+R1#show
+*May 28 06:46:24.987: %SYS-5-CONFIG_I: Configured from console by consoleipv
+R1#show ipv6 d
+R1#show ipv6 dhcp pool
+DHCPv6 pool: IPV6POOL-A
+  Address allocation prefix: 2001:DB8:ACAD:A::/64 valid 172800 preferred 86400 (0 in use, 0 conflicts)
+  DNS server: 2001:DB8:ACAD:A::ABCD
+  Domain name: ccna-StatefulDHCPv6.com
+  Active clients: 0
+R1#de
+R1#debug ivp6 dhcp detail
+          ^
+% Invalid input detected at '^' marker.
+
+R1#debug ipv6 dhcp detail
+   IPv6 DHCP debugging is on (detailed)
+R1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#int g0/1
+R1(config-if)#shut
+R1(config-if)#ip
+*May 28 06:47:21.763: IPv6 DHCP: Delete routes, pool IPV6POOL-A, idb GigabitEthernet0/1v
+R1(config-if)#ipv6
+*May 28 06:47:23.767: %LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state to administratively down
+*May 28 06:47:24.767: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to downnd ma
+R1(config-if)#ipv6 nd managed-config-flag
+R1(config-if)#no shut
+R1(config-if)#end
+R1#
+*May 28 06:47:32.699: %SYS-5-CONFIG_I: Configured from console by console
+*May 28 06:47:32.915: %LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed state to down
+*May 28 06:47:35.887: %LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed state to up
+*May 28 06:47:36.887: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to up
+*May 28 06:47:37.887: IPv6 DHCP: Add routes, pool IPV6POOL-A, idb GigabitEthernet0/1
+R1#show ipv
+R1#show ipv6 int
+R1#show ipv6 interface g0/1
+GigabitEthernet0/1 is up, line protocol is up
+  IPv6 is enabled, link-local address is FE80::1
+  No Virtual link-local address(es):
+  Global unicast address(es):
+    2001:DB8:ACAD:A::1, subnet is 2001:DB8:ACAD:A::/64
+  Joined group address(es):
+    FF02::1
+    FF02::1:2
+    FF02::1:FF00:1
+    FF05::1:3
+  MTU is 1500 bytes
+  ICMP error messages limited to one every 100 milliseconds
+  ICMP redirects are enabled
+  ICMP unreachables are sent
+  ND DAD is enabled, number of DAD attempts: 1
+  ND reachable time is 30000 milliseconds (using 30000)
+  ND advertised reachable time is 0 (unspecified)
+  ND advertised retransmit interval is 0 (unspecified)
+  ND router advertisements are sent every 200 seconds
+  ND router advertisements live for 1800 seconds
+  ND advertised default router preference is Medium
+  Hosts use DHCP to obtain routable addresses.
+  Hosts use DHCP to obtain other configuration.
+R1#show ipv6 d
+R1#show ipv6 dhcp
+R1#show ipv6 dhcp p
+R1#show ipv6 dhcp pool
+DHCPv6 pool: IPV6POOL-A
+  Address allocation prefix: 2001:DB8:ACAD:A::/64 valid 172800 preferred 86400 (0 in use, 0 conflicts)
+  DNS server: 2001:DB8:ACAD:A::ABCD
+  Domain name: ccna-StatefulDHCPv6.com
+  Active clients: 0
+R1#show ipv6 dhcp pool
+DHCPv6 pool: IPV6POOL-A
+  Address allocation prefix: 2001:DB8:ACAD:A::/64 valid 172800 preferred 86400 (0 in use, 0 conflicts)
+  DNS server: 2001:DB8:ACAD:A::ABCD
+  Domain name: ccna-StatefulDHCPv6.com
+  Active clients: 0
+R1#show ipv6 dhcp pool
+DHCPv6 pool: IPV6POOL-A
+  Address allocation prefix: 2001:DB8:ACAD:A::/64 valid 172800 preferred 86400 (0 in use, 0 conflicts)
+  DNS server: 2001:DB8:ACAD:A::ABCD
+  Domain name: ccna-StatefulDHCPv6.com
+  Active clients: 0
+R1#show ipv6 dhcp pool
+DHCPv6 pool: IPV6POOL-A
+  Address allocation prefix: 2001:DB8:ACAD:A::/64 valid 172800 preferred 86400 (0 in use, 0 conflicts)
+  DNS server: 2001:DB8:ACAD:A::ABCD
+  Domain name: ccna-StatefulDHCPv6.com
+  Active clients: 0
+R1#show ipv6 dhcp pool
+DHCPv6 pool: IPV6POOL-A
+  Address allocation prefix: 2001:DB8:ACAD:A::/64 valid 172800 preferred 86400 (0 in use, 0 conflicts)
+  DNS server: 2001:DB8:ACAD:A::ABCD
+  Domain name: ccna-StatefulDHCPv6.com
+  Active clients: 0
+R1#show ipv6 dhcp pool
+DHCPv6 pool: IPV6POOL-A
+  Address allocation prefix: 2001:DB8:ACAD:A::/64 valid 172800 preferred 86400 (0 in use, 0 conflicts)
+  DNS server: 2001:DB8:ACAD:A::ABCD
+  Domain name: ccna-StatefulDHCPv6.com
+  Active clients: 0
+R1#
+*May 28 06:50:59.071: IPv6 DHCP: Received SOLICIT from FE80::D1C5:D1DA:AE45:D382 on GigabitEthernet0/1
+*May 28 06:50:59.071: IPv6 DHCP: detailed packet contents
+*May 28 06:50:59.071:   src FE80::D1C5:D1DA:AE45:D382 (GigabitEthernet0/1)
+*May 28 06:50:59.071:   dst FF02::1:2
+*May 28 06:50:59.071:   type SOLICIT(1), xid 2891123
+*May 28 06:50:59.071:   option ELAPSED-TIME(8), len 2
+*May 28 06:50:59.071:     elapsed-time 0
+*May 28 06:50:59.071:   option CLIENTID(1), len 14
+*May 28 06:50:59.071:     00010001228B80F908002792A941
+*May 28 06:50:59.071:   option IA-NA(3), len 12
+*May 28 06:50:59.071:     IAID 0x16080027, T1 0, T2 0
+*May 28 06:50:59.071:   option UNKNOWN(39), len 6
+*May 28 06:50:59.071:   option VENDOR-CLASS(16), len 14
+*May 28 06:50:59.071:   option ORO(6), len 8
+*May 28 06:50:59.071:     VENDOR-OPTS,DNS-SERVERS,DOMAIN-LIST,UNKNOWN
+*May 28 06:50:59.071: IPv6 DHCP: Option UNKNOWN(39) is not processed
+*May 28 06:50:59.071: IPv6 DHCP: Option VENDOR-CLASS(16) is not processed
+*May 28 06:50:59.071: IPv6 DHCP: Using interface pool IPV6POOL-A
+*May 28 06:50:59.071: IPv6 DHCP: Creating binding for FE80::D1C5:D1DA:AE45:D382 in pool IPV6POOL-A
+*May 28 06:50:59.071: IPv6 DHCP: Binding for IA_NA 16080027 not found
+*May 28 06:50:59.071: IPv6 DHCP: Allocating IA_NA 16080027 in binding for FE80::D1C5:D1DA:AE45:D382
+*May 28 06:50:59.071: IPv6 DHCP: Looking up pool 2001:DB8:ACAD:A::/64 entry with username '00010001228B80F908002792A94116080027'
+*May 28 06:50:59.071: IPv6 DHCP: Poolentry for user not found
+*May 28 06:50:59.071: IPv6 DHCP: Allocated new address 2001:DB8:ACAD:A:61BF:2CEF:ABA4:32BC
+*May 28 06:50:59.071: IPv6 DHCP: Allocating address 2001:DB8:ACAD:A:61BF:2CEF:ABA4:32BC in binding for FE80::D1C5:D1DA:AE45:D382, IAID 16080027
+*May 28 06:50:59.071: IPv6 DHCP: Updating binding address entry for address 2001:DB8:ACAD:A:61BF:2CEF:ABA4:32BC
+*May 28 06:50:59.071: IPv6 DHCP: Setting timer on 2001:DB8:ACAD:A:61BF:2CEF:ABA4:32BC for 60 seconds
+*May 28 06:50:59.071: IPv6 DHCP: Source Address from SAS FE80::1
+
+*May 28 06:50:59.071: IPv6 DHCP: detailed packet contents
+*May 28 06:50:59.071:   src FE80::1
+*May 28 06:50:59.071:   dst FE80::D1C5:D1DA:AE45:D382 (GigabitEthernet0/1)
+*May 28 06:50:59.071:   type ADVERTISE(2), xid 2891123
+*May 28 06:50:59.071:   option SERVERID(2), len 10
+*May 28 06:50:59.071:     00030001881DFCE68DC8
+*May 28 06:50:59.071:   option CLIENTID(1), len 14
+*May 28 06:50:59.071:     00010001228B80F908002792A941
+*May 28 06:50:59.071:   option IA-NA(3), len 40
+*May 28 06:50:59.071:     IAID 0x16080027, T1 43200, T2 69120
+*May 28 06:50:59.071:     option IAADDR(5), len 24
+*May 28 06:50:59.071:       IPv6 address 2001:DB8:ACAD:A:61BF:2CEF:ABA4:32BC
+*May 28 06:50:59.071:       preferred 86400, valid 172800
+*May 28 06:50:59.071:   option DNS-SERVERS(23), len 16
+*May 28 06:50:59.071:     2001:DB8:ACAD:A::ABCD
+*May 28 06:50:59.071:   option DOMAIN-LIST(24), len 25
+*May 28 06:50:59.071:     ccna-StatefulDHCPv6.com
+*May 28 06:50:59.071: IPv6 DHCP: Sending ADVERTISE to FE80::D1C5:D1DA:AE45:D382 on GigabitEthernet0/1
+*May 28 06:51:00.063: IPv6 DHCP: Received REQUEST from FE80::D1C5:D1DA:AE45:D382 on GigabitEthernet0/1
+*May 28 06:51:00.063: IPv6 DHCP: detailed packet contents
+*May 28 06:51:00.063:   src FE80::D1C5:D1DA:AE45:D382 (GigabitEthernet0/1)
+*May 28 06:51:00.063:   dst FF02::1:2
+*May 28 06:51:00.063:   type REQUEST(3), xid 2891123
+*May 28 06:51:00.063:   option ELAPSED-TIME(8), len 2
+*May 28 06:51:00.063:     elapsed-time 0
+*May 28 06:51:00.063:   option CLIENTID(1), len 14
+*May 28 06:51:00.063:     00010001228B80F908002792A941
+*May 28 06:51:00.063:   option SERVERID(2), len 10
+*May 28 06:51:00.063:     00030001881DFCE68DC8
+*May 28 06:51:00.063:   option IA-NA(3), len 40
+*May 28 06:51:00.063:     IAID 0x16080027, T1 43200, T2 69120
+*May 28 06:51:00.063:     option IAADDR(5), len 24
+*May 28 06:51:00.063:       IPv6 address 2001:DB8:ACAD:A:61BF:2CEF:ABA4:32BC
+*May 28 06:51:00.063:       preferred 86400, valid 172800
+*May 28 06:51:00.063:   option UNKNOWN(39), len 6
+*May 28 06:51:00.063:   option VENDOR-CLASS(16), len 14
+*May 28 06:51:00.063:   option ORO(6), len 8
+*May 28 06:51:00.063:     VENDOR-OPTS,DNS-SERVERS,DOMAIN-LIST,UNKNOWN
+*May 28 06:51:00.063: IPv6 DHCP: Option UNKNOWN(39) is not processed
+*May 28 06:51:00.063: IPv6 DHCP: Option VENDOR-CLASS(16) is not processed
+*May 28 06:51:00.063: IPv6 DHCP: Using interface pool IPV6POOL-A
+*May 28 06:51:00.063: IPv6 DHCP: Looking up pool 2001:DB8:ACAD:A::/64 entry with username '00010001228B80F908002792A94116080027'
+*May 28 06:51:00.063: IPv6 DHCP: Poolentry for user found
+*May 28 06:51:00.063: IPv6 DHCP: Found address 2001:DB8:ACAD:A:61BF:2CEF:ABA4:32BC in binding for FE80::D1C5:D1DA:AE45:D382, IAID 16080027
+*May 28 06:51:00.063: IPv6 DHCP: Updating binding address entry for address 2001:DB8:ACAD:A:61BF:2CEF:ABA4:32BC
+*May 28 06:51:00.063: IPv6 DHCP: Setting timer on 2001:DB8:ACAD:A:61BF:2CEF:ABA4:32BC for 172800 seconds
+*May 28 06:51:00.063: IPv6 DHCP: Source Address from SAS FE80::1
+
+*May 28 06:51:00.063: IPv6 DHCP: detailed packet contents
+*May 28 06:51:00.063:   src FE80::1
+*May 28 06:51:00.063:   dst FE80::D1C5:D1DA:AE45:D382 (GigabitEthernet0/1)
+*May 28 06:51:00.063:   type REPLY(7), xid 2891123
+*May 28 06:51:00.063:   option SERVERID(2), len 10
+*May 28 06:51:00.063:     00030001881DFCE68DC8
+*May 28 06:51:00.063:   option CLIENTID(1), len 14
+*May 28 06:51:00.063:     00010001228B80F908002792A941
+*May 28 06:51:00.063:   option IA-NA(3), len 40
+*May 28 06:51:00.063:     IAID 0x16080027, T1 43200, T2 69120
+*May 28 06:51:00.063:     option IAADDR(5), len 24
+*May 28 06:51:00.063:       IPv6 address 2001:DB8:ACAD:A:61BF:2CEF:ABA4:32BC
+*May 28 06:51:00.063:       preferred 86400, valid 172800
+*May 28 06:51:00.063:   option DNS-SERVERS(23), len 16
+*May 28 06:51:00.063:     2001:DB8:ACAD:A::ABCD
+*May 28 06:51:00.063:   option DOMAIN-LIST(24), len 25
+*May 28 06:51:00.063:     ccna-StatefulDHCPv6.com
+*May 28 06:51:00.063: IPv6 DHCP: Sending REPLY to FE80::D1C5:D1DA:AE45:D382 on GigabitEthernet0/1
+R1#show ipv6 dhcp pool
+DHCPv6 pool: IPV6POOL-A
+  Address allocation prefix: 2001:DB8:ACAD:A::/64 valid 172800 preferred 86400 (1 in use, 0 conflicts)
+  DNS server: 2001:DB8:ACAD:A::ABCD
+  Domain name: ccna-StatefulDHCPv6.com
+  Active clients: 1
+R1#show ipv6 dhcp b
+R1#show ipv6 dhcp binding
+Client: FE80::D1C5:D1DA:AE45:D382
+  DUID: 00010001228B80F908002792A941
+  Username : unassigned
+  VRF : default
+  IA NA: IA ID 0x16080027, T1 43200, T2 69120
+    Address: 2001:DB8:ACAD:A:61BF:2CEF:ABA4:32BC
+            preferred lifetime 86400, valid lifetime 172800
+            expires at May 30 2018 06:51 AM (172778 seconds)
+R1#undeb
+R1#undebug all
+All possible debugging has been turned off

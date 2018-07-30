@@ -1,0 +1,291 @@
+
+% Please answer 'yes' or 'no'.
+Would you like to enter the initial configuration dialog? [yes/no]: n
+
+
+Press RETURN to get started!
+
+
+*Jan  2 00:00:04.243: %IOS_LICENSE_IMAGE_APPLICATION-6-LICENSE_LEVEL: Module name = c2900 Next reboot level = ipbasek9 and License = ipbasek9
+*Jan  2 00:00:04.439: %IOS_LICENSE_IMAGE_APPLICATION-6-LICENSE_LEVEL: Module name = c2900 Next reboot level = securityk9 and License = securityk9
+*May 28 04:53:16.291: c3600_scp_set_dstaddr2_idb(184)add = 80 name is Embedded-Service-Engine0/0
+*May 28 04:53:27.975: %CTS-6-ENV_DATA_START_STATE: Environment Data Download in start state
+*May 28 04:53:30.851: %PA-3-
+Router>PA_INIT_FAILED: Performance Agent failed to initialize (Missing Data License)
+*May 28 04:53:30.879: %VPN_HW-6-INFO_LOC: Crypto engine: onboard 0  State changed to: Initialized
+*May 28 04:53:30.883: %VPN_HW-6-INFO_LOC: Crypto engine: onboard 0  State changed to: Enabled
+*May 28 04:53:35.539: %LINK-3-UPDOWN: Interface GigabitEthernet0/0, changed state to down
+*May 28 04:53:35.539: %LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed state to down
+*May 28 04:53:35.543: %LINK-3-UPDOWN: Interface Serial0/0/0, changed state to down
+*May 28 04:53:35.543: %LINK-3-UPDOWN: Interface Serial0/0/1, changed state to down
+*May 28 04:53:36.607: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to down
+*May 28 04:53:36.607: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to down
+*May 28 04:53:36.607: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0/0, changed state to down
+*May 28 04:53:36.607: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0/1, changed state to down
+*May 28 05:29:20.623: %LINK-5-CHANGED: Interface Serial0/0/1, changed state to administratively down
+*May 28 05:29:22.367: %LINK-5-CHANGED: Interface Embedded-Service-Engine0/0, changed state to administratively down
+*May 28 05:29:22.367: %LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to administratively down
+*May 28 05:29:22.367: %LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state to administratively down
+*May 28 05:29:22.367: %LINK-5-CHANGED: Interface Serial0/0/0, changed state to administratively down
+*May 28 05:29:22.455: %IP-5-WEBINST_KILL: Terminating DNS process
+*May 28 05:29:23.367: %LINEPROTO-5-UPDOWN: Line protocol on Interface Embedded-Service-Engine0/0, changed state to down
+*May 28 05:29:26.691: %SYS-5-RESTART: System restarted --
+Cisco IOS Software, C2900 Software (C2900-UNIVERSALK9-M), Version 15.4(3)M1, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2014 by Cisco Systems, Inc.
+Compiled Sat 25-Oct-14 03:34 by prod_rel_team
+*May 28 05:29:27.371: %SYS-6-BOOTTIME: Time taken to reboot after reload = 323856 seconds
+*May 28 05:29:27.983: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*May 28 05:29:27.983: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+*May 28 05:29:27.983: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*May 28 05:29:27.983: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+*May 28 05:29:46.743: %PNP-6-HTTP_CONNECTING: PnP Discovery trying to connect to PnP server http://devicehelper.cisco.com/pnp/HELLO
+*May 28 05:30:06.743: %PNP-6-HTTP_CONNECTING: PnP Discovery trying to connect to PnP server http://devicehelper.cisco.com/pnp/HELLO
+Router>
+Router>enable
+Router#config rt
+               ^
+% Invalid input detected at '^' marker.
+
+Router#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#no ip dom
+Router(config)#no ip domain-loo
+Router(config)#no ip domain-lookup
+Router(config)#hostname R2
+R2(config)#int g0/0
+R2(config-if)#ip add
+R2(config-if)#ip address 192.168.0.1 255.255.255.0
+R2(config-if)#no shut
+R2(config-if)#int g0/1
+*May 28 05:32:09.015: %LINK-3-UPDOWN: Interface GigabitEthernet0/0, changed state to down
+R2(config-if)#ip address 192.168.1.1 255.255.255.0
+R2(config-if)#no shut
+R2(config-if)#int
+*May 28 05:32:24.195: %LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed state to int s0/0/0
+R2(config-if)#ip address 192.168.2.253 255.255.255.252
+R2(config-if)#clock
+R2(config-if)#clock ra
+R2(config-if)#clock rate 128000
+R2(config-if)#no shut
+R2(config-if)#exit
+R2(config)#
+*May 28 05:33:14.099: %LINK-3-UPDOWN: Interface Serial0/0/0, changed state to downexit
+R2#show
+*May 28 05:33:25.123: %SYS-5-CONFIG_I: Configured from console by consoleint brief
+             ^
+% Invalid input detected at '^' marker.
+
+R2#show ip int brief
+Interface                  IP-Address      OK? Method Status                Protocol
+Embedded-Service-Engine0/0 unassigned      YES unset  administratively down down
+GigabitEthernet0/0         192.168.0.1     YES manual down                  down
+GigabitEthernet0/1         192.168.1.1     YES manual down                  down
+Serial0/0/0                192.168.2.253   YES manual down                  down
+Serial0/0/1                unassigned      YES unset  administratively down down
+R2#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R2(config)#int g0/0
+R2(config-if)#no ip add
+R2(config-if)#no ip address
+R2(config-if)#shut
+R2(config-if)#exit
+R2(config)#
+*May 28 05:35:12.963: %LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to administratively downint g0/1
+R2(config-if)#no ip add
+R2(config-if)#no ip address
+R2(config-if)#shut
+R2(config-if)#exit
+R2(config)#int
+*May 28 05:35:27.571: %LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state to administratively downs0/0/0
+R2(config-if)#ip add
+R2(config-if)#ip address 192.168.2.254 255.255.255.252
+*May 28 05:36:04.623: %LINK-3-UPDOWN: Interface Serial0/0/0, changed state to up
+*May 28 05:36:05.623: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0/0, changed state to up
+R2(config-if)#int s0/0/1
+R2(config-if)#ip add
+R2(config-if)#ip address 209.165.200.226 255.255.255.224
+R2(config-if)#no shut
+R2(config-if)#clock
+*May 28 05:36:53.767: %LINK-3-UPDOWN: Interface Serial0/0/1, changed state to downrate
+% Incomplete command.
+
+R2(config-if)#clock rate 128000
+R2(config-if)#exit
+R2(config)#exit
+R2#show ip int brief
+*May 28 05:37:04.255: %SYS-5-CONFIG_I: Configured from console by console
+Interface                  IP-Address      OK? Method Status                Protocol
+Embedded-Service-Engine0/0 unassigned      YES unset  administratively down down
+GigabitEthernet0/0         unassigned      YES manual administratively down down
+GigabitEthernet0/1         unassigned      YES manual administratively down down
+Serial0/0/0                192.168.2.254   YES manual up                    up
+Serial0/0/1                209.165.200.226 YES manual down                  down
+R2#pierdole myslalem ze to R1... grrrr...
+     ^
+% Invalid input detected at '^' marker.
+
+R2#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R2(config)#router ospf 1
+R2(config-router)#net
+R2(config-router)#network 192.168.2.252 0.0.0.3 area 0
+R2(config-router)#de
+R2(config-router)#default
+*May 28 05:38:30.155: %OSPF-5-ADJCHG: Process 1, Nbr 209.165.200.225 on Serial0/0/0 from LOADING to FULL, Loading Done-in
+R2(config-router)#default-information or
+R2(config-router)#default-information originate
+R2(config-router)#exit
+R2(config)#ip route 0.0.0.0 0.0.0.0 209.165.200.225
+R2(config)#ping 192.168.0.1
+            ^
+% Invalid input detected at '^' marker.
+
+R2(config)#exit
+R2#pin
+*May 28 05:40:25.463: %SYS-5-CONFIG_I: Configured from console by consoleg 192.168.0.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.0.1, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+R2#ping 192.168.1.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.1.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 12/14/16 ms
+R2#ping 192.168.0.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.0.1, timeout is 2 seconds:
+.
+*May 28 05:40:47.751: %LINK-3-UPDOWN: Interface Serial0/0/1, changed state to up
+*May 28 05:40:48.751: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0/1, changed state to up....
+Success rate is 0 percent (0/5)
+R2#ping 192.168.2.253
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.2.253, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 12/14/16 ms
+R2#ping 192.168.2.254
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.2.254, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 28/28/28 ms
+R2#ping 209.165.200.226
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 209.165.200.226, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 28/28/28 ms
+R2#ping 209.165.200.225
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 209.165.200.225, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 12/14/16 ms
+R2#ping 192.168.0.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.0.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 12/14/16 ms
+R2#ip dhcp ec
+R2#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R2(config)#ip dh
+R2(config)#ip dhcp ex
+R2(config)#ip dhcp excluded-address 192.168.0.1 192.168.0.10
+R2(config)#ip dhcp pool R1G0
+R2(dhcp-config)#netw
+R2(dhcp-config)#network 192.168.0.0 255.255.255.0
+R2(dhcp-config)#defa
+R2(dhcp-config)#default-router 192.168.0.1
+R2(dhcp-config)#doma
+R2(dhcp-config)#domain-name ccna-lab.com
+R2(dhcp-config)#dn
+R2(dhcp-config)#dns-server 209.165.200.225
+R2(dhcp-config)#lea
+R2(dhcp-config)#lease 2
+R2(dhcp-config)#exit
+R2(config)#ip dhcp exc
+R2(config)#ip dhcp excluded-address 192.168.1.1 192.168.1.10
+R2(config)#ip dhcp pool R1G1
+R2(dhcp-config)#network 192.168.1.0 255.255.255.0
+R2(dhcp-config)#default-router 192.168.1.1
+R2(dhcp-config)#domain-name ccna-lab.com
+R2(dhcp-config)#dns-server 209.165.200.225
+R2(dhcp-config)#lease 2
+R2(dhcp-config)#exit
+R2(config)#exit
+R2#sho
+*May 28 05:50:25.103: %SYS-5-CONFIG_I: Configured from console by consolew ip dh
+R2#show ip dhcp bi
+R2#show ip dhcp binding
+Bindings from all pools not associated with VRF:
+IP address          Client-ID/              Lease expiration        Type
+                    Hardware address/
+                    User name
+192.168.0.11        0108.0027.69db.5b       May 30 2018 05:49 AM    Automatic
+192.168.1.11        0063.6973.636f.2d33.    May 30 2018 05:48 AM    Automatic
+                    6335.652e.6333.3664.
+                    2e61.6663.302d.566c.
+                    31
+192.168.1.12        0108.0027.abcc.31       May 30 2018 05:49 AM    Automatic
+R2#show ip dhcp pool
+
+Pool R1G0 :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (first/next)       : 0 / 0
+ Total addresses                : 254
+ Leased addresses               : 1
+ Pending event                  : none
+ 1 subnet is currently in the pool :
+ Current index        IP address range                    Leased addresses
+ 192.168.0.12         192.168.0.1      - 192.168.0.254     1
+
+Pool R1G1 :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (first/next)       : 0 / 0
+ Total addresses                : 254
+ Leased addresses               : 2
+ Pending event                  : none
+ 1 subnet is currently in the pool :
+ Current index        IP address range                    Leased addresses
+ 192.168.1.13         192.168.1.1      - 192.168.1.254     2
+R2#show ip dhcp se
+R2#show ip dhcp server st
+R2#show ip dhcp server statistics
+Memory usage         59540
+Address pools        2
+Database agents      0
+Automatic bindings   3
+Manual bindings      0
+Expired bindings     0
+Malformed messages   0
+Secure arp entries   0
+
+Message              Received
+BOOTREQUEST          0
+DHCPDISCOVER         4
+DHCPREQUEST          4
+DHCPDECLINE          0
+DHCPRELEASE          1
+DHCPINFORM           0
+
+Message              Sent
+BOOTREPLY            0
+DHCPOFFER            4
+DHCPACK              4
+DHCPNAK              0
+R2#show run | section dhcp
+ip dhcp excluded-address 192.168.0.1 192.168.0.10
+ip dhcp excluded-address 192.168.1.1 192.168.1.10
+ip dhcp pool R1G0
+ network 192.168.0.0 255.255.255.0
+ default-router 192.168.0.1
+ domain-name ccna-lab.com
+ dns-server 209.165.200.225
+ lease 2
+ip dhcp pool R1G1
+ network 192.168.1.0 255.255.255.0
+ default-router 192.168.1.1
+ domain-name ccna-lab.com
+ dns-server 209.165.200.225
+ lease 2
+R2#

@@ -1,0 +1,711 @@
+
+
+
+         --- System Configuration Dialog ---
+
+Enable secret warning
+----------------------------------
+In order to access the device manager, an enable secret is required
+If you enter the initial configuration dialog, you will be prompted for the enab                                     le secret
+If you choose not to enter the intial configuration dialog, or if you exit setup                                      without setting the enable secret,
+please set an enable secret using the following CLI in configuration mode-
+enable secret 0 <cleartext password>
+----------------------------------
+Would you like to enter the initial configuration dialog? [yes/no]: n
+Switch>enable
+Switch#con
+Switch#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#host
+Switch(config)#hostname R1
+R1(config)#no dns
+R1(config)#no dns-
+R1(config)#no dns-lo
+R1(config)#no dns-loo
+R1(config)#no dns-look
+R1(config)#no ip
+R1(config)#no ip d
+R1(config)#no ip do
+R1(config)#no ip domain-l
+R1(config)#no ip domain-lo
+R1(config)#no ip domain-lookup
+R1(config)#int g0/1
+R1(config-if)#ip add`
+R1(config-if)#ip add
+R1(config-if)#ip addr
+R1(config-if)#ip addres
+R1(config-if)#ip addres
+R1(config-if)#ip address 192.168.0.1 255.255.255.0
+                   ^
+% Invalid input detected at '^' marker.
+
+R1(config-if)#ip?
+ip
+
+R1(config-if)#ip ?
+Interface IP configuration subcommands:
+  access-group  Specify access control for packets
+  admission     Apply Network Admission Control
+  arp           Configure ARP features
+  auth-proxy    Apply authenticaton proxy
+  device        IP device tracking
+  dhcp          Configure DHCP parameters for this interface
+  igmp          IGMP interface commands
+  verify        verify
+
+R1(config-if)#exit
+R1(config)#host
+R1(config)#hostname S1
+S1(config)#
+Unauthorized acces prohibited!
+
+
+User Access Verification
+
+Password:
+R1>delete vlan.dat
+    ^
+% Invalid input detected at '^' marker.
+
+R1>enable
+Password:
+R1#delete vlan.dat
+Delete filename [vlan.dat]?
+Delete flash0:/vlan.dat? [confirm]
+%Error deleting flash0:/vlan.dat (File not found)
+R1#erase startup-config
+Erasing the nvram filesystem will remove all configuration files! Continue? [con                                     firm]
+[OK]
+Erase of nvram: complete
+R1#
+*Apr  9 05:44:02.723: %SYS-7-NV_BLOCK_INIT: Initialized the geometry of nvramrel                                     oad
+Proceed with reload? [confirm]
+
+*Apr  9 05:44:13.147: %SYS-5-RELOAD: Reload requested by console. Reload Reason:                                      Reload Command.
+System Bootstrap, Version 15.0(1r)M16, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 2012 by cisco Systems, Inc.
+
+Total memory size = 512 MB - On-board = 512 MB, DIMM0 = 0 MB
+CISCO2901/K9 platform with 524288 Kbytes of main memory
+Main memory is configured to 72/-1(On-board/DIMM0) bit mode with ECC enabled
+
+
+Readonly ROMMON initialized
+program load complete, entry point: 0x80803000, size: 0x1b340
+program load complete, entry point: 0x80803000, size: 0x1b340
+
+
+IOS Image Load Test
+___________________
+Digitally Signed Release Software
+program load complete, entry point: 0x81000000, size: 0x63476c8
+Self decompressing the image : #################################################                                     ################################################################################                                     ################################################################################                                     ################################################################################                                     ################################################################################                                     ################################################################################                                     ################################################################################                                     ################################################################################                                     ################################################################################                                     ################################################################################                                     ################################################################################                                     ################################################################################                                     ################################################################################                                     ###################### [OK]
+
+Smart Init is disabled. IOMEM set to: 15
+
+Using iomem percentage: 15
+
+              Restricted Rights Legend
+
+Use, duplication, or disclosure by the Government is
+subject to restrictions as set forth in subparagraph
+(c) of the Commercial Computer Software - Restricted
+Rights clause at FAR sec. 52.227-19 and subparagraph
+(c) (1) (ii) of the Rights in Technical Data and Computer
+Software clause at DFARS sec. 252.227-7013.
+
+           cisco Systems, Inc.
+           170 West Tasman Drive
+           San Jose, California 95134-1706
+
+
+
+Cisco IOS Software, C2900 Software (C2900-UNIVERSALK9-M), Version 15.4(3)M1, REL                                     EASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2014 by Cisco Systems, Inc.
+Compiled Sat 25-Oct-14 03:34 by prod_rel_team
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+Installed image archive
+Cisco CISCO2901/K9 (revision 1.0) with 446464K/77824K bytes of memory.
+Processor board ID FCZ1911C3AY
+2 Gigabit Ethernet interfaces
+2 Serial(sync/async) interfaces
+1 terminal line
+1 Virtual Private Network (VPN) Module
+DRAM configuration is 64 bits wide with parity enabled.
+255K bytes of non-volatile configuration memory.
+255488K bytes of ATA System CompactFlash 0 (Read/Write)
+
+
+         --- System Configuration Dialog ---
+
+Would you like to enter the initial configuration dialog? [yes/no]:
+% Please answer 'yes' or 'no'.
+Would you like to enter the initial configuration dialog? [yes/no]: n
+
+Would you like to terminate autoinstall? [yes]: y
+
+
+Press RETURN to get started!
+
+
+*Jan  2 00:00:04.231: %IOS_LICENSE_IMAGE_APPLICATION-6-LICENSE_LEVEL: Module nam                                     e = c2900 Next reboot level = ipbasek9 and License = ipbasek9
+*Jan  2 00:00:04.427: %IOS_LICENSE_IMAGE_APPLICATION-6-LICENSE_LEVEL: Module nam                                     e = c2900 Next reboot level = securityk9 and License = securityk9
+*Apr  9 05:46:28.639: c3600_scp_set_dstaddr2_idb(184)add = 80 name is Embedded-S                                     ervice-Engine0/0
+*Apr  9 05:46:40.335: %CTS-6-ENV_DATA_START_STATE: Environment Data Download in                                      start state
+*Apr  9 05:46:43.203: %PA-3-
+Router>
+Router>PA_INIT_FAILED: Performance Agent failed to initialize (Missing Data Lice                                     nse)
+*Apr  9 05:46:43.231: %VPN_HW-6-INFO_LOC: Crypto engine: onboard 0  State change                                     d to: Initialized
+*Apr  9 05:46:43.235: %VPN_HW-6-INFO_LOC: Crypto engine: onboard 0  State change                                     d to: Enabled
+*Apr  9 05:46:47.879: %LINK-3-UPDOWN: Interface GigabitEthernet0/0, changed stat                                     e to down
+*Apr  9 05:46:47.879: %LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed stat                                     e to up
+*Apr  9 05:46:47.879: %LINK-3-UPDOWN: Interface Serial0/0/0, changed state to do                                     wn
+*Apr  9 05:46:47.879: %LINK-3-UPDOWN: Interface Serial0/0/1, changed state to do                                     wn
+*Apr  9 05:46:48.935: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEth                                     ernet0/0, changed state to down
+*Apr  9 05:46:48.935: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEth                                     ernet0/1, changed state to up
+*Apr  9 05:46:48.935: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0/                                     0, changed state to down
+*Apr  9 05:46:48.935: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0/                                     1, changed state to down
+*Apr  9 05:48:04.599: %LINK-5-CHANGED: Interface Serial0/0/0, changed state to a                                     dministratively down
+*Apr  9 05:48:04.599: %LINK-5-CHANGED: Interface Embedded-Service-Engine0/0, cha                                     nged state to administratively down
+*Apr  9 05:48:04.599: %LINK-5-CHANGED: Interface GigabitEthernet0/0, changed sta                                     te to administratively down
+*Apr  9 05:48:04.599: %LINK-5-CHANGED: Interface GigabitEthernet0/1, changed sta                                     te to administratively down
+*Apr  9 05:48:04.599: %LINK-5-CHANGED: Interface Serial0/0/1, changed state to a                                     dministratively down
+*Apr  9 05:48:04.783: %IP-5-WEBINST_KILL: Terminating DNS process
+*Apr  9 05:48:05.599: %LINEPROTO-5-UPDOWN: Line protocol on Interface Embedded-S                                     ervice-Engine0/0, changed state to down
+*Apr  9 05:48:05.599: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEth                                     ernet0/1, changed state to down
+*Apr  9 05:48:08.599: %SYS-5-RESTART: System restarted --
+Cisco IOS Software, C2900 Software (C2900-UNIVERSALK9-M), Version 15.4(3)M1, REL                                     EASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2014 by Cisco Systems, Inc.
+Compiled Sat 25-Oct-14 03:34 by prod_rel_team
+*Apr  9 05:48:09.279: %SYS-6-BOOTTIME: Time taken to reboot after reload =  237                                      seconds
+*Apr  9 05:48:09.891: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*Apr  9 05:48:09.891: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+*Apr  9 05:48:09.891: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*Apr  9 05:48:09.891: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+Router>
+Router>
+Router>enable
+Router#config
+*Apr  9 05:48:29.847: %PNP-6-HTTP_CONNECTING: PnP Discovery trying to connect to                                      PnP server http://devicehelper.cisco.com/pnp/HELLO t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname R1
+R1(config)#no ip
+R1(config)#no ip dom
+R1(config)#no ip domain-loo
+R1(config)#no ip domain-lookup
+R1(config)#int g0/1
+R1(config-if)#
+*Apr  9 05:48:49.847: %PNP-6-HTTP_CONNECTING: PnP Discovery trying to connect to                                      PnP server http://devicehelper.cisco.com/pnp/HELLOip add
+R1(config-if)#ip address 192.168.0.1 255.255.255.0
+R1(config-if)#no shut
+R1(config-if)#no shutdown
+R1(config-if)#exit
+R1(config)#int
+*Apr  9 05:49:18.367: %LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed stat                                     e to downs0
+*Apr  9 05:49:21.891: %LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed stat                                     e to up
+*Apr  9 05:49:22.891: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEth                                     ernet0/1, changed state to up/0/1
+R1(config-if)#ip add
+R1(config-if)#ip address 10.1.1.1 255.255.255.252
+R1(config-if)#no shu
+R1(config-if)#no shutdown
+R1(config-if)#exit
+R1(config)#
+*Apr  9 05:49:50.499: %LINK-3-UPDOWN: Interface Serial0/0/1, changed state to up
+*Apr  9 05:49:51.499: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0/                                     1, changed state to upexit
+R1#
+*Apr  9 05:53:22.895: %SYS-5-CONFIG_I: Configured from console by consoleping 10                                     .1.1.2
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.1.2, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 12/13/16 ms
+R1#show ip rou
+R1#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override
+
+Gateway of last resort is not set
+
+      10.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C        10.1.1.0/30 is directly connected, Serial0/0/1
+L        10.1.1.1/32 is directly connected, Serial0/0/1
+      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.0.0/24 is directly connected, GigabitEthernet0/1
+L        192.168.0.1/32 is directly connected, GigabitEthernet0/1
+R1#ip route 192.168.1.0 255.255.255.0 10.1.1.2
+      ^
+% Invalid input detected at '^' marker.
+
+R1#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#ip route 192.168.1.0 255.255.255.0 10.1.1.2
+R1(config)#exit
+R1#ip route 192.168.1.0 255.255.255.0 10.1.1.2
+*Apr  9 05:58:55.251: %SYS-5-Cshow ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override
+
+Gateway of last resort is not set
+
+      10.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C        10.1.1.0/30 is directly connected, Serial0/0/1
+L        10.1.1.1/32 is directly connected, Serial0/0/1
+      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.0.0/24 is directly connected, GigabitEthernet0/1
+L        192.168.0.1/32 is directly connected, GigabitEthernet0/1
+S     192.168.1.0/24 [1/0] via 10.1.1.2
+R1#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#ip route 198.133.219.0 255.255.255.0 g0/0/1
+                                                     ^
+% Invalid input detected at '^' marker.
+
+R1(config)#ip route 198.133.219.0 255.255.255.0 s0/0/1
+R1(config)#ip route 209.165.200.224 255.255.255.224 10.1.1.2
+R1(config)#exit
+R1#show ip ro
+*Apr  9 06:05:59.359: %SYS-5-CONFIG_I: Configured from console by consoleute
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override
+
+Gateway of last resort is not set
+
+      10.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C        10.1.1.0/30 is directly connected, Serial0/0/1
+L        10.1.1.1/32 is directly connected, Serial0/0/1
+      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.0.0/24 is directly connected, GigabitEthernet0/1
+L        192.168.0.1/32 is directly connected, GigabitEthernet0/1
+S     192.168.1.0/24 [1/0] via 10.1.1.2
+S     198.133.219.0/24 is directly connected, Serial0/0/1
+      209.165.200.0/27 is subnetted, 1 subnets
+S        209.165.200.224 [1/0] via 10.1.1.2
+R1#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#no ip route 209.165.200.224
+% Incomplete command.
+
+R1(config)#no ip route 209.165.200.224 255.255.255.224
+R1(config)#no ip route 198.133.219.0 255.255.255.0
+R1(config)#IP ROUTE 0
+% Incomplete command.
+
+R1(config)#IP ROUTE 0.0.0.0 0.0.0.0 s0/0/1
+R1(config)#exit
+R1#
+*Apr  9 06:10:16.375: %SYS-5-CONFIG_I: Configured from console by consoleshow ip                                      route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override
+
+Gateway of last resort is 0.0.0.0 to network 0.0.0.0
+
+S*    0.0.0.0/0 is directly connected, Serial0/0/1
+      10.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C        10.1.1.0/30 is directly connected, Serial0/0/1
+L        10.1.1.1/32 is directly connected, Serial0/0/1
+      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.0.0/24 is directly connected, GigabitEthernet0/1
+L        192.168.0.1/32 is directly connected, GigabitEthernet0/1
+S     192.168.1.0/24 [1/0] via 10.1.1.2
+R1#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#int g0/1
+R1(config-if)#no ip address
+R1(config-if)#exit
+R1(config)#int s0/0/1
+R1(config-if)#no ip add
+R1(config-if)#no ip address
+R1(config-if)#exit
+R1(config)#no ip route *
+R1(config)#exit
+R1#show
+*Apr  9 06:13:49.791: %SYS-5-CONFIG_I: Configured from console by console int brief
+             ^
+% Invalid input detected at '^' marker.
+
+R1#show int brief
+             ^
+% Invalid input detected at '^' marker.
+
+R1#show ip int brief
+Interface                  IP-Address      OK? Method Status                Protocol
+Embedded-Service-Engine0/0 unassigned      YES unset  administratively down down
+GigabitEthernet0/0         unassigned      YES unset  administratively down down
+GigabitEthernet0/1         unassigned      YES manual up                    up
+Serial0/0/0                unassigned      YES unset  administratively down down
+Serial0/0/1                unassigned      YES manual up                    up
+R1#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override
+
+Gateway of last resort is not set
+
+R1#exit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+R1 con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+R1>enable
+R1#ipv6 uni
+R1#ipv6 unic
+R1#ipv6 unica
+R1#ipv6 unicas
+R1#ipv6 unicas?
+% Unrecognized command
+R1#ipv6 unicas?
+% Unrecognized command
+R1#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#ipv6 un
+R1(config)#ipv6 unicast-routing
+R1(config)#int g0/1
+R1(config-if)#ipv6 add
+R1(config-if)#ipv6 address 2001:db8:acad:a::/64
+%GigabitEthernet0/1: Warning: 2001:DB8:ACAD:A::/64 is a Subnet Router Anycast
+R1(config-if)#no ipv6 add
+R1(config-if)#no ipv6 address
+R1(config-if)#ipv6 address 2001:db8:acad:a::/64 eui-64
+R1(config-if)#int s0/0/1
+R1(config-if)#ipv6 add
+R1(config-if)#ipv6 address fc00::1/64
+R1(config-if)#exit
+R1(config)#exit
+R1#show ip
+*Apr  9 06:18:13.499: %SYS-5-CONFIG_I: Configured from console by console
+% Incomplete command.
+
+R1#show ip int bri
+R1#show ip int brief
+Interface                  IP-Address      OK? Method Status                Protocol
+Embedded-Service-Engine0/0 unassigned      YES unset  administratively down down
+GigabitEthernet0/0         unassigned      YES unset  administratively down down
+GigabitEthernet0/1         unassigned      YES manual up                    up
+Serial0/0/0                unassigned      YES unset  administratively down down
+Serial0/0/1                unassigned      YES manual up                    up
+R1#show ipv6 int brief
+Em0/0                  [administratively down/down]
+    unassigned
+GigabitEthernet0/0     [administratively down/down]
+    unassigned
+GigabitEthernet0/1     [up/up]
+    FE80::8A1D:FCFF:FEE6:8DC9
+    2001:DB8:ACAD:A:8A1D:FCFF:FEE6:8DC9
+Serial0/0/0            [administratively down/down]
+    unassigned
+Serial0/0/1            [up/up]
+    FE80::8A1D:FCFF:FEE6:8DC8
+    FC00::1
+R1#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+R1 con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+R1>enable
+R1#show ipv6 route
+IPv6 Routing Table - default - 5 entries
+Codes: C - Connected, L - Local, S - Static, U - Per-user Static route
+       B - BGP, R - RIP, H - NHRP, I1 - ISIS L1
+       I2 - ISIS L2, IA - ISIS interarea, IS - ISIS summary, D - EIGRP
+       EX - EIGRP external, ND - ND Default, NDp - ND Prefix, DCE - Destination
+       NDr - Redirect, O - OSPF Intra, OI - OSPF Inter, OE1 - OSPF ext 1
+       OE2 - OSPF ext 2, ON1 - OSPF NSSA ext 1, ON2 - OSPF NSSA ext 2
+       a - Application
+C   2001:DB8:ACAD:A::/64 [0/0]
+     via GigabitEthernet0/1, directly connected
+L   2001:DB8:ACAD:A:8A1D:FCFF:FEE6:8DC9/128 [0/0]
+     via GigabitEthernet0/1, receive
+C   FC00::/64 [0/0]
+     via Serial0/0/1, directly connected
+L   FC00::1/128 [0/0]
+     via Serial0/0/1, receive
+L   FF00::/8 [0/0]
+     via Null0, receive
+R1#show ipv6 int
+GigabitEthernet0/1 is up, line protocol is up
+  IPv6 is enabled, link-local address is FE80::8A1D:FCFF:FEE6:8DC9
+  No Virtual link-local address(es):
+  Global unicast address(es):
+    2001:DB8:ACAD:A:8A1D:FCFF:FEE6:8DC9, subnet is 2001:DB8:ACAD:A::/64 [EUI]
+  Joined group address(es):
+    FF02::1
+    FF02::2
+    FF02::1:FFE6:8DC9
+  MTU is 1500 bytes
+  ICMP error messages limited to one every 100 milliseconds
+  ICMP redirects are enabled
+  ICMP unreachables are sent
+  ND DAD is enabled, number of DAD attempts: 1
+  ND reachable time is 30000 milliseconds (using 30000)
+  ND advertised reachable time is 0 (unspecified)
+  ND advertised retransmit interval is 0 (unspecified)
+  ND router advertisements are sent every 200 seconds
+  ND router advertisements live for 1800 seconds
+  ND advertised default router preference is Medium
+  Hosts use stateless autoconfig for addresses.
+Serial0/0/1 is up, line protocol is up
+  IPv6 is enabled, link-local address is FE80::8A1D:FCFF:FEE6:8DC8
+  No Virtual link-local address(es):
+  Global unicast address(es):
+    FC00::1, subnet is FC00::/64
+  Joined group address(es):
+    FF02::1
+    FF02::2
+    FF02::1:FF00:1
+    FF02::1:FFE6:8DC8
+  MTU is 1500 bytes
+  ICMP error messages limited to one every 100 milliseconds
+  ICMP redirects are enabled
+  ICMP unreachables are sent
+  ND DAD is enabled, number of DAD attempts: 1
+  ND reachable time is 30000 milliseconds (using 30000)
+  ND advertised reachable time is 0 (unspecified)
+  ND advertised retransmit interval is 0 (unspecified)
+  ND router advertisements are sent every 200 seconds
+  ND router advertisements live for 1800 seconds
+  ND advertised default router preference is Medium
+  ND RAs are suppressed (periodic)
+  Hosts use stateless autoconfig for addresses.
+R1#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#ipv6 2001:db8:acad:b::/64 s0/0/1
+                ^
+% Invalid input detected at '^' marker.
+
+R1(config)#ipv6 route 2001:db8:acad:b::/64 s0/0/1
+R1(config)#no ipv6 route 2001:db8:acad:b::/64 s0/0/1
+R1(config)#no ipv6 route 2001:db8:acad:b::/64 fc00::2
+% No matching route to delete
+R1(config)#ipv6 route 2001:db8:acad:b::/64 fc00::2
+R1(config)#exit
+R1#
+*Apr  9 06:40:17.067: %SYS-5-CONFIG_I: Configured from console by consoleshow ipv6 int
+GigabitEthernet0/1 is up, line protocol is up
+  IPv6 is enabled, link-local address is FE80::8A1D:FCFF:FEE6:8DC9
+  No Virtual link-local address(es):
+  Global unicast address(es):
+    2001:DB8:ACAD:A:8A1D:FCFF:FEE6:8DC9, subnet is 2001:DB8:ACAD:A::/64 [EUI]
+  Joined group address(es):
+    FF02::1
+    FF02::2
+    FF02::1:FFE6:8DC9
+  MTU is 1500 bytes
+  ICMP error messages limited to one every 100 milliseconds
+  ICMP redirects are enabled
+  ICMP unreachables are sent
+  ND DAD is enabled, number of DAD attempts: 1
+  ND reachable time is 30000 milliseconds (using 30000)
+  ND advertised reachable time is 0 (unspecified)
+  ND advertised retransmit interval is 0 (unspecified)
+  ND router advertisements are sent every 200 seconds
+  ND router advertisements live for 1800 seconds
+  ND advertised default router preference is Medium
+  Hosts use stateless autoconfig for addresses.
+Serial0/0/1 is up, line protocol is up
+  IPv6 is enabled, link-local address is FE80::8A1D:FCFF:FEE6:8DC8
+  No Virtual link-local address(es):
+  Global unicast address(es):
+    FC00::1, subnet is FC00::/64
+  Joined group address(es):
+    FF02::1
+    FF02::2
+    FF02::1:FF00:1
+    FF02::1:FFE6:8DC8
+  MTU is 1500 bytes
+  ICMP error messages limited to one every 100 milliseconds
+  ICMP redirects are enabled
+  ICMP unreachables are sent
+  ND DAD is enabled, number of DAD attempts: 1
+  ND reachable time is 30000 milliseconds (using 30000)
+  ND advertised reachable time is 0 (unspecified)
+  ND advertised retransmit interval is 0 (unspecified)
+  ND router advertisements are sent every 200 seconds
+  ND router advertisements live for 1800 seconds
+  ND advertised default router preference is Medium
+  ND RAs are suppressed (periodic)
+  Hosts use stateless autoconfig for addresses.
+R1#show ipv6 int brief
+Em0/0                  [administratively down/down]
+    unassigned
+GigabitEthernet0/0     [administratively down/down]
+    unassigned
+GigabitEthernet0/1     [up/up]
+    FE80::8A1D:FCFF:FEE6:8DC9
+    2001:DB8:ACAD:A:8A1D:FCFF:FEE6:8DC9
+Serial0/0/0            [administratively down/down]
+    unassigned
+Serial0/0/1            [up/up]
+    FE80::8A1D:FCFF:FEE6:8DC8
+    FC00::1
+R1#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#no ipv6 route 2001:db8:acad:b::/64 fc00::2
+R1(config)#ipv6 route ::/0 s0/0/1
+R1(config)#exit
+R1#sh
+*Apr  9 06:41:44.747: %SYS-5-CONFIG_I: Configured from console by consoleow ipv6 route
+IPv6 Routing Table - default - 6 entries
+Codes: C - Connected, L - Local, S - Static, U - Per-user Static route
+       B - BGP, R - RIP, H - NHRP, I1 - ISIS L1
+       I2 - ISIS L2, IA - ISIS interarea, IS - ISIS summary, D - EIGRP
+       EX - EIGRP external, ND - ND Default, NDp - ND Prefix, DCE - Destination
+       NDr - Redirect, O - OSPF Intra, OI - OSPF Inter, OE1 - OSPF ext 1
+       OE2 - OSPF ext 2, ON1 - OSPF NSSA ext 1, ON2 - OSPF NSSA ext 2
+       a - Application
+S   ::/0 [1/0]
+     via Serial0/0/1, directly connected
+C   2001:DB8:ACAD:A::/64 [0/0]
+     via GigabitEthernet0/1, directly connected
+L   2001:DB8:ACAD:A:8A1D:FCFF:FEE6:8DC9/128 [0/0]
+     via GigabitEthernet0/1, receive
+C   FC00::/64 [0/0]
+     via Serial0/0/1, directly connected
+L   FC00::1/128 [0/0]
+     via Serial0/0/1, receive
+L   FF00::/8 [0/0]
+     via Null0, receive
+R1#

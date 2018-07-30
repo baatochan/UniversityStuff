@@ -1,0 +1,501 @@
+Gateway#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override
+
+Gateway of last resort is 209.165.201.17 to network 0.0.0.0
+
+S*    0.0.0.0/0 [1/0] via 209.165.201.17
+      192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.1.0/24 is directly connected, GigabitEthernet0/1
+L        192.168.1.1/32 is directly connected, GigabitEthernet0/1
+      209.165.201.0/24 is variably subnetted, 2 subnets, 2 masks
+C        209.165.201.16/30 is directly connected, Serial0/0/1
+L        209.165.201.18/32 is directly connected, Serial0/0/1
+Gateway#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Gateway(config)#no ip nat
+% Incomplete command.
+
+Gateway(config)#no ip nat source
+% Incomplete command.
+
+Gateway(config)#no ip nat source static
+% Incomplete command.
+
+Gateway(config)#no ip nat source static 192.168.1.20
+% Incomplete command.
+
+Gateway(config)#no ip nat source static 192.168.1.20 209.165.200.225
+%Translation not found
+Gateway(config)#end
+Gateway#show ip n
+*Jun  4 06:11:11.031: %SYS-5-CONFIG_I: Configured from console by console
+Gateway#show ip nat
+% Incomplete command.
+
+Gateway#show ip nat
+% Incomplete command.
+
+Gateway#show ip nat tr
+Gateway#show ip nat translations
+Pro Inside global      Inside local       Outside local      Outside global
+icmp 209.165.200.243:1 192.168.1.20:1     192.31.7.1:1       192.31.7.1:1
+--- 209.165.200.243    192.168.1.20       ---                ---
+--- 209.165.200.242    192.168.1.21       ---                ---
+Gateway#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Gateway(config)#no ip nat source static 192.168.1.20 209.165.200.243
+%Translation not found
+Gateway(config)#no ip nat source static 192.168.1.20 209.165.200.225
+%Translation not found
+Gateway(config)#no ip nat pool
+% Incomplete command.
+
+Gateway(config)#no ip nat pool public_access
+%Pool public_access in use, cannot destroy
+Gateway(config)#no ip nat inside
+% Incomplete command.
+
+Gateway(config)#no ip nat inside source list 1
+% Incomplete command.
+
+Gateway(config)#no ip nat inside source list 1 pool public_access
+
+Dynamic mapping in use, do you want to delete all entries? [no]: y
+Gateway(config)#no ip nat pool public_access
+Gateway(config)#end
+Gateway#show ip nat translations
+Gateway#
+*Jun  4 06:14:50.207: %SYS-5-CONFIG_I: Configured from console by console
+Gateway#show ip nat translations
+Gateway#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Gateway(config)#$ess 209.165.200.225 209.165.200.230 netmask 255.255.255.248
+Gateway(config)#ip nat inside source list 1 pool public_access overload
+Gateway(config)#end
+Gateway#show
+*Jun  4 06:16:18.531: %SYS-5-CONFIG_I: Configured from console by console
+Gateway#show ip int brief
+Interface                  IP-Address      OK? Method Status                Protocol
+Embedded-Service-Engine0/0 unassigned      YES unset  administratively down down
+GigabitEthernet0/0         unassigned      YES unset  administratively down down
+GigabitEthernet0/1         192.168.1.1     YES manual up                    up
+Serial0/0/0                unassigned      YES unset  administratively down down
+Serial0/0/1                209.165.201.18  YES manual up                    up
+NVI0                       192.168.1.1     YES unset  up                    up
+Gateway#show ip int
+Embedded-Service-Engine0/0 is administratively down, line protocol is down
+  Internet protocol processing disabled
+GigabitEthernet0/0 is administratively down, line protocol is down
+  Internet protocol processing disabled
+GigabitEthernet0/1 is up, line protocol is up
+  Internet address is 192.168.1.1/24
+  Broadcast address is 255.255.255.255
+  Address determined by setup command
+  MTU is 1500 bytes
+  Helper address is not set
+  Directed broadcast forwarding is disabled
+  Outgoing access list is not set
+  Inbound  access list is not set
+  Proxy ARP is enabled
+  Local Proxy ARP is disabled
+  Security level is default
+  Split horizon is enabled
+  ICMP redirects are always sent
+  ICMP unreachables are always sent
+  ICMP mask replies are never sent
+  IP fast switching is enabled
+  IP fast switching on the same interface is disabled
+  IP Flow switching is disabled
+  IP CEF switching is enabled
+  IP CEF switching turbo vector
+  IP multicast fast switching is enabled
+  IP multicast distributed fast switching is disabled
+  IP route-cache flags are Fast, CEF
+  Router Discovery is disabled
+  IP output packet accounting is disabled
+  IP access violation accounting is disabled
+  TCP/IP header compression is disabled
+  RTP/IP header compression is disabled
+  Policy routing is disabled
+  Network address translation is enabled, interface in domain inside
+  BGP Policy Mapping is disabled
+  Input features: Common Flow Table, Stateful Inspection, Virtual Fragment Reassembly, Virtual Fragment Reassembly After IPSec Decryption, MCI Check
+  Output features: NAT Inside, Common Flow Table, Stateful Inspection, NAT ALG proxy
+  IPv4 WCCP Redirect outbound is disabled
+  IPv4 WCCP Redirect inbound is disabled
+  IPv4 WCCP Redirect exclude is disabled
+Serial0/0/0 is administratively down, line protocol is down
+  Internet protocol processing disabled
+Serial0/0/1 is up, line protocol is up
+  Internet address is 209.165.201.18/30
+  Broadcast address is 255.255.255.255
+  Address determined by setup command
+  MTU is 1500 bytes
+  Helper address is not set
+  Directed broadcast forwarding is disabled
+  Outgoing access list is not set
+  Inbound  access list is not set
+  Proxy ARP is enabled
+  Local Proxy ARP is disabled
+  Security level is default
+  Split horizon is enabled
+  ICMP redirects are always sent
+  ICMP unreachables are always sent
+  ICMP mask replies are never sent
+  IP fast switching is enabled
+  IP fast switching on the same interface is enabled
+  IP Flow switching is disabled
+  IP CEF switching is enabled
+  IP CEF switching turbo vector
+  IP multicast fast switching is enabled
+  IP multicast distributed fast switching is disabled
+  IP route-cache flags are Fast, CEF
+  Router Discovery is disabled
+  IP output packet accounting is disabled
+  IP access violation accounting is disabled
+  TCP/IP header compression is disabled
+  RTP/IP header compression is disabled
+  Policy routing is disabled
+  Network address translation is enabled, interface in domain outside
+  BGP Policy Mapping is disabled
+  Input features: Common Flow Table, Stateful Inspection, Virtual Fragment Reassembly, Virtual Fragment Reassembly After IPSec Decryption, NAT Outside, MCI Check
+  Output features: Post-routing NAT Outside, Common Flow Table, Stateful Inspection, NAT ALG proxy
+  IPv4 WCCP Redirect outbound is disabled
+  IPv4 WCCP Redirect inbound is disabled
+  IPv4 WCCP Redirect exclude is disabled
+NVI0 is up, line protocol is up
+  Interface is unnumbered. Using address of GigabitEthernet0/1 (192.168.1.1)
+  Broadcast address is 255.255.255.255
+  MTU is 1514 bytes
+  Helper address is not set
+  Directed broadcast forwarding is disabled
+  Outgoing access list is not set
+  Inbound  access list is not set
+  Proxy ARP is enabled
+  Local Proxy ARP is disabled
+  Security level is default
+  Split horizon is enabled
+  ICMP redirects are always sent
+  ICMP unreachables are always sent
+  ICMP mask replies are never sent
+  IP fast switching is disabled
+  IP fast switching on the same interface is disabled
+  IP Flow switching is disabled
+  IP CEF switching is disabled
+  IP Null turbo vector
+  IP Null turbo vector
+  IP multicast fast switching is enabled
+  IP multicast distributed fast switching is disabled
+  IP route-cache flags are Fast, CEF
+  Router Discovery is disabled
+  IP output packet accounting is disabled
+  IP access violation accounting is disabled
+  TCP/IP header compression is disabled
+  RTP/IP header compression is disabled
+  Policy routing is disabled
+  Network address translation is disabled
+  BGP Policy Mapping is disabled
+  Input features: MCI Check
+  Output features: Post-routing NAT NVI Output
+  IPv4 WCCP Redirect outbound is disabled
+  IPv4 WCCP Redirect inbound is disabled
+  IPv4 WCCP Redirect exclude is disabled
+Gateway#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Gateway(config)#int g0/1
+Gateway(config-if)#ip nat inside
+Gateway(config-if)#int s0/0/1
+Gateway(config-if)#ip nat outside
+Gateway(config-if)#exit
+Gateway(config)#end
+Gateway#shpo
+*Jun  4 06:18:39.503: %SYS-5-CONFIG_I: Configured from console by console
+Gateway#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override
+
+Gateway of last resort is 209.165.201.17 to network 0.0.0.0
+
+S*    0.0.0.0/0 [1/0] via 209.165.201.17
+      192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.1.0/24 is directly connected, GigabitEthernet0/1
+L        192.168.1.1/32 is directly connected, GigabitEthernet0/1
+      209.165.201.0/24 is variably subnetted, 2 subnets, 2 masks
+C        209.165.201.16/30 is directly connected, Serial0/0/1
+L        209.165.201.18/32 is directly connected, Serial0/0/1
+Gateway#show ip nat stai
+Gateway#show ip nat stai
+                       ^
+% Invalid input detected at '^' marker.
+
+Gateway#show ip nat sta
+Gateway#show ip nat statistics
+Total active translations: 0 (0 static, 0 dynamic; 0 extended)
+Peak translations: 22, occurred 00:16:25 ago
+Outside interfaces:
+  Serial0/0/1
+Inside interfaces:
+  GigabitEthernet0/1
+Hits: 6425  Misses: 0
+CEF Translated packets: 6425, CEF Punted packets: 8
+Expired translations: 39
+Dynamic mappings:
+-- Inside Source
+[Id: 2] access-list 1 pool public_access refcount 0
+
+Total doors: 0
+Appl doors: 0
+Normal doors: 0
+Queued Packets: 0
+Gateway#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Gateway(config)#ip nat inside source list 1 pool public_access
+Gateway(config)#exit
+Gateway#show ip nat stai
+*Jun  4 06:19:38.359: %SYS-5-CONFIG_I: Configured from console by console
+Gateway#show ip nat statistics
+Total active translations: 0 (0 static, 0 dynamic; 0 extended)
+Peak translations: 22, occurred 00:17:00 ago
+Outside interfaces:
+  Serial0/0/1
+Inside interfaces:
+  GigabitEthernet0/1
+Hits: 6425  Misses: 0
+CEF Translated packets: 6425, CEF Punted packets: 8
+Expired translations: 39
+Dynamic mappings:
+-- Inside Source
+[Id: 2] access-list 1 pool public_access refcount 0
+
+Total doors: 0
+Appl doors: 0
+Normal doors: 0
+Queued Packets: 0
+Gateway#show ip nat statistics
+Total active translations: 0 (0 static, 0 dynamic; 0 extended)
+Peak translations: 22, occurred 00:17:04 ago
+Outside interfaces:
+  Serial0/0/1
+Inside interfaces:
+  GigabitEthernet0/1
+Hits: 6425  Misses: 0
+CEF Translated packets: 6425, CEF Punted packets: 8
+Expired translations: 39
+Dynamic mappings:
+-- Inside Source
+[Id: 2] access-list 1 pool public_access refcount 0
+
+Total doors: 0
+Appl doors: 0
+Normal doors: 0
+Queued Packets: 0
+Gateway#show ip nat pool
+                    ^
+% Invalid input detected at '^' marker.
+
+Gateway#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Gateway(config)#$ess 209.165.200.225 209.165.200.230 netmask 255.255.255.248
+Gateway(config)#ip nat inside source list 1 pool public_access
+Gateway(config)#exit
+Gateway#show ip nat statistics
+*Jun  4 06:20:37.835: %SYS-5-CONFIG_I: Configured from console by console
+Gateway#show ip nat statistics
+Total active translations: 0 (0 static, 0 dynamic; 0 extended)
+Peak translations: 22, occurred 00:18:00 ago
+Outside interfaces:
+  Serial0/0/1
+Inside interfaces:
+  GigabitEthernet0/1
+Hits: 6425  Misses: 0
+CEF Translated packets: 6425, CEF Punted packets: 11
+Expired translations: 39
+Dynamic mappings:
+-- Inside Source
+[Id: 2] access-list 1 pool public_access refcount 0
+
+Total doors: 0
+Appl doors: 0
+Normal doors: 0
+Queued Packets: 0
+Gateway#show acces-list
+                  ^
+% Invalid input detected at '^' marker.
+
+Gateway#show access
+Gateway#show access-
+Gateway#show access-l
+Gateway#show access-lists
+Standard IP access list 1
+    10 permit 192.168.1.0, wildcard bits 0.0.0.255 (24 matches)
+Gateway#show run
+Building configuration...
+
+Current configuration : 1540 bytes
+!
+! Last configuration change at 06:20:37 UTC Mon Jun 4 2018
+!
+version 15.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Gateway
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+memory-size iomem 15
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain lookup
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+cts logging verbose
+!
+!
+license udi pid CISCO2901/K9 sn FCZ1911C3AY
+!
+!
+!
+redundancy
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ ip address 192.168.1.1 255.255.255.0
+ ip nat inside
+ ip virtual-reassembly in
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface Serial0/0/1
+ ip address 209.165.201.18 255.255.255.252
+ ip nat outside
+ ip virtual-reassembly in
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+ip nat pool public_acess 209.165.200.225 209.165.200.230 netmask 255.255.255.248
+ip nat inside source list 1 pool public_access
+ip route 0.0.0.0 0.0.0.0 209.165.201.17
+!
+!
+!
+access-list 1 permit 192.168.1.0 0.0.0.255
+!
+control-plane
+!
+!
+!
+line con 0
+ logging synchronous
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ login
+ transport input none
+!
+scheduler allocate 20000 1000
+!
+end
+
+Gateway#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Gateway(config)#ip nat inside source list 1 pool public_acess
+Gateway(config)#exit
+Gateway#show
+*Jun  4 06:22:38.835: %SYS-5-CONFIG_I: Configured from console by console
+Gateway#show ip nat
+% Incomplete command.
+
+Gateway#show ip nat tr
+Gateway#show ip nat translations
+Pro Inside global      Inside local       Outside local      Outside global
+icmp 209.165.200.225:5222 192.168.1.21:5222 192.31.7.1:5222  192.31.7.1:5222
+--- 209.165.200.225    192.168.1.21       ---                ---
+Gateway#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Gateway(config)#no ip nat pool public_access
+%Pool public_access not found
+Gateway(config)#no ip nat pool public_acess
+%Pool public_acess in use, cannot destroy
+Gateway(config)#$ess 209.165.200.225 209.165.200.230 netmask 255.255.255.248
+%Pool public_acess in use, cannot redefine
+Gateway(config)#no ip nat pool public_acess 209.165.200.225
+%Pool public_acess in use, cannot destroy
+Gateway(config)#no ip nat inside source list 1 pool poblic_acess
+
+Dynamic mapping in use, do you want to delete all entries? [no]: y
+Gateway(config)#$.165.200.225 209.165.200.230 netmask 255.255.255.248
+Gateway(config)#ip nat inside source list 1 int s0/0/1
+Gateway(config)#

@@ -1,0 +1,61 @@
+S2#show vlan brief
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/2, Fa0/3, Fa0/4, Fa0/5
+                                                Fa0/6, Fa0/7, Fa0/8, Fa0/9
+                                                Fa0/10, Fa0/11, Fa0/12, Fa0/13
+                                                Fa0/14, Fa0/15, Fa0/16, Fa0/17
+                                                Fa0/19, Fa0/20, Fa0/21, Fa0/22
+                                                Fa0/23, Fa0/24, Gi0/1, Gi0/2
+10   Student                          active
+20   Faculty                          active    Fa0/18
+1002 fddi-default                     act/unsup
+1003 token-ring-default               act/unsup
+1004 fddinet-default                  act/unsup
+1005 trnet-default                    act/unsup
+
+S2#show ip int brief
+Interface              IP-Address      OK? Method Status                Protocol
+Vlan1                  192.168.1.12    YES manual up                    up
+Vlan20                 unassigned      YES unset  up                    up
+FastEthernet0/1        unassigned      YES unset  up                    up
+FastEthernet0/2        unassigned      YES unset  administratively down down
+FastEthernet0/3        unassigned      YES unset  administratively down down
+FastEthernet0/4        unassigned      YES unset  administratively down down
+FastEthernet0/5        unassigned      YES unset  administratively down down
+FastEthernet0/6        unassigned      YES unset  administratively down down
+FastEthernet0/7        unassigned      YES unset  administratively down down
+FastEthernet0/8        unassigned      YES unset  administratively down down
+FastEthernet0/9        unassigned      YES unset  administratively down down
+FastEthernet0/10       unassigned      YES unset  administratively down down
+FastEthernet0/11       unassigned      YES unset  administratively down down
+FastEthernet0/12       unassigned      YES unset  administratively down down
+FastEthernet0/13       unassigned      YES unset  administratively down down
+FastEthernet0/14       unassigned      YES unset  administratively down down
+FastEthernet0/15       unassigned      YES unset  administratively down down
+FastEthernet0/16       unassigned      YES unset  administratively down down
+FastEthernet0/17       unassigned      YES unset  administratively down down
+FastEthernet0/18       unassigned      YES unset  up                    up
+FastEthernet0/19       unassigned      YES unset  administratively down down
+FastEthernet0/20       unassigned      YES unset  administratively down down
+FastEthernet0/21       unassigned      YES unset  administratively down down
+FastEthernet0/22       unassigned      YES unset  administratively down down
+FastEthernet0/23       unassigned      YES unset  administratively down down
+FastEthernet0/24       unassigned      YES unset  administratively down down
+GigabitEthernet0/1     unassigned      YES unset  administratively down down
+GigabitEthernet0/2     unassigned      YES unset  administratively down down
+
+S2#show int trunk
+
+Port        Mode             Encapsulation  Status        Native vlan
+Fa0/1       on               802.1q         trunking      1
+
+Port        Vlans allowed on trunk
+Fa0/1       1-4094
+
+Port        Vlans allowed and active in management domain
+Fa0/1       1,10,20
+
+Port        Vlans in spanning tree forwarding state and not pruned
+Fa0/1       1,10,20

@@ -1,0 +1,23 @@
+C:\Users\Student>ipconfig/release
+
+Windows IP Configuration
+
+
+Ethernet adapter Ethernet 4:
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::d1c5:d1da:ae45:d382%6
+   Default Gateway . . . . . . . . . :
+
+C:\Users\Student>ipconfig/renew
+
+Windows IP Configuration
+
+
+Ethernet adapter Ethernet 4:
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::d1c5:d1da:ae45:d382%6
+   IPv4 Address. . . . . . . . . . . : 192.168.1.13
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 192.168.1.1
