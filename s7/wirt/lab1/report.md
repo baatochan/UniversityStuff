@@ -10,7 +10,7 @@ Data | Tytuł zajęć | Uczestnicy
 
 Adres MAC wirtualnej karty sieciowej został zmieniony, co widać na poniższym screenshocie.
 
-![Zmieniony MAC](screenshots/Screenshot from 2018-10-04 10-00-16-edited.png)
+![Zmieniony MAC](screenshots/Screenshot_from_2018-10-04_10-00-16_edited.png)
 
 ### 3. Porównanie różnych metod konfiguracji wirtualnej karty sieciowej
 
@@ -34,7 +34,7 @@ Maszyna wirtualna znajdowała się pod adresem `192.168.255.202`.
 
 Poprawne połączenie z napisaną na szybko "stroną" widać na poniższym screenshocie.
 
-![Połączenie host <-> VM](screenshots/Screenshot from 2018-10-04 11-12-13.png)
+![Połączenie host <-> VM](screenshots/Screenshot_from_2018-10-04_11-12-13.png)
 
 ### 5. Połączenie VM@host0 <-> VM@host1
 
@@ -53,7 +53,7 @@ VM@`host1` | 192.168.255.192
 
 Pozytywne połączenia ping widać poniżej:
 
-![Pingi z Windowsa](screenshots/Screenshot from 2018-10-04 11-20-41.png)
+![Pingi z Windowsa](screenshots/Screenshot_from_2018-10-04_11-20-41.png)
 ![Pingi z Linuxa](screenshots/ping_between.png)
 
 Nie mamy screenshota pingów pomiędzy hostem a VM, ale udowodniliśmy działanie tego połączenia w pkt. 4, a od tego czasu konfiguracja sieci nie uległa zmianie.
