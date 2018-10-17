@@ -4,7 +4,7 @@
 
 Data | Tytuł zajęć | Uczestnicy
 :-: | :-: | :-:
-04.10.2018 09:15 | Praca z maszyną wirtualną | Bartosz Rodziewicz (226105)<br><!--TODO: uzupelnic imie i nazwisko--> (218280)
+04.10.2018 09:15 | Praca z maszyną wirtualną | Norbert Małecki (218280)<br>Bartosz Rodziewicz (226105)
 
 ### 2. Zmienić adres sprzętowy maszyny
 
@@ -21,6 +21,8 @@ Bridged adapter | auto | IP: 192.168.255.202<br>Brama: 192.168.255.254<br>Serwer
 Internal Network | zależy od konfiguracji, domyślnie ręcznie, możliwość włączenia DHCP w VBox | N/A | nie | nie
 
 Nie udało nam się przetestować trybu host-only - nie byliśmy w stanie utworzyć interfejsu sieciowego do połączeń host-only na hoście. Wydaje nam się, że wynikało to z braku uprawnień.
+
+<div class="page-break">
 
 ### 4. Połączenie host <-> VM
 
