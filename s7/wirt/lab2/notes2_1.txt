@@ -1,0 +1,12 @@
+Konsola maszyny wirtualnej 
+
+3. Po zmianie W CentOS w konfiguracji maszyny wirtualnej dostępną są wybrane statystyki
+
+
+7. Sieć NAT:
+	- dostęp do sieci : TAK
+	- ping do Kali Linux : TAK
+   Sieć Interfejs fizyczny hosta :
+	- dostęp do sieci : TAK
+	- ping do Kali Linux : NIE
+
