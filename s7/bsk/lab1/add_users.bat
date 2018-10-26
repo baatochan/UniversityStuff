@@ -1,0 +1,16 @@
+net user u0 xxx /add
+net user u1 y69 /add
+net user u2 420 /add
+net user u3 xxxx /add
+net user u4 1u74 /add
+net user u5 3xx8 /add
+net user u6 2137 /add
+net user u7 xxxxx /add
+net user u8 ksyhx /add
+net user u9 jn78y /add
+net user u10 67930 /add
+net user u11 kms78 /add
+net user u12 jskiur /add
+net user u13 kms67a /add
+net user u14 2345is /add
+net user u15 123456 /add
