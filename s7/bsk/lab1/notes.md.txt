@@ -1,0 +1,32 @@
+# 1. 
+nr 8
+
+router 10.0.0.1  
+pc iwo 10.0.0.2  
+pc baato 10.0.0.3  
+
+# 2.
+
+```
+Active Connections
+
+  Proto  Local Address          Foreign Address        State
+  TCP    10.0.0.3:65132         10.0.0.1:telnet        ESTABLISHED
+  TCP    10.0.0.3:65134         KSSK4:http             ESTABLISHED
+  TCP    127.0.0.1:49190        KSSK:49191             ESTABLISHED
+  TCP    127.0.0.1:49191        KSSK:49190             ESTABLISHED
+  TCP    127.0.0.1:49194        KSSK:49195             ESTABLISHED
+  TCP    127.0.0.1:49195        KSSK:49194             ESTABLISHED
+  TCP    127.0.0.1:49216        KSSK:49217             ESTABLISHED
+  TCP    127.0.0.1:49217        KSSK:49216             ESTABLISHED
+  TCP    127.0.0.1:49225        KSSK:49226             ESTABLISHED
+  TCP    127.0.0.1:49226        KSSK:49225             ESTABLISHED
+  TCP    127.0.0.1:65038        KSSK:65039             ESTABLISHED
+  TCP    127.0.0.1:65039        KSSK:65038             ESTABLISHED
+  TCP    127.0.0.1:65071        KSSK:65072             ESTABLISHED
+  TCP    127.0.0.1:65072        KSSK:65071             ESTABLISHED
+  TCP    127.0.0.1:65130        KSSK:65131             ESTABLISHED
+  TCP    127.0.0.1:65131        KSSK:65130             ESTABLISHED
+```
+
+# 3. 
