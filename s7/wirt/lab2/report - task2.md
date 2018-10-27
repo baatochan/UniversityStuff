@@ -3,8 +3,11 @@
 #### Obciążenie hosta poprzez maszyny wirtualne
 
 Obciążenie procesora hosta przy pojedynczej maszynie widać na poniższym screenie.
+
 ![Jedna maszyna](screenshots/task2/ladowanie-maszyny-wirt-z-win.png)
+
 Wynik dla dwóch maszyn wygląda następująco.
+
 ![Dwie maszyny](screenshots/task2/ladowanie-dwoch-maszyn-wirt-z-win.png)
 
 #### Wykonanie testów
@@ -17,6 +20,7 @@ Narzędziem służącym do obsługi wirtualnych maszyn był VirtualBox. Narzędz
 #### Omówienie wyników
 
 W sprawozdaniu nie załączamy wszystkich wyników, a jedynie przetworzone na procentowe dane na wykresach. Prezentują się one następująco.
+
 ![Jedna maszyna](screenshots/task2/wyniki1.png)
 ![Dwie maszyny](screenshots/task2/wyniki2.png)
 
