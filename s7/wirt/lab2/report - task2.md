@@ -1,3 +1,56 @@
+### Zadanie 1 - Tworzenie i konfiguracja maszyny wirutalnej
+Udało nam się poprawnie utworzyć maszynę wirutalną przy pomocy dostarczonego pliku, który mieliśmy zaimportować oraz ustawić w odpowiedni sposób parametry maszyny.
+### 1.3 - Statystyki zużycia
+W programie Virtual Machine Manager włączyliśmy raportowanie o zużyciu dysku, sieci i pamięci RAM (zużycie CPU jest domyślnie ustawione) dodatkowo możliwe jest wybranie okresu czasu aktualizowania raportu.
+
+![Raport o zużyciu](screenshots/task1/Centos_Preferences.png)
+
+### 1.4 - Alokacja zasobów procesora
+Na wirtualnej maszynie, po wejściu w ustawienia i przejściu do zakładki CPUs możliwe jest "dokładniejsze" zarządzanie procesorem. Można ręcznie zmienić ilość rdzeni lub wątków (oczywiście zależy to od architektury danego procesora)
+
+![Alokacja zasobów](screenshots/task1/Lab2_1_4.png)
+
+### 1.7 - Ustawienia karty sieciowej
+Zmieniając ustawienia karty sieciowej testowaliśmy możliwości połączenia przy zastosowaniu sieci nat oraz interfejsu fizycznego hosta.
+#### Sieć NAT
+* Dostęp do sieci : TAK
+* Ping do Kali Linux : TAK
+
+Dostęp do sieci
+![Dostęp sieć NAT](screenshots/task1/Lab2_1_7_NAT.png)
+
+#### Interfejs fizyczny hosta
+* Dostęp do sieci : TAK
+* Ping do Kali Linux : NIE
+
+Dostęp do sieci
+![Dostęp interfejs fizyczny](screenshots/task1/Lab2_1_7_Host.png)
+
+Konfiguracja
+![Konfiguracja interfejs fizyczny](screenshots/task1/Lab2_1_7_Interface_Host.png)
+
+### 1.8 - Dodanie nowego dysku
+Udało się nam poprawnie dodać dysk dla maszyny wirtualnej. Do listowania dostępnych dysków użyliśmy polecenia "lsblk".
+
+Przed dodaniem dysku
+![Przed dodaniem](screenshots/task1/Lab2_1_8_hardware_before.png)
+
+Po dadaniu dysku
+![Po dodaniu](screenshots/task1/Lab2_1_8_hardware_after.png)
+
+Jak widać na ostatniej pozycji pojawił nam się utworzony dysk (vda)
+
+### Snapshoty
+Utworzyliśmy nowego użytkownika przy pomocy komendy "useradd" o nazwie "student2". 
+Można zauważyć, że w pliku passwd (ścieżka /etc/passwd) znajduje się dodany użytkownik. 
+![Passwd](screenshots/task1/Lab2_1_CreatedStudent2.png)
+
+Następnie zrobiliśmy migawkę systemu
+![Tworzenie migawki](screenshots/task1/Lab2_1_CreateSnapshot.png)
+
+Po przywróceniu systemu z utworzonej migawki użytkownik "student2" nie znajduje się w pliku passwd.
+![Przywrócenie z migawki](screenshots/task1/Lab2_1_RestoreFromSnapshot.png)
+
 ### Zadanie 2 - Badanie kosztów środowiska z maszynami wirtualnymi
 
 #### Obciążenie hosta poprzez maszyny wirtualne
