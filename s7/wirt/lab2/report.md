@@ -18,6 +18,8 @@ W programie Virtual Machine Manager włączyliśmy raportowanie o zużyciu dysku
 
 ![Raport o zużyciu](screenshots/task1/Centos_Preferences.png)
 
+<div class="page-break">
+
 ##### 4 - Alokacja zasobów procesora
 Na wirtualnej maszynie, po wejściu w ustawienia i przejściu do zakładki `CPUs` możliwe jest "dokładniejsze" zarządzanie procesorem. Można ręcznie zmienić ilość rdzeni lub wątków (oczywiście zależy to od architektury danego procesora).
 
@@ -33,6 +35,8 @@ Zmieniając ustawienia karty sieciowej testowaliśmy możliwości połączenia p
 Dostęp do sieci
 ![Dostęp sieć NAT](screenshots/task1/Lab2_1_7_NAT.png)
 
+<div class="page-break">
+
 ###### Interfejs fizyczny hosta
 * Dostęp do sieci : TAK
 * Ping do Kali Linux : NIE
@@ -42,6 +46,8 @@ Dostęp do sieci
 
 Konfiguracja
 ![Konfiguracja interfejs fizyczny](screenshots/task1/Lab2_1_7_Interface_Host.png)
+
+<div class="page-break">
 
 ##### 8 - Dodanie nowego dysku
 Udało się nam poprawnie dodać dysk dla maszyny wirtualnej. Do listowania dostępnych dysków użyliśmy polecenia `lsblk`.
@@ -54,6 +60,8 @@ Po dodaniu dysku
 
 Jak widać na ostatniej pozycji pojawił nam się utworzony dysk (`vda`)
 
+<div class="page-break">
+
 #### Snapshoty
 Zrobiliśmy migawkę systemu
 ![Tworzenie migawki](screenshots/task1/Lab2_1_CreateSnapshot.png)
@@ -61,6 +69,8 @@ Zrobiliśmy migawkę systemu
 Później utworzyliśmy nowego użytkownika przy pomocy komendy `useradd` o nazwie `student2`.
 Można zauważyć, że w pliku `/etc/passwd` znajduje się dodany użytkownik.
 ![Passwd](screenshots/task1/Lab2_1_CreatedStudent2.png)
+
+<div class="page-break">
 
 Po przywróceniu systemu z utworzonej migawki użytkownik `student2` nie znajduje się w pliku `passwd`.
 ![Przywrócenie z migawki](screenshots/task1/Lab2_1_RestoreFromSnapshot.png)
@@ -72,6 +82,8 @@ Po przywróceniu systemu z utworzonej migawki użytkownik `student2` nie znajduj
 Obciążenie procesora hosta przy pojedynczej maszynie widać na poniższym screenie.
 
 ![Jedna maszyna](screenshots/task2/ladowanie-maszyny-wirt-z-win.png)
+
+<div class="page-break">
 
 Wynik dla dwóch maszyn wygląda następująco.
 
