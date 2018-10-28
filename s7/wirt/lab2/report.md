@@ -1,7 +1,18 @@
+# Wirtualizacja systemów i sieci komputerowych
+
+## Sprawozdanie z laboratorium
+
+Data | Tytuł zajęć | Uczestnicy
+:-: | :-: | :-:
+04.10.2018 09:15 | KVM oraz benchmarki | Norbert Małecki (218280)<br>Bartosz Rodziewicz (226105)
+
 ### Zadanie 1 - KVM - Kernel-based Virtual Machine - zarządzanie
+
 #### Tworzenie maszyny wirtualnej
 Udało nam się poprawnie utworzyć maszynę wirtualną przy pomocy dostarczonego pliku, który mieliśmy zaimportować oraz ustawić w odpowiedni sposób parametry maszyny.
+
 #### Konsola maszyny wirtualnej
+
 ##### 3 - Statystyki zużycia
 W programie Virtual Machine Manager włączyliśmy raportowanie o zużyciu dysku, sieci i pamięci RAM (zużycie CPU jest domyślnie ustawione), dodatkowo możliwe jest wybranie okresu czasu aktualizowania raportu.
 
@@ -14,6 +25,7 @@ Na wirtualnej maszynie, po wejściu w ustawienia i przejściu do zakładki `CPUs
 
 ##### 7 - Ustawienia karty sieciowej
 Zmieniając ustawienia karty sieciowej testowaliśmy możliwości połączenia przy zastosowaniu sieci NAT oraz interfejsu fizycznego hosta.
+
 ###### Sieć NAT
 * Dostęp do sieci : TAK
 * Ping do Kali Linux : TAK
