@@ -25,7 +25,9 @@ Powyższe screenshoty pokazują, że zmieniliśmy nazwę naszej zapory na nasze 
 
 Aby jednak nasze komputery otrzymały adres i zaczęło działać nam połączenie internetowe wymagane było zrestartowanie karty sieciowej w Windowsie (znalezienie tego zabrało nam cały pozostały czas po tym jak zresetowaliśmy naszą zaporę, co uniemożliwiło nam wykonanie ćwiczenia).
 
-Po restarcie karty sieciowej działało nam połączenie internetowe, nie działał `ping`, ani `tracert`.
+Po restarcie karty sieciowej działało nam połączenie internetowe, serwer DNS (`nslookup`), nie działał `ping`, ani `tracert`.
+
+`ping` i `trecert` nie działał, ponieważ zapora domyślnie blokuje powracające odpowiedzi `ICMP`.
 
 Działanie pingów aktywowaliśmy za pomocą komend:
 ```
@@ -58,5 +60,7 @@ Założona została przez nas na interfejs `Vlan2`, czyli `outside` w kierunku w
 
 Działanie blokady pokazuje poniższy screenshot (inne karty z innymi stronami są załadowane):
 ![Działająca blokada](screenshots/not-working-eportal.PNG)
+
+Działanie listy ACL zostało zgłoszone prowadzącemu.
 
 Kolejnych punktów instrukcji nie udało nam się zrealizować z powodu zmarnowania czasu na wcześniej wspomniane problemy.
