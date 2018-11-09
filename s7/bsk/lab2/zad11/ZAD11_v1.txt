@@ -1,0 +1,9 @@
+
+*** ZADANIE 11 ***
+
+Zapisaæ do pliku tekstowego numery indeksów cz³onków grupy.
+Plik zaszyfrowaæ za pomoc¹ gpg algorytmem RC4 (tylko symetrycznym) z kluczem 'LABORKA'.
+Obliczyæ sumê kontroln¹ SHA-1 pliku (Kleopatra).
+Komendy gpg, treœæ pliku przed i po zaszyfrowaniu oraz sumê kontroln¹ umieœciæ w sprawozdaniu.
+
+******************
