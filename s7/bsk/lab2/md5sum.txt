@@ -1,0 +1,2 @@
+55f24a0a2ae41f1d68085396f3eb3070  C:/Users/barto/Desktop/imiona.txt.gpg
+gpg --recipient "Marcin Markowski" --cipher-algo aes192 --encrypt imiona.txt
