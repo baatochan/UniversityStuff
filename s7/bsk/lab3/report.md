@@ -1,10 +1,10 @@
-# Wirtualizacja systemów i sieci komputerowych
+# Bezpieczeństwo sieci komputerowych
 
 ## Sprawozdanie z laboratorium
 
 Data | Tytuł zajęć | Uczestnicy
 :-: | :-: | :-:
-30.10.2018 09:15 | Zapory ogniowe, filtrowanie ruchu | Igor Bejnarowicz (<!--TODO: uzupelnic index-->)<br>Bartosz Rodziewicz (226105)
+30.10.2018 09:15 | Zapory ogniowe, filtrowanie ruchu | Igor Bejnarowicz (218573)<br>Bartosz Rodziewicz (226105)
 
 ### Przebieg laboratorium
 
@@ -13,6 +13,7 @@ Zadanie laboratoryjne udało nam się zrealizować w bardzo ograniczonym zakresi
 Po rozwiązaniu problemu z brakiem domyślnej konfiguracji, połączyliśmy się z czystą zaporą i zapoznaliśmy się z domyślną konfiguracją.
 
 Zapora posiada 8 portów, z czego 7 jest przypisanych do `Vlan1`, o nazwie `inside` (są to porty `e0/1`-`e0/7`) o poziomie bezpieczeństwa `100`, jeden port jest przypisany do `Vlan2`, o nazwie `outside`, poziomie bezpieczeństwa `0` i jest to port `e0/0`.
+
 ![Domyślne VLany](screenshots/default-correct.PNG)
 
 Z uwagi na taką konfigurację VLanów sieć laboratoryjna została podłączona do portu `e0/0`, a nasze komputery `e0/1` i `e0/2`.
