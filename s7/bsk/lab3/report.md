@@ -14,13 +14,13 @@ Po rozwiązaniu problemu z brakiem domyślnej konfiguracji, połączyliśmy się
 
 Zapora posiada 8 portów, z czego 7 jest przypisanych do `Vlan1`, o nazwie `inside` (są to porty `e0/1`-`e0/7`) o poziomie bezpieczeństwa `100`, jeden port jest przypisany do `Vlan2`, o nazwie `outside`, poziomie bezpieczeństwa `0` i jest to port `e0/0`.
 
-![Domyślne VLany](screenshots/default-correct.PNG =450x0)
+![Domyślne VLany](screenshots/default-correct.PNG)
 
 Z uwagi na taką konfigurację VLanów sieć laboratoryjna została podłączona do portu `e0/0`, a nasze komputery `e0/1` i `e0/2`.
 
 DHCP na zaporze nie jest domyślnie aktywowane, nasze komputery dostały adres od serwera DHCP w pracowni.
 
-![Domyślny DHCP](screenshots/dhcp-default.PNG =400x0)
+![Domyślny DHCP](screenshots/dhcp-default.PNG)
 
 Powyższe screenshoty pokazują, że zmieniliśmy nazwę naszej zapory na nasze nazwiska.
 
