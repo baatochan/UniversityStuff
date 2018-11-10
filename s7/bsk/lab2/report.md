@@ -11,8 +11,10 @@ Data | Tytuł zajęć | Uczestnicy
 #### 2. Generacja 3 par kluczy
 Oboje wygenerowaliśmy trzy pary kluczy:
 
-![3 pary ja](screenshots/ScreenClip_[12].png)
+![3 pary ja](screenshots/ScreenClip_[12].png =500x0)
 ![3 pary igor](screenshots/Capture.png)
+
+<div class="page-break">
 
 #### 3. Klucze publiczne
 Wyeksportowaliśmy klucze do plików tekstowych. Odciski kluczy są następujące:
@@ -22,8 +24,8 @@ Wyeksportowaliśmy klucze do plików tekstowych. Odciski kluczy są następując
 | Igor | 4BE1CA5D520DD702D9CB30283F5BE433401C1FDC |
 | Bartosz | 9E4DBBA1772805EA45A6F77719FF00DCEB26EB88 |
 
-![publiczny ja](screenshots/ScreenClip_[13].png)
-![publiczny igor](screenshots/Capture2.png)
+![publiczny ja](screenshots/ScreenClip_[13].png =500x0)
+![publiczny igor](screenshots/Capture2.png =500x0)
 
 #### 4. Serwer kluczy
 Oboje wysłaliśmy nasze klucze na serwer kluczy `pgp.mit.edu`.
@@ -33,8 +35,8 @@ Oboje wysłaliśmy nasze klucze na serwer kluczy `pgp.mit.edu`.
 #### 5. Wzajemne podpisanie kluczy
 Poprzez serwer kluczy wymieniliśmy się naszymi kluczami i wzajemnie je sobie podpisaliśmy.
 
-![podpisany klucz ja](screenshots/ScreenClip_[15].png)
-![podpisany klucz igor](screenshots/Capture3.png)
+![podpisany klucz ja](screenshots/ScreenClip_[15].png =500x0)
+![podpisany klucz igor](screenshots/Capture3.png =500x0)
 
 #### 6. Podpisanie małego pliku
 Utworzyliśmy plik o nazwie `smallfile.txt` o treści:
@@ -43,6 +45,8 @@ Bejnarowicz, Rodziewicz
 09.11; 22:54
 ```
 
+<div class="page-break">
+
 Został on podpisany z poziomu konsoli:
 
 ![podpisany plik konsola](screenshots/ScreenClip_[16].png)
@@ -50,6 +54,8 @@ Został on podpisany z poziomu konsoli:
 i sprawdzona jego poprawność z poziomu Kleopatry:
 
 ![podpisany plik konsola sprawdzenie](screenshots/ScreenClip_[17].png)
+
+<div class="page-break">
 
 #### 7. Podpisanie pliku binarnego
 
@@ -63,6 +69,8 @@ gpg --decrypt-files task.pdf.gpg
 
 ![zaszyfrowany plik](screenshots/ScreenClip_[20].png)
 
+<div class="page-break">
+
 #### 9. Zaszyfrowanie pliku z konsoli, odszyfrowanie z Kleopatry
 Użyta komenda:
 ```
@@ -74,7 +82,7 @@ gpg --recipient bartek2 --output _3_gnupg_2012.pdf.gpg --encrypt _3_gnupg_2012.p
 #### 11. Ukryte zadanie
 Poprawnym zadaniem było zadanie nr 5.
 
-![ukryte zadanie](screenshots/ScreenClip_[22].png)
+![ukryte zadanie](screenshots/ScreenClip_[22].png =500x0)
 
 Jego treść to:
 ```
@@ -111,7 +119,7 @@ Przesłaliśmy sobie wzajemnie maile. Aby zachowana była zgodność kluczy potr
 Po odszyfrowaniu wyświetla się wiadomość, że mail jest zaufany:
 
 ![odszyfrowany mail](screenshots/ScreenClip_[25].png)
-![dane szyfrowania](screenshots/ScreenClip_[26].png)
+![dane szyfrowania](screenshots/ScreenClip_[26].png =500x0)
 
 #### 13. Porównanie szyfrowania
 Domyślnym algorytmem szyfrowania jest `AES-128` (w `gpg` od wersji 2.1).
