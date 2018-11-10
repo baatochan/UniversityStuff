@@ -1,0 +1,8 @@
+2. 
+internet dziala
+serwer dns jest
+nie mozna pingowac sieci loaklnej
+
+access-list acl_out extended deny tcp any host 156.17.70.219 eq any                                                                                                                                                           nt=0) 0x8877a438
+access-list acl_out extended deny tcp any any eq ftp                                                                                                                                                           3
+access-list acl_out extended permit ip any any

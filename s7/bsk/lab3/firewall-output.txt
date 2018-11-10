@@ -1,0 +1,391 @@
+﻿
+                         ^
+ERROR: % Invalid input detected at '^' marker.
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz# config t
+Rodziewicz-Bejnarowicz(config)# policy-map global_policy
+Rodziewicz-Bejnarowicz(config-pmap)# class inspection_default
+Rodziewicz-Bejnarowicz(config-pmap-c)# inspect icmp
+Rodziewicz-Bejnarowicz(config-pmap-c)# end
+Rodziewicz-Bejnarowicz# show run
+Rodziewicz-Bejnarowicz# show running-config
+: Saved
+:
+ASA Version 9.0(1)
+!
+hostname Rodziewicz-Bejnarowicz
+enable password 8Ry2YjIyt7RRXU24 encrypted
+passwd 2KFQnbNIdI.2KYOU encrypted
+names
+!
+interface Ethernet0/0
+ switchport access vlan 2
+!
+interface Ethernet0/1
+!
+interface Ethernet0/2
+!
+interface Ethernet0/3
+!
+interface Ethernet0/4
+!
+interface Ethernet0/5
+!
+interface Ethernet0/6
+!
+interface Ethernet0/7
+!
+interface Vlan1
+ nameif inside
+ security-level 100
+ ip address 192.168.1.1 255.255.255.0
+!
+interface Vlan2
+ nameif outside
+ security-level 0
+ ip address dhcp setroute
+!
+ftp mode passive
+object network obj_any
+ subnet 0.0.0.0 0.0.0.0
+pager lines 24
+logging asdm informational
+mtu outside 1500
+mtu inside 1500
+icmp unreachable rate-limit 1 burst-size 1
+no asdm history enable
+arp timeout 14400
+no arp permit-nonconnected
+!
+object network obj_any
+ nat (inside,outside) dynamic interface
+timeout xlate 3:00:00
+timeout pat-xlate 0:00:30
+timeout conn 1:00:00 half-closed 0:10:00 udp 0:02:00 icmp 0:00:02
+timeout sunrpc 0:10:00 h323 0:05:00 h225 1:00:00 mgcp 0:05:00 mgcp-pat 0:05:00
+timeout sip 0:30:00 sip_media 0:02:00 sip-invite 0:03:00 sip-disconnect 0:02:00
+timeout sip-provisional-media 0:02:00 uauth 0:05:00 absolute
+timeout tcp-proxy-reassembly 0:01:00
+timeout floating-conn 0:00:00
+dynamic-access-policy-record DfltAccessPolicy
+user-identity default-domain LOCAL
+http server enable
+http 192.168.1.0 255.255.255.0 inside
+no snmp-server location
+no snmp-server contact
+snmp-server enable traps snmp authentication linkup linkdown coldstart warmstart
+crypto ipsec security-association pmtu-aging infinite
+crypto ca trustpool policy
+telnet timeout 5
+ssh timeout 5
+console timeout 0
+
+dhcpd auto_config outside
+!
+dhcpd address 192.168.1.5-192.168.1.36 inside
+dhcpd enable inside
+!
+threat-detection basic-threat
+threat-detection statistics access-list
+no threat-detection statistics tcp-intercept
+!
+class-map inspection_default
+ match default-inspection-traffic
+!
+!
+policy-map type inspect dns preset_dns_map
+ parameters
+  message-length maximum client auto
+  message-length maximum 512
+policy-map global_policy
+ class inspection_default
+  inspect dns preset_dns_map
+  inspect ftp
+  inspect h323 h225
+  inspect h323 ras
+  inspect rsh
+  inspect rtsp
+  inspect esmtp
+  inspect sqlnet
+  inspect skinny
+  inspect sunrpc
+  inspect xdmcp
+  inspect sip
+  inspect netbios
+  inspect tftp
+  inspect ip-options
+  inspect icmp
+!
+service-policy global_policy global
+prompt hostname context
+Cryptochecksum:0ac7b5d0dab0f561b44e4bf61ab7e4b8
+: end
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz#
+Rodziewicz-Bejnarowicz# show switch vlan
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -----------------------------
+1    inside                           up        Et0/1, Et0/2, Et0/3, Et0/4
+                                                Et0/5, Et0/6, Et0/7
+2    outside                          up        Et0/0
+Rodziewicz-Bejnarowicz# config t
+Rodziewicz-Bejnarowicz(config)# int e0/1
+Rodziewicz-Bejnarowicz(config-if)# swi
+Rodziewicz-Bejnarowicz(config-if)# switchport ac
+Rodziewicz-Bejnarowicz(config-if)# switchport access vl
+Rodziewicz-Bejnarowicz(config-if)# switchport access vlan ?
+
+interface mode commands/options:
+  <1-4090>  VLAN ID of the VLAN when this port is in access mode
+Rodziewicz-Bejnarowicz(config-if)# switch
+Rodziewicz-Bejnarowicz(config-if)# switchport ac
+Rodziewicz-Bejnarowicz(config-if)# switchport access vl
+Rodziewicz-Bejnarowicz(config-if)# switchport access vlan 1
+Rodziewicz-Bejnarowicz(config-if)# exit
+Rodziewicz-Bejnarowicz(config)# int e0/2
+Rodziewicz-Bejnarowicz(config-if)# switchport access vlan 1
+Rodziewicz-Bejnarowicz(config-if)# end
+Rodziewicz-Bejnarowicz# shw
+Rodziewicz-Bejnarowicz# show
+Rodziewicz-Bejnarowicz# show rn
+Rodziewicz-Bejnarowicz# show ru
+Rodziewicz-Bejnarowicz# show running-config
+: Saved
+:
+ASA Version 9.0(1)
+!
+hostname Rodziewicz-Bejnarowicz
+enable password 8Ry2YjIyt7RRXU24 encrypted
+passwd 2KFQnbNIdI.2KYOU encrypted
+names
+!
+interface Ethernet0/0
+ switchport access vlan 2
+!
+interface Ethernet0/1
+!
+interface Ethernet0/2
+!
+interface Ethernet0/3
+!
+interface Ethernet0/4
+!
+interface Ethernet0/5
+!
+interface Ethernet0/6
+!
+interface Ethernet0/7
+!
+interface Vlan1
+ nameif inside
+ security-level 100
+ ip address 192.168.1.1 255.255.255.0
+!
+interface Vlan2
+ nameif outside
+ security-level 0
+ ip address dhcp setroute
+!
+ftp mode passive
+object network obj_any
+ subnet 0.0.0.0 0.0.0.0
+pager lines 24
+logging asdm informational
+mtu outside 1500
+mtu inside 1500
+icmp unreachable rate-limit 1 burst-size 1
+no asdm history enable
+arp timeout 14400
+no arp permit-nonconnected
+!
+object network obj_any
+ nat (inside,outside) dynamic interface
+timeout xlate 3:00:00
+timeout pat-xlate 0:00:30
+timeout conn 1:00:00 half-closed 0:10:00 udp 0:02:00 icmp 0:00:02
+timeout sunrpc 0:10:00 h323 0:05:00 h225 1:00:00 mgcp 0:05:00 mgcp-pat 0:05:00
+timeout sip 0:30:00 sip_media 0:02:00 sip-invite 0:03:00 sip-disconnect 0:02:00
+timeout sip-provisional-media 0:02:00 uauth 0:05:00 absolute
+timeout tcp-proxy-reassembly 0:01:00
+timeout floating-conn 0:00:00
+dynamic-access-policy-record DfltAccessPolicy
+user-identity default-domain LOCAL
+http server enable
+http 192.168.1.0 255.255.255.0 inside
+no snmp-server location
+no snmp-server contact
+snmp-server enable traps snmp authentication linkup linkdown coldstart warmstart
+crypto ipsec security-association pmtu-aging infinite
+crypto ca trustpool policy
+telnet timeout 5
+ssh timeout 5
+console timeout 0
+
+dhcpd auto_config outside
+!
+dhcpd address 192.168.1.5-192.168.1.36 inside
+dhcpd enable inside
+!
+threat-detection basic-threat
+threat-detection statistics access-list
+no threat-detection statistics tcp-intercept
+!
+class-map inspection_default
+ match default-inspection-traffic
+!
+!
+policy-map type inspect dns preset_dns_map
+ parameters
+  message-length maximum client auto
+  message-length maximum 512
+policy-map global_policy
+ class inspection_default
+  inspect dns preset_dns_map
+  inspect ftp
+  inspect h323 h225
+  inspect h323 ras
+  inspect rsh
+  inspect rtsp
+  inspect esmtp
+  inspect sqlnet
+  inspect skinny
+  inspect sunrpc
+  inspect xdmcp
+  inspect sip
+  inspect netbios
+  inspect tftp
+  inspect ip-options
+  inspect icmp
+!
+service-policy global_policy global
+prompt hostname context
+Cryptochecksum:0ac7b5d0dab0f561b44e4bf61ab7e4b8
+: end
+Rodziewicz-Bejnarowicz# access-list acl_out extended deny tcp any host 156.17.$
+
+access-list acl_out extended deny tcp any host 156.17.70.219 eq any
+  ^
+ERROR: % Invalid input detected at '^' marker.
+Rodziewicz-Bejnarowicz# config t
+Rodziewicz-Bejnarowicz(config)# access-list acl_out extended deny tcp any host$
+
+access-list acl_out extended deny tcp any host 156.17.70.219 eq any
+                                                                 ^
+ERROR: % Invalid input detected at '^' marker.
+Rodziewicz-Bejnarowicz(config)# $d deny tcp any host 156.17.70.219 eq ?
+
+configure mode commands/options:
+  <1-65535>        Enter port number (1 - 65535)
+  aol
+  bgp
+  chargen
+  cifs
+  citrix-ica
+  cmd
+  ctiqbe
+  daytime
+  discard
+  domain
+  echo
+  exec
+  finger
+  ftp
+  ftp-data
+  gopher
+  h323
+  hostname
+  http
+  https
+  ident
+  imap4
+  irc
+  kerberos
+  klogin
+  kshell
+  ldap
+  ldaps
+  login
+  lotusnotes
+  lpd
+  netbios-ssn
+  nfs
+  nntp
+  pcanywhere-data
+  pim-auto-rp
+  pop2
+  pop3
+  pptp
+  rsh
+  rtsp
+  sip
+  smtp
+  sqlnet
+  ssh
+  sunrpc
+  tacacs
+  talk
+  telnet
+  uucp
+  whois
+  www
+Rodziewicz-Bejnarowicz(config)# access-list acl_out extended deny tcp any host$
+
+access-list acl_out extended deny tcp any host 156.17.70.219 eq
+ERROR: % Incomplete command
+Rodziewicz-Bejnarowicz(config)# $d deny tcp any host 156.17.70.219 ?
+
+configure mode commands/options:
+  eq            Port equal to operator
+  gt            Port greater than operator
+  inactive      Keyword for disabling an ACL element
+  log           Keyword for enabling log option on this ACL element
+  lt            Port less than operator
+  neq           Port not equal to operator
+  object-group  Optional service object-group for destination port
+  range         Port range operator
+  time-range    Keyword for attaching time-range option to this ACL element
+  <cr>
+Rodziewicz-Bejnarowicz(config)# access-list acl_out extended deny tcp any host$
+Rodziewicz-Bejnarowicz(config)# access-list acl_out extended deny tcp any any $
+Rodziewicz-Bejnarowicz(config)# access-list acl_out extended permit ip any any
+Rodziewicz-Bejnarowicz(config)# access-group acl_out in interface outside
+Rodziewicz-Bejnarowicz(config)# show
+Rodziewicz-Bejnarowicz(config)# show run
+Rodziewicz-Bejnarowicz(config)# show running-config ac
+Rodziewicz-Bejnarowicz(config)# show running-config access-g
+Rodziewicz-Bejnarowicz(config)# show running-config access-group
+access-group acl_out in interface outside
+Rodziewicz-Bejnarowicz(config)# show acc
+Rodziewicz-Bejnarowicz(config)# show access-list
+access-list cached ACL log flows: total 0, denied 0 (deny-flow-max 4096)
+            alert-interval 300
+access-list acl_out; 3 elements; name hash: 0x4af10e18
+access-list acl_out line 1 extended deny tcp any host 156.17.70.219 (hitcnt=0) 0x330d2669
+access-list acl_out line 2 extended deny tcp any any eq ftp (hitcnt=0) 0x4b6342a3
+access-list acl_out line 3 extended permit ip any any (hitcnt=0) 0xd85c9d2a
+Rodziewicz-Bejnarowicz(config)#
+Rodziewicz-Bejnarowicz(config)# access-group acl_out out interface outside
+Rodziewicz-Bejnarowicz(config)#
