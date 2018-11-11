@@ -1,0 +1,44 @@
+html, body {
+	tab-size: 4;
+}
+
+p {
+	text-align: justify;
+}
+
+table > thead > tr > th,
+table > tbody > tr > th,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td,
+table > tfoot > tr > td {
+    padding: 4px 8px;
+}
+
+img + em {
+	display: block;
+}
+
+.titlepage-center + h1,
+.titlepage-center + h1 + h2 {
+	text-align: center;
+	border-bottom: 0px transparent;
+}
+
+.titlepage-center + h1 + h2 + h3,
+.titlepage-center + h1 + h2 + h3 + h4 {
+	text-align: center;
+}
+
+.small-table + table {
+	font-size: 0.75em;
+}
+
+.small-table + table > thead > tr > th,
+.small-table + table > tbody > tr > th,
+.small-table + table > tfoot > tr > th,
+.small-table + table > thead > tr > td,
+.small-table + table > tbody > tr > td,
+.small-table + table > tfoot > tr > td {
+	padding: 2px 4px;
+}
