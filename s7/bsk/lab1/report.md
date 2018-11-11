@@ -1,30 +1,33 @@
-# Wirtualizacja systemów i sieci komputerowych
+# Bezpieczeństwo sieci komputerowych
 
 ## Sprawozdanie z laboratorium
 
 Data | Tytuł zajęć | Uczestnicy
 :-: | :-: | :-:
-26.10.2018 09:15 | Zagrożenia i podatności sieci komputerowych | Iwo Bujkiewicz (226203)<br>Bartosz Rodziewicz (226105)
+26.10.2018 10:15 | Zagrożenia i podatności sieci komputerowych | Iwo Bujkiewicz (226203)<br />Bartosz Rodziewicz (226105)
 
 ### Budowa sieci
 
-Połączyliśmy sieć zgodnie z rysunkiem.
+Sieć połączono zgodnie z rysunkiem.
 
 Tabela adresacji w sieci:
 
-| Urządzenie | Adres |
+| Urządzenie | Adres IPv4 |
 | :-: | :-: |
-| Router | 10.0.0.1 |
-| PC (Linux) | 10.0.0.2 |
-| PC (Windows) | 10.0.0.3 |
+| Router | `10.0.0.1/16` |
+| PC (Linux) | `10.0.0.2/16` |
+| PC (Windows) | `10.0.0.3/16` |
 
-Niepotrzebnie sieć została stworzona z maską `255.255.0.0`, co utrudniło nam kolejne zadania.
+Sieć została niepotrzebnie zaadresowana z maską `255.255.0.0`, co utrudniło nam kolejne zadania.
 
-W routerze zostało umożliwione połączenie przez `telnet`. Na komputerze z Linuxem postawiony został serwer WWW - `Apache`.
+Umożliwiono łączenie się z CLI routera poprzez Telnet. Na komputerze z Linuxem uruchomiony został serwer WWW Apache 2.
 
-### `netstat`
+<div class="page-break"></div>
 
-Z komputera z Windowsem połączyliśmy się przez `telnet` z routerem oraz z serwerem WWW na komputerze z Linuxem. Wynik polecenia `metstat` widoczny jest na poniższym screenshocie.
+### Netstat
+
+Z komputera z Windowsem połączono się przez Telnet z routerem, oraz, przez przeglądarkę internetową, z serwerem WWW na komputerze z Linuxem. Rezultaty, a także wynik polecenia `netstat`, widoczne są poniżej.
+
 ![Połączenie telnet + serwer WWW + netstat](screenshots/pkt2.png)
 
 ```
@@ -38,45 +41,74 @@ Active Connections
   (...)
 ```
 
-<!-- W sprawozdaniu opisać znaczenie 3 wybranych wpisów z listy. -->
+Analizując wybrane wpisy:
 
-### Skanowanie sieci za pomocą `nmap`
+*	```
+	TCP    10.0.0.3:65132         10.0.0.1:telnet        ESTABLISHED
+	```
+	Otwarte zostało połączenie TCP z lokalnego portu 65132 do portu Telnet (23) routera.
+*	```
+	TCP    10.0.0.3:65134         KSSK4:http             ESTABLISHED
+	```
+	Otwarte zostało połączenie TCP z lokalnego portu 65134 do portu HTTP (80) komputera z serwerem WWW.
 
-#### SynScan całej sieci - `nmap -sS 10.0.0.0/16`
+<div class="page-break"></div>
 
-Najpierw wykonaliśmy SynScan całej sieci. Skanowanie rozpoczęło się od uzyskania adresów MAC wszystkich hostów w sieci za pomocą pakietów `ARP`.
+### Skanowanie sieci za pomocą Nmap
+
+#### SYN scan podsieci - `nmap -sS 10.0.0.0/16`
+
+Najpierw wykonano _SYN scan_ całej ustanowionej podsieci. Skanowanie rozpoczęło się od uzyskania adresów MAC wszystkich hostów w sieci za pomocą pakietów ARP.
+
 ![Pakiety ARP](screenshots/pkt3.1.4.png)
+
 Po uzyskaniu adresów MAC dostępnych hostów w sieci, komputer wykonujący skanowanie zaczął wysyłać pakiety `SYN` na każdy port znalezionego urządzenia.
+
 ![Pakiet SYN](screenshots/pkt3.1.1.png)
-Jeśli port był zamknięty to urządzenie zwracało odpowiedź `RST-ACK`
-![Pakiet RST-ACK](screenshots/pkt3.1.2.png)
-Jeśli port był otwarty otrzymywaliśmy pakiet `SYN-ACK`, po czym my wysyłaliśmy odpowiedź `RST`.
-![Pakiet SYN-ACK](screenshots/pkt3.1.3.png)
+
+<div class="page-break"></div>
+
+Dla każdego zamkniętego portu urządzenie zwróciło odpowiedź `RST ACK`.
+
+![Pakiet RST ACK](screenshots/pkt3.1.2.png)
+
+Dla każdego otwartego portu otrzymano pakiet z flagami `SYN ACK`. Komputer inicjujący połączenie wysyłał następnie odpowiedź `RST`.
+
+![Pakiet SYN ACK](screenshots/pkt3.1.3.png)
+
+<div class="page-break"></div>
 
 Rozmowa w przypadku zamkniętego portu:
-* A: `SYN` - wysyłam zapytanie
-* B: `RST-ACK` - dostałem zapytanie, nie nawiązuje połączenia <!-- prosze stad szybko wyjsc -->
+* A: `SYN` - rozpoczynam próbę połączenia
+* B: `RST ACK` - otrzymałem, odmawiam połączenia <!-- prosze stad szybko wyjsc -->
 
 Rozmowa w przypadku otwartego portu:
-* A: `SYN` - wysyłam zapytanie
-* B: `SYN-ACK` - dostałem zapytanie, nawiązuje połączenie
-* A: `RST` - rezygnuje z połączenia
+* A: `SYN` - rozpoczynam próbę połączenia
+* B: `SYN ACK` - otrzymałem, gotów do połączenia
+* A: `RST` - zamykam połączenie
 
-#### XmasTreeScan routera - `nmap -sX -p1-65535 10.0.0.1`
+#### Xmas tree scan routera - `nmap -sX -p1-65535 10.0.0.1`
 
-Kolejnym skanowaniem było skanowanie sieci za pomocą metody choinkowej. Wysyłaliśmy pakiety `FIN-PSH-URG` na każdy port routera (port 80 na screenach wybrany przykładowo, by pokazać rozmowę).
-![Pakiet FIN-PSH-URG](screenshots/pkt3.2.1.png)
-Gdy port był zamknięty, dostawaliśmy standardową odpowiedź `RST-ACK`.
+Kolejnym skanowaniem było skanowanie sieci za pomocą metody choinkowej. Wysłano pakiet `FIN PSH URG` na każdy port routera (port 80 na zrzutach ekranu został wybrany przykładowo, by pokazać rozmowę).
+
+![Pakiet FIN PSH URG](screenshots/pkt3.2.1.png)
+
+<div class="page-break"></div>
+
+Dla każdego zamkniętego portu otrzymano standardową odpowiedź `RST ACK`.
+
 ![Pakiet RST-ACK](screenshots/pkt3.2.2.png)
-Dla otwartego portu pakiet powinien zostać zignorowany, jednak `nmap` zwrócił nam informacje, że każdy port na routerze był zamknięty (mimo faktu, że `telnet` został przez nas skonfigurowany i działał).
 
-#### SynScan komputera z linuxem - `nmap -sS -p T:21-25,80,443,2137,8080,27015 10.0.0.2`
+Dla otwartego portu pakiet powinien zostać zignorowany, jednak `nmap` zwrócił informację, że każdy port na routerze był zamknięty (mimo faktu, że serwer `telnet` został skonfigurowany i port 23 był otwarty).
 
-Ostatnim naszym skanowaniem był SynScan na komputer z postawionym serwerem `http`. Skanowaliśmy tylko kilka wybranych przez nas portów.
+#### SYN scan komputera z Linuxem - `nmap -sS -p T:21-25,80,443,2137,8080,27015 10.0.0.2`
 
-Zasada działania była identyczna, jak wyżej.
+Ostatnim skanowaniem był _SYN scan_ komputera z uruchomionym serwerem HTTP, ograniczony do wybranej grupy portów.
 
-`nmap` zwrócił nam ładne podsumowanie:
+Zasada działania była identyczna, jak w przypadku pierwszego _SYN scana_.
+
+`nmap` zwrócił poniższe podsumowanie skanowania.
+
 ```
 Starting Nmap 7.70 ( https://nmap.org ) at 2018-10-26 11:55 Central European Day
 light Time
@@ -101,43 +133,54 @@ MAC Address: 08:00:27:1C:14:28 (Oracle VirtualBox virtual NIC)
 Nmap done: 1 IP address (1 host up) scanned in 2.00 seconds
 ```
 
-### ARP Poisoning
+<div class="page-break"></div>
 
-Kolejnym zadaniem było wykonanie udanego ataku typu ARP Poisoning w celu przechwycenia komunikacji drugiego komputera z routerem za pomocą `telnet`.
+### ARP poisoning
 
-Przed przystąpieniem do ataku sprawdziliśmy, że switch blokuje możliwość podsłuchu.
+Kolejnym zadaniem było wykonanie skutecznego ataku typu _ARP poisoning_ w celu przechwycenia komunikacji Telnet drugiego komputera z routerem.
+
+Przed przystąpieniem do ataku zweryfikowano, że switch nie przekazuje ramek przeznaczonych dla konkretnego, znanego urządzenia do innych urządzeń.
+
 ![Brak możliwości podsłuchu](screenshots/pkt4.1.png)
 
-Do ataku wykorzystany został program `Cain & Abel`.
+Do ataku wykorzystany został program Cain & Abel.
 
-Wynik ataku wraz z przechwyconą treścią rozmowy (brak treści w środku spowodowany za wczesnym wyłączeniem `Caina` - przed pokazaniem efektów prowadzącemu).
+Wynik ataku wraz z przechwyconą treścią rozmowy <!--(brak treści w środku spowodowany zbyt wczesnym wyłączeniem `Cain`a - przed pokazaniem efektów prowadzącemu)--> udokumentowany został poniżej.
+
 ![Udany atak](screenshots/pkt4.2.5.png)
+_Udany atak_
 
-Przykładowy przechwycony pakiet:
 ![Przykładowy pakiet](screenshots/pkt4.2.2.png)
+_Przykładowy przechwycony pakiet_
 
-Dodatkowo przechwyciliśmy pakiety pingu, wysłane z routera na adres komputera.
+Dodatkowo przechwycono pakiety `ping` wysłane z routera na adres komputera.
+
 ![Przechwycony ping](screenshots/pkt4.2.3.png)
 
-Aby dokonać analizy pakietów użytych do zatrucia tabeli ART trzeba spojrzeć na adresy MAC kart sieciowych:
+Aby dokonać analizy pakietów użytych do 'zatrucia' tabeli ARP, należy spojrzeć na adresy MAC kart sieciowych:
 
-| Urządzenie | MAC |
+| Urządzenie | Adres MAC |
 | :-: | :-: |
-| Router | A0:EC:F9:D8:1F:90 |
-| Linux | 08:00:27:1C:14:28 |
-| Windows | 08:00:27:94:47:A7 |
+| Router | `A0:EC:F9:D8:1F:90` |
+| PC (Linux) | `08:00:27:1C:14:28` |
+| PC (Windows) | `08:00:27:94:47:A7` |
 
-Atak polega na przechwyceniu komunikacji Linuxa z rooterem. Ataku dokonuje Windows.
+Atak polegał na przechwyceniu komunikacji pomiędzy komputerem z Linuxem i routerem. Ataku dokonywał komputer z Windowsem.
 
-Pierwszy pakiet zostaje wysłany na adres MAC Linuxa z zapytaniem, kto ma adres IP Linuxa i z prośbą o zwrot na adres IP routera, ale MAC Windowsa.
+Pierwszy pakiet był wysyłany na adres komputera z Linuxem z zapytaniem, kto zna adres MAC dla jego adresu IP, oraz prośbą o informację zwrotną na adres MAC komputera z Windowsem, ale podpisany adresem IP routera.
+
 ![ARP Poisoning - 1](screenshots/pkt4.2.6.png)
-Odpowiedź na niego zgodnie z planem jest wysłana na adres MAC Windowsa. Wtedy Linux zapisuje sobie w tabeli ARP, że `10.0.0.1` (router) znajduje się pod adresem MAC Windowsa.
+
+Zgodnie z planem, odpowiedź na to zapytanie wysyłana była na adres MAC komputera z Windowsem. Ufając danym o źródle zapytania, komputer z Linuxem zapisywał w swojej tabeli ARP, że adres IP routera (`10.0.0.1`) dostępny jest również pod adresem MAC komputera z Windowsem.
+
 ![ARP Poisoning - 2](screenshots/pkt4.2.7.png)
-Następny pakiet zostaje wysłany na adres MAC routera z pytaniem, kto ma IP routera, z prośbą o odpowiedź na adres IP Linuxa, ale MAC Windowsa.
+
+<div class="page-break"></div>
+
+Następnie na adres routera wysyłane było zapytanie ARP o adres MAC dla jego adresu IP, z prośbą o odpowiedź na adres MAC komputera z Windowsem, ale podpisany adresem IP komputera z Linuxem.
+
 ![ARP Poisoning - 3](screenshots/pkt4.2.8.png)
-Odpowiedź, przychodzi na adres MAC, wtedy router zapisuje sobie, że Linux znajduje się pod adresem Windowsa.
+
+Router zapisywał w swojej tabeli ARP, że adres IP komputera z Linuxem (`10.0.0.2`) dostępny jest również pod adresem MAC komputera z Windowsem.
+
 ![ARP Poisoning - 4](screenshots/pkt4.2.9.png)
-
-### Łamanie haseł
-
-Z uwagi na brak czasu na zajęciach nie udało nam się zrealizować tego punktu.
