@@ -10,17 +10,15 @@ Data | Tytuł zajęć | Uczestnicy
 Pracę rozpoczęliśmy od postawieniu dwóch maszyn wirtualnych poprzez uruchomienie komendy `vargant up` w katalogu `~/VirtualBox VMs/vag/`.
 
 Domyślna konfiguracja sieciowa maszyn stworzonych przez Vagranta prezentuje się następująco:
-![Domyślna konfiguracja](screenshots/Screenshot_from_2018-10-29_11-43-54.png)
 
-<div class="page-break">
+![Domyślna konfiguracja](screenshots/Screenshot_from_2018-10-29_11-43-54.png =500x0)
 
 Zadanie mówi, aby maszyny były dostępne z poziomu komputera hosta, ale nie były widoczne w sieci laboratoryjnej, więc skonfigurowaliśmy je w trybie `host-only`.
-![Konfiguracja host-only](screenshots/Screenshot_from_2018-10-29_11-48-31.png)
-![Konfiguracja host-only 2](screenshots/Screenshot_from_2018-10-29_11-48-49.png)
+
+![Konfiguracja host-only](screenshots/Screenshot_from_2018-10-29_11-48-31.png =400x0)
+![Konfiguracja host-only 2](screenshots/Screenshot_from_2018-10-29_11-48-49.png =400x0)
 
 Instrukcja mówi, że powinniśmy ustawić nazwę sieci na własną jednak nie udało nam się tego zrobić. Dlatego na screenshocie zamieściliśmy nasz indeks.
-
-<div class="page-break">
 
 W maszynach dostępne są dwa interfejsy - wirtualne połączenie Ethernet i Loopback:
 ![Interfejsy](screenshots/Screenshot_from_2018-10-29_11-49-49.png)
@@ -57,11 +55,14 @@ Po odświeżeniu strony na serwerze WWW (oczywiście z poziomu hosta) uzyskaliś
 Wykorzystaliśmy gotowy obraz pobrany z [https://app.vagrantup.com/ubuntu/boxes/trusty64](https://app.vagrantup.com/ubuntu/boxes/trusty64).
 ![Vagrant up](screenshots/vagrant_up.png)
 
+<div class="page-break">
+
 Następnie zmieniliśmy domyślny plik `Vagrantfile` tak aby możliwe było użycie odpowiednich komend potrzebnych do dostosowania maszyny. W tym celu utworzyliśmy skrypt `bootstrap.sh`, który był uruchamiany poprzez dodanie do pliku `Vagranfile` komendy `config.vm.provision :shell, path: "bootstrap.sh"`. Możliwe jest podanie komend bezpośrednio w pliku `Vagrantfile`, ale lepiej jednak jest oddzielić pliki od siebie.
-![Vagrantfile](screenshots/vagrantfile.png)
+
+![Vagrantfile](screenshots/vagrantfile.png =500x0)
 
 Skrypt zawierał komendy służące do zainstalowania PHP, systemu kontroli wersji Git oraz serwera Apache.
-![Bootstrap.sh](screenshots/bootstrap.png)
+![Bootstrap.sh](screenshots/bootstrap.png =500x0)
 
 Po utworzeniu maszyny wirtualnej i zalogowaniu się sprawdziliśmy czy system jest prawidłowo skonfigurowany.
-![Sprawdzenie wersji](screenshots/check_installed.png)
+![Sprawdzenie wersji](screenshots/check_installed.png =500x0)
