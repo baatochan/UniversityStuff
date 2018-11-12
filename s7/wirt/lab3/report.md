@@ -42,7 +42,7 @@ Po tej konfiguracji ping z hosta szedł do obu maszyn wirtualnych, było połąc
 
 <div class="page-break">
 
-Po chwili zastanowienia się uświadomiliśmy sobie, że kod php na serwerze nie jest w stanie automatycznie znaleźć adresu naszej bazy danych. Znaleźliśmy plik `index.php`, który znajdował się na serwerze WWW w folderze `/vag/www/html/`.
+Po chwili zastanowienia się uświadomiliśmy sobie, że kod php na serwerze nie jest w stanie automatycznie znaleźć adresu naszej bazy danych. Znaleźliśmy plik `index.php`, który znajdował się na serwerze WWW w folderze `/var/www/html/`.
 ![index.php](screenshots/Screenshot_from_2018-10-29_12-01-00.png)
 
 Za pomocą Vima (nie było to łatwe) zmieniliśmy argument funkcji `mysqli_connect` z `db` na właściwy adres maszyny z bazą danych.
@@ -52,3 +52,20 @@ Za pomocą Vima (nie było to łatwe) zmieniliśmy argument funkcji `mysqli_conn
 
 Po odświeżeniu strony na serwerze WWW (oczywiście z poziomu hosta) uzyskaliśmy komunikat potwierdzający połączenie z bazą danych.
 ![Poprawne połączenie z bazą danych](screenshots/Screenshot_from_2018-10-29_12-01-44.png)
+
+### Realizacja projektu
+Wykorzystaliśmy gotowy obraz pobrany z https://app.vagrantup.com/ubuntu/boxes/trusty64
+![Vagrant up](screentshots/vagrant_up.png)
+
+Następnie zmieniliśmy domyślny plik Vagrantfile tak aby możliwe było użycie odpowiednich komend potrzebnych do dostosowania maszyny. W tym celu utworzyliśmy skrypt `bootstrap.sh`, który był uruchamiany poprzez dodanie do pliku Vagranfile komendy config.vm.provision :shell, path: "bootstrap.sh". Możliwe jest podanie komend bezpośrednio w pliku Vagrantfile, ale lepiej jednak jest oddzielić pliki od siebie.
+![Vagrantfile](screenshots/vagrantfile.png)
+
+Skrypt zawierał komendy służące do zainstalowania PHP, systemu kontroli wersji Git oraz serwera Apache
+![Bootstrap.sh](screenshots/bootstrap.png)
+
+Po utworzeniu maszyny wirtualnej i zalogowaniu się sprawdziliśmy czy system jest prawidłowo skonfigurowany
+![Sprawdzenie wersji](screenshots/check_installed.png)
+
+
+
+
