@@ -54,14 +54,14 @@ Po odświeżeniu strony na serwerze WWW (oczywiście z poziomu hosta) uzyskaliś
 ![Poprawne połączenie z bazą danych](screenshots/Screenshot_from_2018-10-29_12-01-44.png)
 
 ### Realizacja projektu
-Wykorzystaliśmy gotowy obraz pobrany z https://app.vagrantup.com/ubuntu/boxes/trusty64
+Wykorzystaliśmy gotowy obraz pobrany z [https://app.vagrantup.com/ubuntu/boxes/trusty64](https://app.vagrantup.com/ubuntu/boxes/trusty64).
 ![Vagrant up](screenshots/vagrant_up.png)
 
-Następnie zmieniliśmy domyślny plik Vagrantfile tak aby możliwe było użycie odpowiednich komend potrzebnych do dostosowania maszyny. W tym celu utworzyliśmy skrypt `bootstrap.sh`, który był uruchamiany poprzez dodanie do pliku Vagranfile komendy `config.vm.provision :shell, path: "bootstrap.sh"`. Możliwe jest podanie komend bezpośrednio w pliku Vagrantfile, ale lepiej jednak jest oddzielić pliki od siebie.
+Następnie zmieniliśmy domyślny plik `Vagrantfile` tak aby możliwe było użycie odpowiednich komend potrzebnych do dostosowania maszyny. W tym celu utworzyliśmy skrypt `bootstrap.sh`, który był uruchamiany poprzez dodanie do pliku `Vagranfile` komendy `config.vm.provision :shell, path: "bootstrap.sh"`. Możliwe jest podanie komend bezpośrednio w pliku `Vagrantfile`, ale lepiej jednak jest oddzielić pliki od siebie.
 ![Vagrantfile](screenshots/vagrantfile.png)
 
-Skrypt zawierał komendy służące do zainstalowania PHP, systemu kontroli wersji Git oraz serwera Apache
+Skrypt zawierał komendy służące do zainstalowania PHP, systemu kontroli wersji Git oraz serwera Apache.
 ![Bootstrap.sh](screenshots/bootstrap.png)
 
-Po utworzeniu maszyny wirtualnej i zalogowaniu się sprawdziliśmy czy system jest prawidłowo skonfigurowany
+Po utworzeniu maszyny wirtualnej i zalogowaniu się sprawdziliśmy czy system jest prawidłowo skonfigurowany.
 ![Sprawdzenie wersji](screenshots/check_installed.png)
