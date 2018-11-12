@@ -65,7 +65,3 @@ Skrypt zawierał komendy służące do zainstalowania PHP, systemu kontroli wers
 
 Po utworzeniu maszyny wirtualnej i zalogowaniu się sprawdziliśmy czy system jest prawidłowo skonfigurowany
 ![Sprawdzenie wersji](screenshots/check_installed.png)
-
-
-
-
