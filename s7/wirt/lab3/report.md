@@ -55,9 +55,9 @@ Po odświeżeniu strony na serwerze WWW (oczywiście z poziomu hosta) uzyskaliś
 
 ### Realizacja projektu
 Wykorzystaliśmy gotowy obraz pobrany z https://app.vagrantup.com/ubuntu/boxes/trusty64
-![Vagrant up](screentshots/vagrant_up.png)
+![Vagrant up](screenshots/vagrant_up.png)
 
-Następnie zmieniliśmy domyślny plik Vagrantfile tak aby możliwe było użycie odpowiednich komend potrzebnych do dostosowania maszyny. W tym celu utworzyliśmy skrypt `bootstrap.sh`, który był uruchamiany poprzez dodanie do pliku Vagranfile komendy config.vm.provision :shell, path: "bootstrap.sh". Możliwe jest podanie komend bezpośrednio w pliku Vagrantfile, ale lepiej jednak jest oddzielić pliki od siebie.
+Następnie zmieniliśmy domyślny plik Vagrantfile tak aby możliwe było użycie odpowiednich komend potrzebnych do dostosowania maszyny. W tym celu utworzyliśmy skrypt `bootstrap.sh`, który był uruchamiany poprzez dodanie do pliku Vagranfile komendy `config.vm.provision :shell, path: "bootstrap.sh"`. Możliwe jest podanie komend bezpośrednio w pliku Vagrantfile, ale lepiej jednak jest oddzielić pliki od siebie.
 ![Vagrantfile](screenshots/vagrantfile.png)
 
 Skrypt zawierał komendy służące do zainstalowania PHP, systemu kontroli wersji Git oraz serwera Apache
