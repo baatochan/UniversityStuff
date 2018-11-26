@@ -9,15 +9,13 @@ Data | Tytuł zajęć | Uczestnicy
 ### 1. Postawienie serwera WWW
 Pierwszym zadaniem było postawienie serwera WWW na komputerze z Linuxem. Po zainstalowaniu pakietu `apache2` i przygotowaniu prostej strony sprawdziliśmy, że serwer działa.
 
-![Dzialajacy apache](screenshots/Screenshot_from_2018-11-16_08-05-41.png =600x0)
+![Dzialajacy apache](screenshots/Screenshot_from_2018-11-16_08-05-41.png)
 
 Za pomocą drugiego komputera sprawdziliśmy połączenie z tym serwerem i jego bezpieczeństwo za pomocą Wiresharka.
 
-![Wireshark bez SSL](screenshots/Untitled.png =600x0)
+![Wireshark bez SSL](screenshots/Untitled.png)
 
 Na screenshocie wyżej widać, że za pomocą Wiresharka byliśmy w stanie przechwycić całą komunikację wraz z treścią dokumentu HTML.
-
-<div class="page-break">
 
 ### 2. Konfiguracja protokołu SSL
 Zgodnie z krokami w instrukcji wykonaliśmy podstawową konfigurację pakietu `openssl`. Po wykonaniu tych kroków i dodaniu do adresu w przeglądarce przedrostka `https://` udało nam się nawiązać szyfrowane połączenie z serwerem. Fakt ten oczywiście został zgłoszony prowadzącemu.
@@ -38,8 +36,6 @@ Tak jak napisałem wyżej - nasz certyfikat został wystawiony bezpośrednio prz
 
 Aby to było możliwe przeglądarka musi wiedzieć, że klucz prywatny użyty do podpisania certyfikatu należy do kogoś, komu można ufać i nie podpisze on certyfikatu dla naszej domeny tak po prostu, byle komu. Do ustalenia tego służy łańcuch zaufania (chain of trust) – potrzebny nam certyfikat jest podpisywany za pomocą jakiegoś klucza, dla którego też został wystawiony certyfikat i też został on podpisany za pomocą jakiegoś klucza. Takich poziomów w górę może być wiele, ale ważne jest, że w końcu na samej górze znajdzie się certyfikat jakiegoś urzędu certyfikacji (Certificate Authority) podpisany samodzielnie. Każda przeglądarka ma bazę takich certyfikatów najwyższego poziomu (tzw. root CA), których wystawcom ufa. Jeżeli używany przez nas certyfikat odwołuje się w końcu do jednego z nich, przeglądarka uzna połączenie za bezpieczne. W naszym przypadku łańcuch zaufania składa się oczywiście tylko z jednego poziomu (self-signed).
 
-<div class="page-break">
-
 #### Za pomocą Wireshark ocenić bezpieczeństwo połączenia ssl (czy przesyłane treści są szyfrowane, czy certyfikat jest szyfrowany, itp.).
 Po nawiązaniu połączenia przesyłany jest certyfikat (w formie jawnej, jednak to nie jest problem ponieważ zawiera tylko klucz publiczny) i od tego momentu nawiązane jest szyfrowane połączenie. Sama treść przesyłana jest w formie szyfrowanej.
 
@@ -48,8 +44,6 @@ Po nawiązaniu połączenia przesyłany jest certyfikat (w formie jawnej, jednak
 ### 4.1. Zestawy algorytmów obsługiwane przez Firefoxa i `openssl`
 Firefox obsługuje następujące algorytmy:
 ![Algorytmy Firefox](screenshots/Screenshot_from_2018-11-16_08-59-16.png)
-
-<div class="page-break">
 
 `OpenSSL` obsługuje następujące algorytmy:
 ![Algorytmy OpenSSL](screenshots/Screenshot_from_2018-11-16_09-03-03.png)
@@ -68,8 +62,6 @@ Na Komputerze 1 stworzyliśmy dwa konta użytkowników.
 Deamon `telnet` został zainstalowany na komputerze 1. Połączyliśmy się na standardowy port (23) i połączenie przeszło. Zmieniliśmy port na własny (420) i również połączenie się udało. Analizując pakiety w Wiresharku widać, że połączenie w żaden sposób nie jest zabezpieczone i łatwe do przechwycenia, wraz z hasłami.
 
 ![telnet](screenshots/Untitled3.png)
-
-<div class="page-break">
 
 ### 7. Połączenie ssh
 Na komputerze 1 zainstalowaliśmy ssh. Port został zmieniony na 2137. Zmieniliśmy również baner powitalny i ilość dopuszczalnych błędnych logowań.
