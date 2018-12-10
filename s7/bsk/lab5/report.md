@@ -40,7 +40,7 @@ Security Violation Count   : 0
 
 Po podłączeniu drugiego komputera switch blokuje port:
 
-![blokada portu](screenshots/Capture1.png =380x0)
+![blokada portu](screenshots/Capture1.png)
 ```
 *Mar  1 00:57:08.222: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to down
 *Mar  1 00:57:09.220: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/4, changed state to down
@@ -86,13 +86,11 @@ Skonfigurowaliśmy router zgodnie z poleceniem.
 
 Hasła przy domyślnej konfiguracji przechowywane są w plain-text'cie:
 
-![hasla w plaintextcie](screenshots/Capture11.png =500x0)
-
-<div class="page-break">
+![hasla w plaintextcie](screenshots/Capture11.png)
 
 Po włączeniu szyfrowania haseł hasła zaszyfrowane zostają algorytmem Type 7, co uniemożliwia ich podejrzenie:
 
-![hasla w type7](screenshots/Capture12.png =500x0)
+![hasla w type7](screenshots/Capture12.png)
 
 Nasłuch połączenia telnet, również jest bardzo łatwy:
 
@@ -102,8 +100,6 @@ Nasłuch połączenia telnet, również jest bardzo łatwy:
 Następnie wyłączyliśmy możliwość dostępu przez telnet i włączyliśmy ssh. Stworzony został nowy użytkownik z hasłem zabezpieczonym MD5:
 
 ![user z md5](screenshots/Capture6.png)
-
-<div class="page-break">
 
 Następnie połączyliśmy się przez ssh i spróbowaliśmy podejrzeć rozmowę przez Wiresharka. Oczywiście było to nie możliwe i Wireshark wyświetlił nam ciągi losowych znaków:
 
@@ -128,19 +124,19 @@ Nie.
 
 Włączyliśmy podsłuchiwanie pakietów RIP przez Wiresharka i otrzymaliśmy ich sporo:
 
-![rip wireshark](screenshots/Capture7.png =400x0)
+![rip wireshark](screenshots/Capture7.png)
 
 Następnie interfejs, do którego podłączony był nasz switch, ustawiliśmy jako passive-interface, dzięki czemu router przestał wysyłać pakiety rip do naszych komputerów:
 
-![no rip wireshark](screenshots/Capture8.png =400x0)
+![no rip wireshark](screenshots/Capture8.png)
 
 Następnie włączyliśmy podpisywanie pakietów routingu (z hasłem podanym w instrukcji), dzięki czemu otrzymaliśmy trasy do sieci `172.16.16.0` oraz innych podsieci `192.168.0.0`.
 
-![trasy do innych](screenshots/Capture9.png =400x0)
+![trasy do innych](screenshots/Capture9.png)
 
 Komunikacja z serwerem była możliwa:
 
-![komunikacja z serwerem OK](screenshots/Capture10.png =400x0)
+![komunikacja z serwerem OK](screenshots/Capture10.png)
 
 ### 4. Wyłączanie nieużywanych usług
 Polecenie `auto secure` omyłkowo wydaliśmy na samym początku konfiguracji routera. Po rozmowie z prowadzącym ustaliliśmy, że mamy ominąć ten punkt.
