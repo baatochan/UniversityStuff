@@ -1,58 +1,35 @@
-<!--
-	markdown-themeable-pdf custom settings:
-		Papersize Width: 960px
-		Papersize Height: 540px
-		Papersize Orientation: landscape
-		Enable Custom Footer: true
-		Custom Footer Path: Wirtualizacja systemów i sieci komputerowych/footer.js
--->
-
-<div class="large"></div>
-<div class="no-justify"></div>
-<div class="titlepage-center"></div>
-
 # Wirtualizacja sieci i systemów komputerowych
 
-## Modele wirtualizacji
+## Modele wirtualizacji - cechy i zastosowania
 
-### Cechy i zastosowania
+#### Bartosz Rodziewicz (226105)
 
-#### Iwo Bujkiewicz (226203)
-
-<div class="page-break"></div>
-
-## Wirtualizacja ogółem
+### Wirtualizacja ogółem
 
 Wirtualizacja to zbiorcze określenie technik i technologii umożliwiających uruchamianie oprogramowania w różnych wirtualnych kontekstach architekturalnych, sprzętowych i systemowych na tym samym urządzeniu pod kontrolą tego samego systemu operacyjnego, a także korzystanie z zasobów obliczeniowych, pamięciowych, sieciowych i blokowych oraz systemów plików tak, jakby były one zbudowane i skonfigurowanie w inny sposób, niż faktycznie. W tym opracowaniu skupiono się na wirtualizacji oprogramowania oraz platform sprzętowych.
 
-###### Do głównych celów i korzyści wirtualizacji należą:
+**Do głównych celów i korzyści wirtualizacji należą:**
 
 * wykorzystanie zalet pracy z wieloma komputerami bez inwestycji w dodatkowy sprzęt;
 * zwiększenie bezpieczeństwa przez izolację środowisk uruchomieniowych różnego oprogramowania lub różnych instancji tego samego oprogramowania;
 * efektywne dzielenie fizycznych zasobów sprzętowych pomiędzy wielu użytkowników;
 * uruchamianie oprogramowania przeznaczonego na różne platformy na jednym urządzeniu;
 
-<div class="page-break"></div>
-
-## Pełna wirtualizacja
+### Pełna wirtualizacja
 
 Pełna wirtualizacja zapewnia emulację funkcjonowania kompletnej platformy sprzętowej, zwanej maszyną wirtualną, na której można uruchomić dowolny kompatybilny system operacyjny i inne oprogramowanie. Uruchamiane oprogramowanie nie musi być przystosowane do pracy w maszynie wirtualnej, ani mieć 'świadomości' pracy w takowej. Instrukcje wykonywane na wirtualizowanym procesorze oraz adresy pamięci tłumaczone są przez _hypervisor_ na instrukcje i adresy właściwe dla fizycznego komputera zarządzającego maszyną wirtualną.
 
 * Wszystkie elementy typowego komputera lub innego programowalnego urządzenia elektronicznego są wirtualizowane: procesor(y), pamięć operacyjna, magistrale, urządzenia peryferyjne, przechowywanie danych, łączność sieciowa, itp., wraz z pełnym systemem operacyjnym lub programem startowym.
 * Dla oprogramowania uruchamianego w maszynie wirtualnej, rożnice względem uruchamiania na fizycznym urządzeniu są znikome i nie wymagają specjalnego przygotowania oprogramowania do pracy pod kontrolą _hypervisora_.
 
-<div class="page-break"></div>
-
-## Parawirtualizacja
+### Parawirtualizacja
 
 W przypadku parawirtualizacji niektóre funkcje maszyny wirtualnej są oddelegowane do bezpośredniej realizacji przez _hypervisor_ w kontekście fizycznego komputera. Służy to zwiększeniu wydajności maszyny wirtualnej przez ograniczenie czasu spędzanego przez nią na wykonywaniu zadań, które zdecydowanie trudniej wykonać w wirtualnym kontekście.
 
 * Zasadniczo wirtualizowane są wszystkie elementy typowego komputera, jednak część z nich nie jest dostarczana w formie całkowitej emulacji funkcjonalności fizycznych odpowiedników, lecz w formie programowej abstrakcji, umożliwiającej _hypervisorowi_ bezpośrednie i optymalne wykonanie tych samych zadań, zamiast tłumaczenia poszczególnych kroków ich wykonywania pomiędzy maszyną wirtualną a fizycznym sprzętem.
 * System operacyjny musi wspierać środowisko parawirtualizowane, w którym jest uruchamiany, wykorzystując udostępnianą przez _hypervisor_ abstrakcję programową, zamiast niskopoziomowych instrukcji sprzętowych. Z tego względu zwykły, nieprzygotowany do tego system operacyjny nie może zostać uruchomiony w parawirtualizacji.
 
-<div class="page-break"></div>
-
-## Zastosowania
+#### Zastosowania
 
 * Podział dużych zasobów obliczeniowych pomiędzy wiele zadań, systemów operacyjnych i użytkowników
 * Izolacja środowisk oprogramowania w celu zapewnienia większej niezawodności oraz bezpieczeństwa (jeśli w jednej maszynie wirtualnej wystąpi krytyczny problem, a _hypervisor_ jest dobrze skonstruowany, to pozostałe maszyny wirtualne oraz fizyczny komputer pozostaną nienaruszone)
@@ -60,9 +37,7 @@ W przypadku parawirtualizacji niektóre funkcje maszyny wirtualnej są oddelegow
 * Testowanie oprogramowania w wielu środowiskach sprzętowo-systemowych
 * Emulacja infrastruktury sieciowej bez inwestycji w fizyczne urządzenia sieciowe
 
-<div class="page-break"></div>
-
-## Konteneryzacja
+### Konteneryzacja
 
 Konteneryzacja, inaczej wirtualizacja na poziomie systemu operacyjnego, to technika, w której pojedynczy kernel systemu operacyjnego obsługuje wiele odizolowanych instancji przestrzeni użytkownika. Każda z tych instancji ma do dyspozycji ten sam współdzielony kernel, ale oddzielne systemy plików oraz zestawy dostępnych urządzeń, wątków procesora itp. W ten sposób, programy uruchamiane w każdym z tak przygotowanych 'kontenerów' pracują pod kontrolą tego samego systemu operacyjnego, ale z ograniczonym dostępem do różnych, izolowanych zasobów.
 
@@ -72,15 +47,13 @@ Konteneryzacja, inaczej wirtualizacja na poziomie systemu operacyjnego, to techn
 
 <div class="page-break"></div>
 
-## Wirtualizacja aplikacji
+### Wirtualizacja aplikacji
 
 W ramach wirtualizacji aplikacji, w wirtualnym środowisku umieszczany jest tylko jedna aplikacja użytkownika, której dostęp do zasobów systemu jest emulowany i/lub izolowany od pozostałych programów działających na danym komputerze. Jest to podejście podobne do konteneryzacji, jednak zamiast tworzenia wielu instancji przestrzeni użytkownika, dostęp pojedynczej aplikacji do zasobów systemu jest w różnym stopniu emulowany przez warstwę pośredniczącą, często będącą tzw. piaskownicą (_sandbox_), uniemożliwiającą wpływ aplikacji na stan oprogramowania, danych i sprzętu poza nią.
 
 * Wirtualizacja aplikacji wykorzystuje jeden współdzielony kernel systemu operacyjnego, lecz aplikacje uruchamiane w ten sposób mogą postrzegać go jako zupełnie inny, niż faktycznie. Przykładowo, program Wine umożliwia uruchamianie aplikacji stworzonych dla systemów rodziny Microsoft Windows na systemach rodziny Linux, poprzez emulację funkcjonowania interfejsów i bibliotek udostępnianych przez systemy Windows.
 
-<div class="page-break"></div>
-
-## Zastosowania
+#### Zastosowania
 
 * Oddzielenie oprogramowania od fizycznych zasobów komputera w celu zwiększenia bezpieczeństwa i niezawodności
 * Testowanie oprogramowania z użyciem różnych konfiguracji oraz kontekstów systemowych
@@ -88,18 +61,14 @@ W ramach wirtualizacji aplikacji, w wirtualnym środowisku umieszczany jest tylk
 * Uruchamianie wielu instancji jednej aplikacji z użyciem jednej konfiguracji w celu zapewnienia redundancji i większej przepustowości danych
 * Uruchamianie aplikacji przeznaczonych na inne systemy operacyjne
 
-<div class="page-break"></div>
-
-## Wirtualizacja przestrzeni roboczej
+### Wirtualizacja przestrzeni roboczej
 
 Wirtualizacja przestrzeni roboczej umożliwia umiesczenie w wirtualnym środowisku uruchomieniowym zestawu aplikacji, które tworzą kompletne środowisko pracy na poziomie użytkownika, i które mogą ze sobą współpracować w ramach zwirtualizowanej przestrzeni.
 
 * Na zwirtualizowaną przestrzeń roboczą składają się wszelkie aplikacje, dane i ustawienia użytkownika, oraz niektóre podsystemy systemu operacyjnego niewymagające uprawnień administratorskich, pozwalające stworzyć kompletne środowisko pracy dla użytkownika.
 * Oprogramowanie przestrzeni roboczej uruchamiane jest na komputerze użytkownika i ma szybki dostęp do lokalnych zasobów sprzętowych.
 
-<div class="page-break"></div>
-
-## Wirtualizacja środowiska graficznego
+### Wirtualizacja środowiska graficznego
 
 Wirtualizacja środowiska graficznego odpowiada za uruchomienie kompletnego środowiska graficznego ("pulpitu") do użycia na komputerze użytkownika. Zwirtualizowane środowisko może pracować w maszynie wirtualnej lub na zupełnie innym komputerze w sieci. Umożliwia to dostęp do tego samego środowiska pracy z wielu komputerów, na przykład wielu stacji roboczych w firmie, lub komputerów należących do użytkownika w wielu miejscach na świecie.
 
@@ -107,21 +76,17 @@ Wirtualizacja środowiska graficznego odpowiada za uruchomienie kompletnego śro
 * Umożliwia podniesienie bezpieczeństwa, gdyż na urządzeniu końcowym nie są przechowywane żadne wrażliwe dane, zatem jego utrata nie wiąże się bezpośrednio z utratą ani niepowołanym dostępem do danych.
 * Potencjalnie wymaga dużej przepustowości łącz sieciowych, która nie zawsze jest dostępna.
 
-<div class="page-break"></div>
-
-## Zastosowania
+#### Zastosowania
 
 * Ułatwienie dystrybucji kompletnego środowiska pracy dla użytkownika
 * Udostępnienie użytkownikowi dużych zasobów obliczeniowych i pamięciowych za pośrednictwem urządzenia lub wielu urządzeń o niewielkich zasobach (tzw. _thin client_)
 * Centralizacja środowiska pracy w celu zwiększenia jego elastyczności względem wykorzystania różnych urządzeń końcowych w różnych miejscach
 * Ułatwienie kontroli dostępu do wrażliwych danych oraz minimalizacja szansy ich kradzieży bądź utraty
 
-<div class="page-break"></div>
-
-## Bibliografia
+### Bibliografia
 
 [ dostęp 23. grudnia 2018 ]
-0. _Virtualization_ (Wikipedia) (https://en.wikipedia.org/wiki/Virtualization)
+1. _Virtualization_ (Wikipedia) (https://en.wikipedia.org/wiki/Virtualization)
 1. _Wirtualizacja_ (Wikipedia) (https://pl.wikipedia.org/wiki/Wirtualizacja)
 1. _Hardware virtualization_ (Wikipedia) (https://en.wikipedia.org/wiki/Hardware_virtualization)
 1. _Application virtualization_ (Wikipedia) (https://en.wikipedia.org/wiki/Application_virtualization)
@@ -131,9 +96,3 @@ Wirtualizacja środowiska graficznego odpowiada za uruchomienie kompletnego śro
 1. _Paravirtualization_ (Wikipedia) (https://en.wikipedia.org/wiki/Paravirtualization)
 1. _Full virtualization_ (Wikipedia) (https://en.wikipedia.org/wiki/Full_virtualization)
 1. _Docker (software)_ (Wikipedia) (https://en.wikipedia.org/wiki/Docker_(software))
-
-<div class="page-break"></div>
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
-
-Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien.
