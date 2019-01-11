@@ -85,7 +85,7 @@ Wirtualizacja środowiska graficznego odpowiada za uruchomienie kompletnego śro
 
 ### Bibliografia
 
-[ dostęp 23. grudnia 2018 ]
+[ dostęp 11. stycznia 2019 ]
 1. _Virtualization_ (Wikipedia) (https://en.wikipedia.org/wiki/Virtualization)
 1. _Wirtualizacja_ (Wikipedia) (https://pl.wikipedia.org/wiki/Wirtualizacja)
 1. _Hardware virtualization_ (Wikipedia) (https://en.wikipedia.org/wiki/Hardware_virtualization)
