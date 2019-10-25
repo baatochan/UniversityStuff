@@ -1,0 +1,9 @@
+
+*** ZADANIE 11 ***
+
+Zapisać do pliku tekstowego imiona członków grupy.
+Plik zaszyfrować za pomocą gpg algorytmem AES192 (tylko symetrycznym) z kluczem 'LABORKA'.
+Obliczyć sumę kontrolną SHA-1 pliku (Kleopatra).
+Komendy gpg, treść pliku przed i po zaszyfrowaniu oraz sumę kontrolną umieścić w sprawozdaniu.
+
+******************
