@@ -1,0 +1,2 @@
+# exclude markdown-themeable-pdf/ dir from lang stats on github
+markdown-themeable-pdf/* linguist-vendored
