@@ -29,7 +29,7 @@ W ciągu następnych kilku dni przygotowałem swoje stanowisko pracy, poprzez in
 
 ### Zadania
 
-Przypisany zostałem do zespołu odpowiadającego za rozwój nadajnika sieci komórkowej w technologii 5G, dokładniej za komponent odpowiadający za warstwę użytkownika (uplane), czyli przesyłanie pakietów z danymi pomiędzy końcowym użytkownikiem (UE) a siecią szkieletową (core network) operatora. Projekt, do którego zostałem przypisany, praktycznie w całości jest napisany w języku C++14.
+Przypisany zostałem do zespołu odpowiadającego za rozwój nadajnika sieci komórkowej w technologii 5G, dokładniej za komponent odpowiadający za warstwę użytkownika (uplane), czyli przesyłanie pakietów z danymi pomiędzy końcowym użytkownikiem (UE - user equipment), a siecią szkieletową (core network) operatora. Projekt, do którego zostałem przypisany, praktycznie w całości jest napisany w języku C++14.
 
 Z uwagi na podpisaną umowę poufności (NDA) nie mogę przedstawić szczegółów moich zadań. Większość z nich polegała na ulepszeniu jakości kodu (refactor), usunięciu nieużywanych elementów kodu (dead code) i wprowadzeniu lepszych rozwiązań do istniejących funkcjonalności (improvements).
 
@@ -37,7 +37,7 @@ Z uwagi na podpisaną umowę poufności (NDA) nie mogę przedstawić szczegół�
 
 Większość zespołów w firmie pracuje w strukturze scrumowej, do takiego też zespołu zostałem przypisany.
 
-Zadania dla poszczególnych członków zespołu są przydzielane podczas codwutygodniowych spotkań z przełożonym (product owner), w trakcie, których omawiane są efekty pracy w poprzednim sprincie, jak i rozdzielane taski na kolejny. Dodatkowo codziennie na kilkunastominutowych spotkaniach z liderem zespołu (tzw. daily) omawiane są postępy w realizacji zadań.
+Zadania dla poszczególnych członków teamu są przydzielane podczas codwutygodniowych spotkań z przełożonym (product owner), w trakcie, których omawiane są efekty pracy w poprzednim sprincie, jak i rozdzielane taski na kolejny. Dodatkowo codziennie na kilkunastominutowych spotkaniach z liderem zespołu (tzw. daily) omawiane są postępy w realizacji zadań.
 
 Z uwagi na krótki staż w pracy nie uczestniczyłem aktywnie w spotkaniach, na których przygotowywane były zadania do wykonania. Obecność na niektórych z nich pozwoliła mi jednak zobaczyć, jak duży wpływ na końcowe rozwiązanie ma poszczególny zespół developerski, który nad zadaniem będzie pracować.
 
@@ -51,8 +51,8 @@ Poprzez trzymiesięczną pracę w firmie udało mi się poszerzyć moje umiejęt
 
 Dzięki wewnątrz firmowym szkoleniom lepiej poznałem historię telefonii komórkowej i działanie nadajników w technologii 5G oraz LTE.
 
-Praca w zespole developerskim pozwoliła mi na lepsze zapoznanie się z narzędziami używanymi do profesjonalnego rozwoju oprogramowania, takimi jak narzędzia kontroli wersji, ciągłej integracji, inspekcji kodu, czy listy zadań w formie tablic kanban. Pozwoliła mi też zobaczyć jak znane mi narzędzia używa się inaczej w przypadku profesjonalnego zastosowania.
+Praca w zespole deweloperskim pozwoliła mi na lepsze zapoznanie się z narzędziami używanymi do profesjonalnego rozwoju oprogramowania, takimi jak narzędzia kontroli wersji, ciągłej integracji, inspekcji kodu, czy listy zadań w formie tablic kanban. Pokazała mi też jak znane mi narzędzia używa się inaczej w przypadku profesjonalnego zastosowania.
 
-Podczas realizacji moich zadań, udało mi się poszerzyć moje doświadczenie w programowaniu obiektowym. Najważniejsza wiedza, jaką zdobyłem, to większa świadomość, czego nie wiem o programowaniu i jakiego doświadczenia mi brakuje. Zobaczyłem również jakie praktyki w programowaniu należy stosować, a jakich unikać. Z pewnością zaprocentuje to w mojej przyszłości jako inżynier.
+Podczas realizacji moich zadań, udało mi się poszerzyć moje doświadczenie w programowaniu obiektowym. Najważniejsza wiedza, jaką zdobyłem, to większa świadomość, czego nie wiem w tym temacie i jakiego doświadczenia mi brakuje. Zobaczyłem również jakie praktyki w programowaniu należy stosować, a jakich unikać. Z pewnością zaprocentuje to w mojej przyszłości jako inżynier.
 
-Praktyka nauczyła mnie również nieco więcej o pracy w zespole, przez systematyzację współpracy między członkami zespołu oraz regularnych spotkań; uświadomiła mi, jak ważna jest komunikacja na temat celów, zadań i postępów.
+Praktyka nauczyła mnie również nieco więcej o pracy w zespole, przez systematyzację współpracy między członkami teamu oraz regularnych spotkań. Uświadomiła mi, jak ważna jest komunikacja na temat celów, zadań i postępów.
