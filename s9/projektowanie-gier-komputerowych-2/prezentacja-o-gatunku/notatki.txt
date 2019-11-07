@@ -7,8 +7,10 @@ kim jestesmy
 ----Slajd 2------------
 czym jest visual novelka
 
-*czytamy definicje*
+gra komputerowa, będąca rodzajem fikcji interaktywnej, charakteryzująca się multimedialnym przedstawieniem najczęściej obszernej, nieliniowej fabuły z pierwszoosobową narracją wraz ze statyczną grafiką w stylu anime lub żywymi obrazami, podkładem muzycznym i niekiedy głosowym. 
 
+
+gatunek nowy, z nikad
 gatunek bezposrednio wywodzi sie z gier przygodowych,a przynajmniej japonskich gier przygodowych ktore sa inne niz te znane przez gracza zachodniego
 tak jak Skyrim to western RPG, Final Fantasy to Japanese RPG
 VNki to podkategoria gier przygodowych tak samo jak action rpg i turn based rpg jest podkategorią rpg
@@ -34,22 +36,25 @@ Apropo ścieżek fabularnych oto przykładowy flowchart
 
 
 ----Slajd 6-----------
-Polska (memiczna) wizja - Mobinet Games
-
-
 klasyczne spojrzenie na nowelki, obrazek w tle, postacie wyrazajace emocje, tekst na dole, muzyczka w tle, styl animu
 novelka 
 
-#pokazujemy wojtyłe
+Polska (memiczna) wizja - Mobinet Games
+brak fundow, gra nieistnieje
 
-----Slajd 7-8---------
+----Slajd 7---------
+
 katawa shoujo
 pierwsza bardziej znana nowelka na zachodzie stworzona przez developerów z państw zachodnich, nie japonii
 
-UWAGA stworzona przez kilku zapaleńców z 4chana (4 leaf studios kek)
-
 darmowa, styl animu
 od czasu shoujo gatunek stal sie dosc spory na zachodzie (tluamczenia geir japonskich, jak i zachodnei produkcje)
+
+chlopak trafia do szkoly "specjalnej", niepoelnosprawni, 
+
+----Slajd 8---------
+
+UWAGA stworzona przez kilku zapaleńców z 4chana (4 leaf studios kek)
 
 ----Slajd 9----------  Historia gatunku
 
@@ -64,32 +69,29 @@ wiekszosc neizrozumienia wynika z bariery jezykowej i braku dostepu do gier ktor
 patrzac jednak na historie gier przygodowych w japomii stwierdzenie to ma wiecej sensu
 warto podzielic sb gry przygodowe na zachodnie i japonskie (tak jak rpg - Elder Scrolls/Final Fantasy) - obie kategorie wywodza sie z gier tekstowych jak Zork czy Roberta Williams mystery house #screeny
 
-----Slajd 10-11-------- Colosal Cave
+----Slajd 10-------- Colosal Cave
 
 zachodnie gry mocno byly inspirowane colosal cave adventure autorstwa Williama Crowthera, ktora polegala na nawigowaniu po duzej mapie (tekstowo),
 
 styl prezentacji jest podobny do nowelek, ale te gry (i kolejne nasladujace ta) byly mocno bardzo mocno skupione rowniez na zagdkach logicznych ktore blokowaly postep fabuly
 
 
-----Slajd 12-13---------- Portopia
+----Slajd 11-12---------- Portopia
 
 za poczatek historii japonskich gier przygodowych mozna uznac portopia serial murder case (port na famicona) Yuuji Horii
-opisac gre (o czym, jak wyglada okno, na czym polega rozgrywka):
-
-Gramy jako detektyw badający sprawę morderstwa
-
 gra wytworzyla wiele tradycji i konwencji w tym gatunku ktore inni potem kopiowali
+
+widok pierwsze osoby, 3ps na zachodzie
+Gramy jako detektyw badający sprawę morderstwa. Zbieranie elementow, przedstawianie jako dowody w rozmowach, historia idzie dalej. Lupa i mlotek do uzycia na tle po wiecej info
+od gracza często było wymagane przeprowadzenie interakcji z postaciami w odpowiedniej kolejności aby ruszyć do przodu
+
 gra mocno skupiala sie na dialogach i wyborach ktore gracz dokonywal, gdzie zachodnie tytuly przygodowe o wiele bardziej skupialy sie na zagadnach przestrzennych
+gra nieliniowa, wiele zakonczen, jedno poprawne
 
 autor protopii chcial stowrzyc program komputerowy z ktorym czlowiek moglby rozmawiac, jednak zobacyzl ze jest to nei mozliwe
 po poznaniu gier tekstowych zaadoptowal pomysl i stowrzyl gre gdzie mozna bylo miec "scripted" konwersacje z npckami. dlatego gra skupia sie tak bardzo na interakcjach z npc i jest w pierwszej osobie
 
-gra posiada kilka sciezek przejsciam historia jest dosc nieliniowa  i kilka zakonczen (ale tylko jedno prawdziwe/dobre)
-od gracza często było wymagane przeprowadzenie interakcji z postaciami w odpowiedniej kolejności aby ruszyć do przodu
-
-portopia stała się template'm dla kolejnych produkcji - screenshoty
-
-----Slajd 14--------- Novelware i the dome
+----Slajd 13--------- Novelware i the dome
 mocny przelom gatunku wraz z pctami
 jednym z kluczowych milestonow byly gry od system sacom i ich seria Novel Ware, gdzie probowali zrobic fuzje dzwieku i tekstu
 pierwsza gra byla Dome, bazuja na ksiazce Dome: Prelude to the End by Shizuko Natsuki
@@ -103,7 +105,7 @@ niektore rozdzialy nei mialy zagadek a rozwiazywanie problemowy bylo mocno upros
 inne tytuly wydane pod tym brandem opieraly sie o inne historie takie jak projektantka mody uzywajaca ndprzyrodzonych mocy by odkryc zagadke zabojstwa kolegi z klasy, czy historie syna szefa firmy gamedevowoej ktory musial prowadzic ta firme kiedy ojciec był w szpitalu
 pomysl by stworzyc gre przygodowa jako powiesc byl kluczowym krokiem w histori nowelek
 
-----Slajd 15-19--- Sound novel
+----Slajd 14-18--- Sound novel
 
 byl on dalej roziwjany przez Chunsoft (firma ktora stworzyla port protopii na fmaicona kilka lat wczesniej)
 firma ta wspierala innych tworcow jednak w 92 stworzyla pierwszy tytul wydany przez sama siebie na super famicon
@@ -117,16 +119,18 @@ celem tego bylo stworzenie gry ktora spodobala by sie bardziej casualowym gracza
 byla to tak naprawde zgamifikowana ksiazka choose-your-own-adventure i stowrzyla ona dzisiejsze visual nowelki we wszystkim poza nazwa
 gra nie byla wielkim sukcesem ale stopniowo zyskiwala na popularnosci ze względu na bardzo dużo bad endingów
 
----Slajd 20----- Kamatachi no yoru
-kolejna pozycja od tego studia byla kamaitachi no yoru ktora okazala sie wielkim sukcesem i spowodowala wysyp podobnych gier od innych producentów
+---Slajd 19----- Kamatachi no yoru
+kolejna pozycja od tego studia byla kamaitachi no yoru (the night of the sickle weasel, łasica o pazurach jak sierpy) 
 historia - w schronisku grupka przyjaciów znajduje ciało zamordowanego znajomego. Celem gracza jest rozwiązanie tajemnicy i wskazanie kto z osób obecnych w schronisku jest mordercą i zapobiegnięcie kolejnym zabójstwom
 
 podobne do Sherlockowego "morderstwa w posiadłości"
 
+gra okazala sie wielkim sukcesem i spowodowala wysyp podobnych gier od innych producentów
+
 branza zaczela wykorzystywac temrin sound novel do okreslania gier od chunsoftu i podobnyc gier inych firm
 
 
-----Slajd 21-22----- Leaf i Shizuku
+----Slajd 20-21----- Leaf i Shizuku
 powstalo wtedy wiele sound novelek na rozne platformy
 pojawila sie w koncu gra suzuki od studia leaf ( gry zawierały elementy dla doroslego gracza) w 1996
 gra niczym sie nie wyrozniala od innych sound novelek ale byla ona marketowana jako pierwsza czesc "Leaf Visual Novel Series"
@@ -139,27 +143,32 @@ Shizuku było wciąż grą typu horror w przeciwieństwie do kolejnego kamienia 
 
 ----Slajd 22-----To Heart
 seria VN zdobyla przelomowa polurnosc z trzecia pozycja "to heart" ktora zmienila klasyczny motyw horroru na komedie romatyczna dziejaca sie w liceum
-gra wziela troche inspiracji z dating simow (wtedy zyskujacych poplarnosc) #jakiesPorownanieZDatingSimami?
+gra wziela troche inspiracji z dating simow (wtedy zyskujacych poplarnosc) (skupiajace sie na statystykach, zarzadzaniu spotkaniami i zaliczaniem jak najwiekszej liczby dziewczyn, historia malo istotna)
 nie dokonywalo sie wyborow by uniknac zlego zakocnzenia a by zejsc sie z dziewczyna ktora sie chcialo - poprzednie gry studia leaf dzialaly podobnie ale w to heart stalo sie to o wiele wiekszym focusem
 te gry stawaly sie coraz popularniejsze zwlaszcza wsrod otaku
+ta gra dokonczyla wytwarzanie dzisiejszego podejscia do vn
 pomysly takie jak
 	* wieksze skupienie sie na artach i animacji
 	* sciezki prowadzace do zakonczen z roznymi postaciami
 	* skupienie sie na historiach romatycnzych
 	* czy materialy +18
 	wywodza sie z gier studia Leaf
------- 22:00
+----Slajd X-----
 z biegiem czasu zmienila sie prezentacja tekstu z full screan na ramke na dole jednak wciaz wychodza gry ktore maja styl wywodzacy sie z sound novel
 #screeny innych gier
----- 23:00
+----Slajd 23-----
 z biegiem czasu wydzielily sie rowniez gry typu kinetic novel czyli novelki ktore nie maja zadnego wyboru od gracza, prosta liniowa fabule
 temrin wywodzi sie z gier studia visual arts nazwanych tym terminem
 #screeny
------ 23:30
+----Slajd X-----
 powstaly rowniez tytuly bedace miksem nowelek z innymi gatunkami ktorych rozgrywka podzielona jest na wyrazne sekcje
 przyklady: utawarerumono, baldr force, virtues last reward
------- 24:00
+----Slajd 24-25-----
+VN dzisiaj
+----Slajd 26-----
 podsumowanie
 gdy widzimy historie tego gatunku i jak ona ewoluowala zaczynamy widziec dlaczego nowelki to gry przygodowe, przynajmniej w rozumieniu jaoponskim
 dlatego tez gry takie jak ace attorney moga wygladac dla nas jak nowelki (#screeny) z powodu podobnej prezentacji ale to dlatego ze nowelki to gry przygodowe a nie odwrrotnie
 gry przygodowe skupiaja sie na zagadkach i rozwiazywaniu problemow wynikajacych z mechaniki, gdzie nowelki skupiaja sie glownie na czytaniu narracji
+----Slajd 27-----
+film na yt
