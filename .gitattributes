@@ -1,2 +1,5 @@
 # exclude markdown-themeable-pdf/ dir from lang stats on github
 markdown-themeable-pdf/* linguist-vendored
+
+# exclude random html files from lang stats
+*.html linguist-vendored
