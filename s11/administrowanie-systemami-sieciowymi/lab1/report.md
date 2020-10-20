@@ -15,17 +15,15 @@ Aby przedstawić proces dodania komputera do domeny, konieczne było najpierw st
 
 Za pomocą kreatora "Add roles" konieczne było doinstalowanie "Active Directory Domain services".
 
-![Add Roles Wizard](screenshots/01.png =400x0)
+![Add Roles Wizard](screenshots/01.png)
 
 Później za pomocą kreatora instalacji AD DS wymagana była instalacja domeny.
 
-![AD DS Installation Wizard](screenshots/02.png =550x0)
-
-<div class="page-break"></div>
+![AD DS Installation Wizard](screenshots/02.png)
 
 Po reboocie konieczne również było stworzenie użytkownika domenowego.
 
-![User creation](screenshots/03.png =300x0)
+![User creation](screenshots/03.png)
 
 Z poziomu maszyny z systemem Windows 7 wymagane było ustawienie serwera DNS na adres maszyny serwera oraz wykonanie kreatora dodania do domeny.
 
@@ -35,11 +33,11 @@ Z poziomu maszyny z systemem Windows 7 wymagane było ustawienie serwera DNS na 
 
 Do grupy "Administrators" dodana zostaje domenowa grupa Domain Admins.
 
-![Changes in Administrators](screenshots/05.png =550x0)
+![Changes in Administrators](screenshots/05.png)
 
 Do grupy Users dodane zostają grupa Domain Users oraz domenowy użytkownik 226105.
 
-![Changes in Users](screenshots/06.png =550x0)
+![Changes in Users](screenshots/06.png)
 
 #### Przedstawić i opisać różne sposoby logowania, tzn. wykorzystujące konta lokalne komputera oraz domenowe.
 
@@ -51,9 +49,7 @@ Domyślnie logując się komputer zakłada, że logujemy się do domeny. Aby mie
 
 Aby zalogować się na lokalne konto użytkownika konieczne jest poprzedzenie jego nazwy `.\` lub `<nazwa_komp>\`.
 
-![Local Users](screenshots/08.png =480x0)
-
-<div class="page-break"></div>
+![Local Users](screenshots/08.png)
 
 Wyjątek stanowi konto administratora, przy którym system zakłada, że logujemy się do lokalnej maszyny, a aby zalogować się na konto administratora domeny trzeba to zaznaczyć poprzedzając je nazwą domeny.
 
@@ -67,11 +63,11 @@ Tak samo jak stworzenie konta lokalnego powoduje przypisanie go do grupy lokalne
 
 Możliwe jest ręczne przypisanie konta domenowego do domenowej grupy adminów z poziomu zarządzania domeną.
 
-![Adding domain admin](screenshots/10.png =680x0)
+![Adding domain admin](screenshots/10.png)
 
 Możliwe jest również przypisanie konta domenowego jako administrator na tylko jednej maszynie poprzez dodanie go do lokalnej grupy adminów.
 
-![Adding local admin](screenshots/11.png =680x0)
+![Adding local admin](screenshots/11.png)
 
 Oczywista jest również możliwość przypisania lokalnego konta do lokalnej grupy. Nie możliwe natomiast jest przypisanie lokalnego konta do globalnej grupy.
 
@@ -99,8 +95,6 @@ Można też przeszukiwać inne zasoby niż konta użytkowników i grupy, a takż
 
 ![Searching AD 2](screenshots/13.png)
 
-<div class="page-break"></div>
-
 Przeszukiwanie AD jest możliwe również z poziomu komputerów w domenie.
 
 ![Searching AD 3](screenshots/14.png)
@@ -109,17 +103,15 @@ Przeszukiwanie AD jest możliwe również z poziomu komputerów w domenie.
 
 Pierwszym etapem jest przygotowanie folderu i jego udostępnienie.
 
-![Sharing a directory](screenshots/15.png =550x0)
+![Sharing a directory](screenshots/15.png)
 
 A następnie dodanie go jako shared folder in AD Users and Computers.
 
-![Adding a shared folder](screenshots/16.png =550x0)
-
-<div class="page-break"></div>
+![Adding a shared folder](screenshots/16.png)
 
 W ten sposób udostępnione zasoby można znaleźć za pomocą wyszukiwarki AD.
 
-![Searching for shares](screenshots/17.png =300x0)
+![Searching for shares](screenshots/17.png)
 
 #### Stworzyć hierarchię jednostek organizacyjnych. Stworzyć hierarchię zgodnie ze strategią podziału zasobów, strukturą organizacyjną lub inną wraz z uzasadnieniem.
 
@@ -143,23 +135,21 @@ Podział wygląda następująco:
 
 Uzasadnieniem takiego podziału jest struktura organizacyjna firmy oraz to, że w zależności od ważności przetwarzanych danych konieczna jest większa lub mniejsza kontrola dostępu do zasobów przez pracowników w różnych działach.
 
-![Organizational Units](screenshots/18.png =380x0)
+![Organizational Units](screenshots/18.png)
 
 #### Wykonać delegowanie kontroli administracyjnej za pomocą kreatora oraz sprawdzić, czy działa wykonana delegacja.
 
 Do wykonania tego zadania stworzyliśmy dwóch użytkowników w jednostce Developers - DevelopersAdmin i Dev1.
 
-![New developer users](screenshots/19.png =400x0)
+![New developer users](screenshots/19.png)
 
 Następnie korzystając z kreatora przekazaliśmy kontu DevelopersAdmin uprawnienia do zarządzania użytkownikami w tej jednostce.
 
-![Delegating control](screenshots/20.png =400x0)
+![Delegating control](screenshots/20.png)
 
 Za pomocą narzędzia `net users` można pokazać, że uprawnienia działają poprawnie - 226105 to konto nie będące w żadnej jednostce, natomiast Dev1 znajduje się w jednostce Developers.
 
 ![Proof of working control delegation](screenshots/21.png)
-
-<div class="page-break"></div>
 
 #### Przedstawić delegowanie kontroli administracyjnej bez użycia kreatora (zadanie dodatkowe).
 
