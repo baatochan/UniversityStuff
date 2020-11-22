@@ -59,13 +59,13 @@ Domena poza swoim domyślnym GPO dostała dodatkowy, oraz każda JO z wymienione
 
 Praktyczne działanie zasad zostanie przedstawione na podstawie zasad dotyczących usuwania ikon z pulpitu komputera (węzeł konfiguracja użytkownika).
 
-Gdy żadne ustawienia w GPO nie są zmienione Resultant Set of Policy (RSoP) nie pokazuje niczego, dlatego też ustawiłem dwie rzeczy w lokalnym GPO komputera. Po ustawieniu widać, że z pulpitu zniknęła ikona kosza, a włączenie go przez Panel Sterowania jest nie możliwe (opcja jest wyszarzona).
+Gdy żadne ustawienia w GPO nie są zmienione Resultant Set of Policy (RSoP) nie pokazuje niczego, dlatego też zostały ustawione dwie rzeczy w lokalnym GPO komputera. Po ustawieniu widać, że z pulpitu zniknęła ikona kosza, a włączenie go przez Panel Sterowania jest nie możliwe (opcja jest wyszarzona).
 
 ![rsop only local](screenshots/06.png)
 
 ![control panel show trash bin](screenshots/07.png)
 
-Następnie w poszczególnych GPO domeny włączyłem następujące zasady:
+Następnie w poszczególnych GPO domeny włączone zostały następujące zasady:
 
 Poziom | Nazwa zasady | Ustawienie
 --- | --- | ---
@@ -77,7 +77,7 @@ Building A | Desktop Wallpaper | enabled (i ścieżka do pliku tapety)
 
 ![uszkodzona tapeta](screenshots/09.png)
 
-Widzimy, że poszczególne zasady działają oraz że ustawienie "Remove Computer icon on the desktop" ustawione na poziomie domeny nadpisuje lokalną zasadę. Tak samo działało by to z zasadami z dwóch GPO domenowych, gdzie później przetwarzana zasada (niżej w hierarchii, bardziej szczegółowo) by nadpisała ustawienie wyżej.
+Widać, że poszczególne zasady działają oraz że ustawienie "Remove Computer icon on the desktop" ustawione na poziomie domeny nadpisuje lokalną zasadę. Tak samo działało by to z zasadami z dwóch GPO domenowych, gdzie później przetwarzana zasada (niżej w hierarchii, bardziej szczegółowo) by nadpisała ustawienie wyżej.
 
 Co do zmiany tapety widać, że ustawienia Windowsa wykryły ścieżkę tapety i ją zmieniły, niestety z jakiegoś powodu nie załadowała się ona poprawnie i faktyczna tapeta zrobiła się czarna. Nie jest to jednak istotne teraz dlaczego ten plik się nie ładuje, a na screenshocie wyżej widać, że sama zasada grupy działa (ustawienia pulpitu pokazują poprawną tapetę).
 
@@ -105,7 +105,7 @@ Po zaznaczeniu opcji Enforced przy "HR and Finances GPO" komputer użytkownika z
 
 ##### działanie opcji "zablokuj dziedziczenie"
 
-Do przedstawienie opcji zablokuj dziedziczenie dodałem kilka dodatkowych zasad w GPO dla Building A i Team 11. Dziedziczenie wyłączone zostało na poziomie Building A.
+Do przedstawienia opcji zablokuj dziedziczenie dodane zostało kilka dodatkowych zasad w GPO dla Building A i Team 11. Dziedziczenie wyłączone zostało na poziomie Building A.
 
 ![disable inheritance](screenshots/19.png)
 
