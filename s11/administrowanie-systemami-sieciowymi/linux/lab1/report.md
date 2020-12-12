@@ -26,11 +26,13 @@ Oficjalne repo systemowe to repozytoria z najpopularniejszymi i systemowymi goto
 
 AUR to zbiór pakietów zarządzany przez społeczność Archa (jak i pochodnych). Sam AUR przechowuje tylko skrypty do przygotowania i instalacji pakietu. Same źródła (lub binarka) programu najczęściej pobierana jest z oficjalnego źródła wydawcy. W AURze można znaleźć praktycznie wszystkie pakiety jakie wyszły na Linuxa czyniąc instalacje oprogramowania z poza oficjalnych repo bardzo łatwą. Nie jest to jednak rozwiązanie idealne. Przy korzystaniu z AURa trzeba zachować czujność i zrozumieć skrypty instalacyjne, ponieważ zdarzały się przypadki niebezpiecznych komend w tych skryptach. Skrypty te wykorzystywane są przez `makepkg`, który służy do przygotowywania pakietów do Archa. Użycie AURa możliwe jest ręcznie (samodzielne pobranie skryptów i potrzebnych binarek/źródeł oraz wykonanie `makepkg`) lub za pomocą róźnych helperów AUR, jak wspomniany przeze mnie, od niedawna natywny dla Manjaro, `pamac`.
 
+<div class="page-break"></div>
+
 ##### Zainstalować w systemie menedżer plików Midnight Commander (`mc`). Jeśli program ten jest już zainstalowany, wybrać inny program do zainstalowania.
 
 Zainstalowanie pakietu `mc` możliwe jest za pomocą komendy `pamac install mc`. Później `pamac` pyta się o instalację opcjonalnych dependencji, hasło użytkownika (user musi być na liście sudoers) oraz prosi o potwierdzenie "transakcji".
 
-![Instalacja mc](screenshots/01.png)
+![Instalacja mc](screenshots/01.png =400x0)
 
 Na zrzucie powyżej widzimy instalacje pakietu `mc` z wszystkimi opcjonalnymi dependencjami.
 
@@ -38,21 +40,23 @@ Na zrzucie powyżej widzimy instalacje pakietu `mc` z wszystkimi opcjonalnymi de
 
 Aby sprawdzić, czy dana paczka jest zainstalowana można użyć komendy `pamac search <nazwa_paczki>`. Poniżej widzimy, że pakiet `apache` jest dostępny w systemie. _Note: W dystrybucji Manjaro nazwa pakietu serweru http apache to `apache`, a nie `httpd`._
 
-![Czy zainstalowano apache](screenshots/02.png)
+![Czy zainstalowano apache](screenshots/02.png =500x0)
+
+<div class="page-break"></div>
 
 Listę plików danej paczki można sprawdzić za pomocą komendy `pamac list --files <nazwa_paczki>`. Lista plików serwera Apache jest bardzo długa, więc pokazuje tylko jej początek. Listę plików można sprawdzić również dla niezainstalowanej paczki.
 
-![Lista plików apache](screenshots/03.png)
+![Lista plików apache](screenshots/03.png =400x0)
 
 Pakiet apache do działania wykorzystuje własną control grupę, na poziomie systemowym (roota).
 
-![Usługa apache](screenshots/04.png)
+![Usługa apache](screenshots/04.png =500x0)
 
 #### Zapoznać się z konfiguracją menu startowego systemu Linux (`grub`). Zmienić domyślnie ładowany system na uruchamianie testu pamięci. Po przetestowaniu zmian przywrócić poprzedni stan.
 
 Konfiguracja GRUBa wykonywana jest z poziomu pliku `/etc/default/grub`. Opis odpowiednich opcji dostępny jest w [dokumentacji GRUBa](https://www.gnu.org/software/grub/manual/grub/html_node/Simple-configuration.html#Simple-configuration). Do zmiany domyślnie bootowanego wpisu w grub konieczna będzie również znajomość kolejności wpisów. Możliwe jest to poprzez np. analizę pliku `/boot/grub/grub.cfg`. W moim przypadku system operacyjny jest na pozycji 0, natomiast `memtest` na pozycji 2.
 
-![Domyślny config GRUBa](screenshots/05.png)
+![Domyślny config GRUBa](screenshots/05.png =400x0)
 
 Wyżej widać domyślny plik konfiguracyjny GRUB w tej dystrybucji. Domyślnym ustawieniem jest ukryty GRUB przy starcie oraz zapamiętywanie ostatnio bootowanej pozycji (domyślnie bootowana pozycja to ostatnio wybrana).
 
@@ -60,15 +64,17 @@ Aby zmienić na domyślne bootowanie `memtest` konieczne będzie usunięcie (zak
 
 Dodatkowo zmieniona zostaje pozycja `GRUB_TIMEOUT_STYLE=hidden`, na `countdown`, aby GRUB zawsze był widoczny podczas bootowania. Ułatwi to powrót do pozycji 0, przy używaniu systemu w maszynie wirtualnej.
 
-![Zmieniony config GRUBa](screenshots/06.png)
+![Zmieniony config GRUBa](screenshots/06.png =500x0)
 
 Aby zmiana konfiguracji została zapisana, poza zmianą ustawień w tych plikach konieczne jest jeszcze uruchomienie komendy `grub-mkconfig -o /boot/grub/grub.cfg` z uprawnieniami roota.
 
-![grub-mkconfig](screenshots/07.png)
+![grub-mkconfig](screenshots/07.png =500x0)
+
+<div class="page-break"></div>
 
 Po reboocie komputera i przejściu licznika automatycznie uruchamia się `memtest`.
 
-![memtest](screenshots/08.png)
+![memtest](screenshots/08.png =500x0)
 
 Po wyłączeniu `memtest`a i wybootowaniu systemu, aby przywrócić konfigurację należy cofnąć zmiany w pliku `/etc/default/grub` oraz ponownie uruchomić `grub-mkconfig`.
 
@@ -84,23 +90,23 @@ w >> info.txt
 ```
 Zakończenie planowania następuje po podaniu EOF, czyli po wciśnięciu `Ctrl+D`.
 
-![Planowanie zadania](screenshots/09.png)
+![Planowanie zadania](screenshots/09.png =500x0)
 
 Poniżej widać że zadanie się wykonało (dwa pierwsze wpisy były pisane z ręki by sprawdzić czy komendy działają).
 
-![Zawartość pliku info.txt](screenshots/12.png)
+![Zawartość pliku info.txt](screenshots/12.png =350x0)
 
 #### Wykorzystując polecenie `atq` sprawdzić jakie zadania oczekują na wykonanie. Wcześniej zaplanować kilka zadań (dowolnych).
 
-![Zaplanowane zadania](screenshots/10.png)
+![Zaplanowane zadania](screenshots/10.png =500x0)
 
 #### Wykorzystując polecenie `atrm` , usunąć jedno z utworzonych wcześniej zadań.
 
-![Usunięcie zadania](screenshots/11.png)
+![Usunięcie zadania](screenshots/11.png =500x0)
 
 #### Sprawdzić jakie zadania są aktualnie przeznaczone do wykonywania z wykorzystaniem `crontab`.
 
-![Lista zadań crontab](screenshots/13.png)
+![Lista zadań crontab](screenshots/13.png =500x0)
 
 #### Utworzyć nowy plik z zadaniami dla polecenia crontab, o nazwie "`nowy_plik_crontab`". W pliku tym ma się znaleźć linia z zadaniem, które będzie się uruchamiać 15 minut po każdej pełnej godzinie i zapisywać listę uruchomionych procesów do pliku: `procesy_<godzina>_<data>.log` w katalogu domowym. Następnie należy wywołać polecenie crontab wykorzystując utworzony plik (`nowy_plik_crontab`).
 
@@ -117,52 +123,52 @@ gdzie:
 
 Uruchomienie zadania polega na wykonaniu komendy `crontab new_file_crontab`.
 
-![crontab](screenshots/14.png)
+![crontab](screenshots/14.png =500x0)
 
 Na zrzucie powyżej widać zawartość pliku, aktywacje zadania oraz efekt zadania.  _Działanie komendy zostało sprawdzone na zadaniu cron uruchamianym co minutę (`* * * * *`) oraz na wykonaniach ręcznych._
 
 #### Usunąć wszystkie zadania, które aktualnie są przeznaczone do wykonania.
 
-![Usunięcie crontab](screenshots/15.png)
+![Usunięcie crontab](screenshots/15.png =500x0)
 
 #### Sprawdzić czy usługa ssh jest aktywna. Jeśli nie, zainstaluj/uruchom w systemie usługę ssh.
 
-![Aktywacja usługi ssh](screenshots/16.png)
+![Aktywacja usługi ssh](screenshots/16.png =500x0)
 
 #### Wykonaj kopię pliku konfiguracyjnego usługi ssh.
 Plik konfiguracyjny serwera ssh to `/etc/ssh/sshd_config`. Poniżej widać wykonanie kopii domyślnych ustawień serwera ssh. Do dostępu do katalogu i plików ustawień ssh konieczne są uprawnienia roota.
 
-![Backup ustawień ssh](screenshots/17.png)
+![Backup ustawień ssh](screenshots/17.png =500x0)
 
 #### Wprowadź zmiany w konfiguracji usługi ssh
 ##### Ustaw następujące polecenia powitalne "<Imię> <Nazwisko> - laboratorium 2.1 - <termin zajęć>"
 Ustawienie wiadomości powitalnej dzieli się na kilka kroków. Najpierw konieczne jest stworzenie pliku zawierającego odpowiednią treść. Poniżej widać stworzenie pliku `/etc/ssh/welcome.msg`.
 
-![Plik z wiadomością](screenshots/18.png)
+![Plik z wiadomością](screenshots/18.png =500x0)
 
 Następnie w konfiguracji ssh należy znaleźć i odkomentować ustawienie `Banner` oraz podać ścieżkę do pliku z wiadomością. Do edycji configu wymagane są uprawnienia roota.
 
-![Odpowiednie ustawienia banneru](screenshots/19.png)
+![Odpowiednie ustawienia banneru](screenshots/19.png =350x0)
 
 ##### Zmień domyślny port, na którym pracuje usługa ssh (jaki?) na inny (spoza puli well-known ports)
 
 Serwer ssh domyślnie pracuje na porcie 22. Zmiana tego portu wymaga odkomentowania `Port` w ustawieniach serwera i zmianie wartości na oczekiwany port.
 
-![Odpowiednie ustawienia portu](screenshots/20.png)
+![Odpowiednie ustawienia portu](screenshots/20.png =500x0)
 
 Kolejnym krokiem jest restart usługi ssh komendą `systemctl restart sshd`.
 
 #### Po restarcie usługi ssh połączyć się z serwerem lokalnie
 Do połączenia poza adresem (`localhost`) należy podać parametr `-p`.
 
-![Połączenie localhost](screenshots/21.png)
+![Połączenie localhost](screenshots/21.png =500x0)
 
 #### Spróbować połączyć się z innej maszyny (np. z poziomu systemu Windows - klient Putty) w celu zweryfikowania dokonanych
 zmian.
 Do połączenia z hosta konieczna była zmiana ustawień maszyny wirtualnej, aby karta sieciowa była w trybie bridged. Adres IP maszyny wirtualnej można po tym odczytać komendą `ifconfig -a`. Połączenie z hosta zostało wykonane z Windowsa z użyciem powershella, ponieważ nie posiadam klienta putty.
 
-![Połączenie host-vm](screenshots/22.png)
+![Połączenie host-vm](screenshots/22.png =500x0)
 
 #### Przywrócić oryginalny plik konfiguracyjny usługi ssh
 
-![Przywrócenie ustawień ssh](screenshots/23.png)
+![Przywrócenie ustawień ssh](screenshots/23.png =500x0)
