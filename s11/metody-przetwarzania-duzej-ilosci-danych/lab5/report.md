@@ -12,10 +12,10 @@ Instrukcja laboratoryjna nr 5 przedstawia metodę definiowania nowego wymiaru z 
 ### Różne rodzaje wymiarów
 #### Definiowanie wymiaru połączonego przez tabelę pośrednią
 
-![](screenshots/01.png)  
+![](screenshots/01.png =500x0)  
 _Dodanie brakujących tabeli Product Category i Product Subcategory._
 
-![](screenshots/02.png)  
+![](screenshots/02.png =400x0)  
 _Tworzenie nowego wymiaru Product Subcategory._
 
 ![](screenshots/04.png)  
@@ -26,8 +26,8 @@ _Dodanie nowego wymiaru do measure grupy i ustawienie jego parametrów._
 ![](screenshots/05.png)  
 _Dodanie nowego wyliczania._
 
-![](screenshots/06.png)
-![](screenshots/07.png)  
+![](screenshots/06.png =349x0)
+![](screenshots/07.png =349x0)  
 _Tworzenie nowego wymiaru._
 
 ![](screenshots/08.png)  
@@ -42,19 +42,23 @@ _Dodanie wymiaru do measure grupy._
 ![](screenshots/10.png)  
 _Dodanie nowej translacji na j. polski._
 
+<div class="page-break"></div>
+
 #### Definiowanie nazw dla nowej translacji
 
 ![](screenshots/11.png)  
 _Uzupełnienie tłumaczeń kostki dla tłumaczenia na j. polski (mamy nadzieję, że nie będzie oceniana jakość tłumaczenia)._
 
+<div class="page-break"></div>
+
 #### Wypełnianie translacji dla wymiaru
 
-![](screenshots/12.png)  
+![](screenshots/12.png =650x0)  
 _Uzupełnienie tłumaczeń wymiaru Time dla tłumaczenia na j. polski (mamy nadzieję, że nie będzie oceniana jakość tłumaczenia)._
 
 #### Translacja dla wymiaru Product
 
-![](screenshots/13.png)  
+![](screenshots/13.png =650x0)  
 _Uzupełnienie tłumaczeń wymiaru Produkt dla tłumaczenia na j. polski._
 
 #### Weryfikacja translacji
@@ -68,15 +72,17 @@ _Polskie nazwy widoczne w zakładce Browser._
 ![](screenshots/15.png)  
 _Domyślne partycje przypisane do grup pomiarów. Grupa Internet Sales posiada tylko jedną partycję._
 
+<div class="page-break"></div>
+
 #### Utworzenie nowych partycji
 
-![](screenshots/16.png)  
+![](screenshots/16.png =350x0)  
 _Do utworzenia ręcznych partycji konieczne jest usunięcie domyślnej._
 
-![](screenshots/17.png)  
+![](screenshots/17.png =350x0)  
 _Tworzenie nowej partycji - dane źródła._
 
-![](screenshots/18.png)  
+![](screenshots/18.png =350x0)  
 _Tworzenie nowej partycji - zapytanie ograniczające._
 
 ![](screenshots/19.png)  
@@ -84,17 +90,19 @@ _Tworzenie nowej partycji - ustalenie poprawnej nazwy partycji._
 
 #### Zadanie utworzenia partycji
 
-![](screenshots/20.png)
-![](screenshots/21.png)
-![](screenshots/22.png)  
+![](screenshots/20.png =230x0)
+![](screenshots/21.png =230x0)
+![](screenshots/22.png =230x0)  
 _Tworzenie 3 kolejnych partycji._
 
 ![](screenshots/23.png)  
 _Utworzone 4 partycje._
 
+<div class="page-break"></div>
+
 #### Zmiana agregacji dla partycji
 
-![](screenshots/24.png)  
+![](screenshots/24.png =400x0)  
 _Zmiana trybu agregacji danych._
 
 W programie dostępne są następujące presety:
@@ -117,10 +125,10 @@ W programie dostępne są następujące presety:
 
 Zmiana z MOLAP na Scheduled MOLAP powoduje, że hurtownia danych będzie automatycznie co 24h aktualizowała swoje dane.
 
-![](screenshots/25.png)  
+![](screenshots/25.png =400x0)  
 _Szczegółowe ustawienia Scheduled MOLAP._
 
-![](screenshots/26.png)  
+![](screenshots/26.png =400x0)  
 _Nieskonfigurowane szczegółowe ustawienia Medium-latency MOLAP._
 
 ![](screenshots/27.png)  
@@ -128,10 +136,10 @@ _Konfiguracja zapytania powiadamiającego o zmianie, po zapisaniu zapytania zapy
 
 #### Konfiguracja opcji agregacji
 
-![](screenshots/28.png)  
+![](screenshots/28.png =500x0)  
 _Konfiguracja agregacji - liczność poszczególnych wymiarów._
 
-![](screenshots/29.png)  
+![](screenshots/29.png =500x0)  
 _Konfiguracja agregacji - ustawienie szacowanej liczności poszczególnych wymiarów._
 
 #### Strojenie agregacji
