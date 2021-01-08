@@ -20,7 +20,7 @@
 %% Legal Notice:
 %% This code is offered as-is without any warranty either expressed or
 %% implied; without even the implied warranty of MERCHANTABILITY or
-%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% FITNESS FOR A PARTICULAR PURPOSE!
 %% User assumes all risk.
 %% In no event shall the IEEE or any contributor to this code be liable for
 %% any damages or losses, including, but not limited to, incidental,
@@ -135,7 +135,7 @@
 % graphicx was written by David Carlisle and Sebastian Rahtz. It is
 % required if you want graphics, photos, etc. graphicx.sty is already
 % installed on most LaTeX systems. The latest version and documentation
-% can be obtained at: 
+% can be obtained at:
 % http://www.ctan.org/pkg/graphicx
 % Another good source of documentation is "Using Imported Graphics in
 % LaTeX2e" by Keith Reckdahl which can be found at:
@@ -340,10 +340,10 @@ Politechnika Wrocławska}}
 
 % for over three affiliations, or if they all won't fit within the width
 % of the page, use this alternative format:
-% 
+%
 %\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
 %Homer Simpson\IEEEauthorrefmark{2},
-%James Kirk\IEEEauthorrefmark{3}, 
+%James Kirk\IEEEauthorrefmark{3},
 %Montgomery Scott\IEEEauthorrefmark{3} and
 %Eldon Tyrell\IEEEauthorrefmark{4}}
 %\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
@@ -418,7 +418,7 @@ In this article we focus on machine learning usage in network optimization probl
 %\begin{figure}[!t]
 %\centering
 %\includegraphics[width=2.5in]{myfigure}
-% where an .eps filename suffix will be assumed under latex, 
+% where an .eps filename suffix will be assumed under latex,
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
 %\caption{Simulation results for the network.}
@@ -434,7 +434,7 @@ In this article we focus on machine learning usage in network optimization probl
 % The subfigure \label commands are set within each subfloat command,
 % and the \label for the overall figure must come after \caption.
 % \hfil is used as a separator to get equal spacing.
-% Watch out that the combined width of all the subfigures on a 
+% Watch out that the combined width of all the subfigures on a
 % line do not exceed the text width or a line break will occur.
 %
 %\begin{figure*}[!t]
@@ -491,7 +491,7 @@ In this article we focus on machine learning usage in network optimization probl
 % in-text middle ("here") positioning is typically not used, but it
 % is allowed and encouraged for Computer Society conferences (but
 % not Computer Society journals). Most IEEE journals/conferences use
-% top floats exclusively. 
+% top floats exclusively.
 % Note that, LaTeX2e, unlike IEEE journals/conferences, places
 % footnotes above bottom floats. This can be corrected via the
 % \fnbelowfloat command of the stfloats package.
@@ -539,8 +539,10 @@ One of potential benefit of unsupervised machine learning algorithm may be autom
 Another challenges that these algorithms have to overcome are timely and continuous classification, directional neutrality, efficient use of memory and processors, portability and robustness.\par
 
 \section{Data Compression}
-Data compression is a topic that is only briefly related to a network optimization and a field that doesn't use many machine learning algorithms. However, it was chosen to be included in this paper because it is a field which may start to play bigger role as development and usage of IoT devices progresses.\par
-
+Data compression is a topic that is only briefly related to a network optimization and a field that doesn't use many machine learning algorithms (it is more common the other way around\cite{compression3}). However, it was chosen to be included in this paper because it is a field which may start to play a bigger role as development and usage of IoT devices progresses\cite{compression2}.\par
+The lossless compression algorithms based on machine learning may better recognize and optimize redundant data. However, the compression/decompression software have to be pre-trained for use with specific type of data. Popular machine learning techniques used in traffic classification are unsupervised learning and deep learning\cite{compression1}\cite{compression4}.\par
+Both of these methods focuses on learning to find similar patterns and redundancy in data being compressed. The deep learning while generally getting better results requires a lot more data to train which leads to bigger size of the model used by compressing software to run\cite{compression4}.\par
+The lossy compression algorithms focuses on finding patterns that allows to get rid of some data without much drop in quality eg. by compressing data into single equation. The most commonly used machine learning technique in lossy compression algorithms is unsupervised learning\cite{compression2}.
 
 \section{Conclusions}
 
@@ -631,7 +633,7 @@ C. Gomez, A. Shami and X. Wang, "Machine Learning Aided Scheme for Load Balancin
 A. Revar, M. Andhariya, D. Sutariya and M. Bhavsar. “Load Balancing in Grid Environment using Machine Learning - Innovative Approach.” International Journal of Computer Applications, vol. 8, p. 24-28, 2010.
 % https://www.researchgate.net/publication/49586510_Load_Balancing_in_Grid_Environment_using_Machine_Learning_-_Innovative_Approach
 \bibitem{balancing6}
-A. Schaerf, Y. Shoham and M. Tennenholtz, "Adaptive Load Balancing: A Study in Multi-Agent Learning", Journal of Artificial Intelligence Research, vol. 2, doi: 10.1613/jair.121, 1995. 
+A. Schaerf, Y. Shoham and M. Tennenholtz, "Adaptive Load Balancing: A Study in Multi-Agent Learning", Journal of Artificial Intelligence Research, vol. 2, doi: 10.1613/jair.121, 1995.
 % https://www.jair.org/index.php/jair/article/view/10133/24002
 \bibitem{balancing7}
 C. R. Anna Victoria Oikawa, V. Freitas, M. Castro and L. L. Pilla, "Adaptive Load Balancing based on Machine Learning for Iterative Parallel Applications," 2020 28th Euromicro International Conference on Parallel, Distributed and Network-Based Processing (PDP), Västerås, Sweden, 2020, pp. 94-101, doi: 10.1109/PDP50117.2020.00021.
@@ -642,6 +644,13 @@ T. T. T. Nguyen and G. Armitage, "A survey of techniques for internet traffic cl
 \bibitem{shaping3}
 S. Zander, T. Nguyen and G. Armitage, "Automated traffic classification and application identification using machine learning," The IEEE Conference on Local Computer Networks 30th Anniversary (LCN'05)l, Sydney, NSW, 2005, pp. 250-257, doi: 10.1109/LCN.2005.35.
 % https://ieeexplore.ieee.org/abstract/document/1550864
+\bibitem{compression3}
+D. Sculley and C. E. Brodley, "Compression and machine learning: a new perspective on feature space vectors," Data Compression Conference (DCC'06), Snowbird, UT, 2006, pp. 332-341, doi: 10.1109/DCC.2006.13.
+% https://ieeexplore.ieee.org/document/1607268
+\bibitem{compression4}
+Mohit Goyal, Kedar Tatwawadi, Shubham Chandak and Idoia Ochoa, "DeepZip: Lossless Data Compression using Recurrent Neural Networks.", 2018.
+% https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1174/reports/2761006.pdf
+% https://arxiv.org/abs/1811.08162
 
 \end{thebibliography}
 
@@ -650,5 +659,3 @@ S. Zander, T. Nguyen and G. Armitage, "Automated traffic classification and appl
 
 % that's all folks
 \end{document}
-
-
