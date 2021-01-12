@@ -14,17 +14,17 @@ Zajęcia laboratoryjne z części nt. systemu Linux zostały wykonane na maszyni
 
 Po instrukcji laboratoryjnej nr 1 w systemie jest zainstalowany pakiet `openssh`. Poniżej widać uruchomienie serwera.
 
-![start ssh](screenshots/01.png)
+![start ssh](screenshots/01.png =500x0)
 
 #### Określić adres sprzętowy interfejsu sieciowego (karty sieciowej) i bazując na tej informacji ustalić jego producenta.
 
 Adres sprzętowy (MAC) odpowiedniego interfejsu można sprawdzić za pomocą komendy `ifconfig`, co widać na poniższym zrzucie.
 
-![ifconfig](screenshots/02.png)
+![ifconfig](screenshots/02.png =500x0)
 
 Producenta interfejsu sieciowego można sprawdzić korzystając z 6 pierwszych cyfr adresu MAC, w tym wypadku `08:00:27`. Sprawdzenie producenta jest możliwe na wielu stronach internetowych, np. [macvendors.com](https://macvendors.com/).
 
-![MAC vendor](screenshots/03.png)
+![MAC vendor](screenshots/03.png =500x0)
 
 "Producentem" karty o adresie `08:00:27` jest firma PCS Systemtechnik GmbH. Trzeba wziąc jednak pod uwagę, że jest to karta wirtualna, wygenerowana przez VirtualBox i jej adres MAC jest najprawdopodobniej losowy.
 
@@ -34,11 +34,11 @@ Konfigurację interfejsu można poznać za pomocą komendy `ifconfig`, której z
 
 Aby dodać pseudointerfejs można użyć komendy `ifconfig`. Dodanie interfejsu bazującego na innym wymaga użycia komendy: `ifconfig <nazwa_int>:<nr> <adres ip>`. Wykonanie tej komendy widać na poniższym zrzucie.
 
-![dodanie int](screenshots/04.png)
+![dodanie int](screenshots/04.png =500x0)
 
 Na powyższym zrzucie widać też, że interfejs odpowiada na pingi oraz komendę na wyłączenie takiego interfejsu. Taki pseudointerfejs odpowiadał również na pingi z innego hosta co widać poniżej (WSL na komputerze będącym hostem VM). Pingi zostały oczywiście wysłane przed wyłączeniem interfejsu.
 
-![ping na pseudo int](screenshots/05.png)
+![ping na pseudo int](screenshots/05.png =500x0)
 
 #### Dla trzech wybranych węzłów w sieci Internet (Polska, Europa, Świat):
 * określić średni czas potrzebny na osiągnięcie węzła przez pakiet
@@ -50,7 +50,7 @@ Na powyższym zrzucie widać też, że interfejs odpowiada na pingi oraz komend�
 
 Można to określić za pomocą komendy `ping` lub wspomnianego przeze mnie w kolejnym punkcie pakietu `mtr`.
 
-![ping na rmf](screenshots/06.png)
+![ping na rmf](screenshots/06.png =500x0)
 
 Po komendzie `ping` widać, że średni czas to 10.65s.
 
@@ -58,7 +58,7 @@ Po komendzie `ping` widać, że średni czas to 10.65s.
 
 Trasę do konkretnego węzła można sprawdzić za pomocą komendy `traceroute` lub `mtr`. Zalecaną metodą jest komenda `mtr`, ponieważ dzięki temu, że łączy ona w sobie funkcjonalność `ping` to wyniki z niej często prezentują więcej informacji (pakiety rzadziej są blokowane przez firewalle).
 
-![trasa do rmf](screenshots/07.png)
+![trasa do rmf](screenshots/07.png =500x0)
 
 Powyżej widzimy trasę do serwera rmf.fm. Cała trasa znajduje się w obrębie sieci Netii (futuro.pl to sieć Netii, przedostatni węzeł się nie zidentyfikował).
 
@@ -68,11 +68,11 @@ Do określenia rozmiaru maksymalnego pakietu na który dany serwer odpowiada, mo
 
 Serwer rmf.fm odpowiada na pakiet o wielkości 65535, czyli największy rozmiar jaki może mieć pakiet IP.
 
-![max packet rmf](screenshots/08.png)
+![max packet rmf](screenshots/08.png =500x0)
 
 ##### Węzeł Europa - Technische Universität Berlin [tu.berlin](https://www.tu.berlin/)
 
-![trace do tu berlin](screenshots/09.png)
+![trace do tu berlin](screenshots/09.png =500x0)
 
 ###### Określić średni czas potrzebny na osiągnięcie węzła przez pakiet
 
@@ -83,7 +83,7 @@ Trasa do węzła tu.berlin prowadzi przez sieć operatora Netia (mój ISP), prze
 
 ###### Określić maksymalny rozmiar pakietu, dla jakiego węzeł docelowy “odpowiada”
 
-![najwiekszy pakiet tu berlin](screenshots/10.png)
+![najwiekszy pakiet tu berlin](screenshots/10.png =500x0)
 
 Serwer tu.berlin odpowiada na pakiet o wielkości 65535, czyli największy rozmiar jaki może mieć pakiet IP.
 
@@ -91,7 +91,7 @@ Serwer tu.berlin odpowiada na pakiet o wielkości 65535, czyli największy rozmi
 
 _Planowałem opisać ścieżkę do strony amerykańskich kolei Amtrak, jednak dopiero po skończeniu opisywania całego zadania zobaczyłem, że opisałem stronę amtrack.com, która przekierowuje na pustą stronę [railroad-usa.com](http://www.railroad-usa.com/)._
 
-![trace do amtrack](screenshots/11.png)
+![trace do amtrack](screenshots/11.png =500x0)
 
 ###### Określić średni czas potrzebny na osiągnięcie węzła przez pakiet
 
@@ -103,14 +103,14 @@ Trasa do serwera amtrack.com odbywa się bez użycia CDN. Najpierw oczywiście j
 
 ###### Określić maksymalny rozmiar pakietu, dla jakiego węzeł docelowy “odpowiada”
 
-![maksymalny pakiet amtrack](screenshots/12.png)
+![maksymalny pakiet amtrack](screenshots/12.png =500x0)
 
 #### Zarejestrować i zapisać do pliku (za pomocą `tcpdump`) wszystkie pakiety związane z:
 ##### testowaniem za pomocą polecenia ping nieistniejącego hosta (np. niematakiegohosta.pl)
 
 Do tego testu wykorzystana została wspomniana wyżej domena `niematakiegohosta2.pl`.
 
-![ping unknown host](screenshots/13.png)
+![ping unknown host](screenshots/13.png =500x0)
 
 Powyżej widać pakiety wysyłane przy pingowaniu nieistniejącego hosta, a dokładniej pakiety DNS - zapytanie o adres hosta oraz odpowiedź _NXDomain_ wysłaną przez router.
 
@@ -118,7 +118,7 @@ Powyżej widać pakiety wysyłane przy pingowaniu nieistniejącego hosta, a dok�
 
 Do tego testu wykorzystana została domena `tu.berlin` użyta w poprzednim ćwiczeniu. Do ćwiczenia użyta została komenda `ping` z parametrem `-c 1` by wysłany został tylko jeden pakiet ICMP.
 
-![ping known host](screenshots/14.png)
+![ping known host](screenshots/14.png =500x0)
 
 W tym wypadku widać pakiety DNS - zapytanie o adres oraz pakiet z adresem. Później widać pakiety ICMP (żądanie i odpowiedź) oraz odwrotne zapytanie DNS i odpowiedź na nie.
 
@@ -133,13 +133,15 @@ Zrzuty są w kolejności najpierw pierwszy wiersz lewo, później prawo, następ
 
 Na powyższych zrzutach duża liczba pakietów się powtarza jednak w gruncie rzeczy widać tam następujące pakiety - zapytanie DNS o hosta docelowego wraz z odpowiedzią, pakiety UDP kierowane na adres hosta z coraz większym TTL, odpowiedzi o przekroczeniu TTL wysyłane przez kolejne hosty na trasie oraz odwrotne zapytania DNS o adres hosta. Poniżej widzimy też sam efekt wykonania `traceroute`.
 
-![traceroute](screenshots/17.png)
+![traceroute](screenshots/17.png =500x0)
+
+<div class="page-break"></div>
 
 #### Za pomocą `tcpdump` ustalić, czy korzystanie z e-Portalu jest bezpieczne, tzn.:
 
 Do tego ćwiczenia wykorzystane zostały parametry `-A`, który wyświetla zawartość każdego pakietu oraz filtr, który wyświetla tylko pakiety na oraz z konkretnego adresu.
 
-![SSL](screenshots/18.png)
+![SSL](screenshots/18.png =500x0)
 
 Powyżej widać, że komunikacja pomiędzy ePortalem ([eportal.pwr.edu.pl](https://eportal.pwr.edu.pl)) oraz serwisem autoryzaycjnym ([oauth.pwr.edu.pl](https://oauth.pwr.edu.pl)) jest zabezpieczona SSL i nie można nic przeczytać (ani haseł, ani nazw kursów).
 
@@ -147,11 +149,11 @@ Powyżej widać, że komunikacja pomiędzy ePortalem ([eportal.pwr.edu.pl](https
 
 Do wyświetlania oraz edycji tablicy tras można użyć polecenia `route`.
 
-![usuniecie trasy](screenshots/19.png)
+![usuniecie trasy](screenshots/19.png =500x0)
 
 Na powyższym zrzucie widać aktualną tablicę oraz sprawdzenie, że internet działa. Następnie widać usunięcie domyślnej trasy oraz sprawdzenie, czy internet działa. Oczywiście połączenie nie może zostać nawiązane.
 
-![dodanie trasy](screenshots/20.png)
+![dodanie trasy](screenshots/20.png =500x0)
 
 Powyżej widać dodanie trasy oraz to, że połączenie internetowe z powrotem zaczęło działać.
 
@@ -159,11 +161,11 @@ Powyżej widać dodanie trasy oraz to, że połączenie internetowe z powrotem z
 
 Do wyświetlania aktywnych połączeń tcp można użyc komendy `netstat`, parametr `-t` powoduje ograniczenie wyników do samych połączeń TCP.
 
-![pusty netstat](screenshots/21.png)
+![pusty netstat](screenshots/21.png =500x0)
 
 Powyżej widać pusty wynik `netstat` przed nawiązaniem połączenia do serwera.
 
-![eportal netstat](screenshots/22.png)
+![eportal netstat](screenshots/22.png =500x0)
 
 Powyżej widać połączenia nawiązane przez przeglądarkę po połączeniu z serwerem ePortalu.
 
@@ -187,13 +189,13 @@ Aby wykonać skanowanie sieci lokalnej użyte zostały następujące flagi:
 * `-sP` - tryba skanowania, który pomija skanowanie otwartych portów (tylko pingiem sprawdza, które urządzenia są w sieci)
 * `-oX <file>` - flaga włączająca eksport danych do pliku typu XML
 
-![nmap network](screenshots/23.png)
+![nmap network](screenshots/23.png =500x0)
 
 ##### przeskanować porty jednego z komputerów (można uruchomić wirtualną maszynę z Windows lub Linux). Przeanalizować wyniki dla jednego z otwartych portów.
 
 Do skanowania użyta została tylko jedna flaga `-sV`, która włącza dodatkowo skanowanie jakie usługi i ich wersje są dostępne na otwartych portach.
 
-![nmap ports](screenshots/25.png)
+![nmap ports](screenshots/25.png =500x0)
 
 Komputer użyty do skanowania to prywatna maszyna mojego współlokatora. Jedyny otwarty port to port 22 (czyli dokładnie tak jak powinno być).
 
@@ -214,13 +216,13 @@ Gdy połączenie SSH działało użycie `scp` wiązało się z bardzo prostą sk
 
 Do wykonania tego zadania również została użyta maszyna mojego współlokatora, z założonym kontem użytkownika na rzecz tego zadania.
 
-![scp](screenshots/26.png)
+![scp](screenshots/26.png =500x0)
 
 Powyżej widać transfery zakończone sukcesem. Wynik transferu został przycięty z uwagi na za dużą liczbę plików, by zmieścić na zrzucie.
 
 #### Wyświetlić tablicę `arp`, przeanalizować wybrany wpis.
 
-![arp](screenshots/27.png)
+![arp](screenshots/27.png =500x0)
 
 Do analizy wybrany został pierwszy wpis (ta sama maszyna co w poprzednich zadaniach). Po kolei widać następujące informacje:
 * Nazwa hosta
