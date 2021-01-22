@@ -18,31 +18,31 @@ Sprawdzenie stanu usługi można sprawdzić komendą `systemctl status <nazwa>`,
 
 Nazwa usługi serwera WWW Apache w Manjaro to `httpd`.
 
-![instalacja i uruchomienie www](screenshots/01.png)
+![instalacja i uruchomienie www](screenshots/01.png =500x0)
 
 Na powyższym zrzucie widać sprawdzenie, że pakiet `apache` jest zainstalowany oraz włączenie usługi `httpd`.
 
-![domyślna strona Apache Manjaro](screenshots/02.png)
+![domyślna strona Apache Manjaro](screenshots/02.png =500x0)
 
 Serwer Apache w Manjaro nie posiada domyślnej strony WWW wyświetlanej po uruchomieniu serwera z domyślnymi ustawieniami. Zamiast tego po połączeniu się ze stroną http://localhost:80/ wyświetla zawartość domyślnego katalogu znajdującego się pod `/srv/httpd`.
 
 Dla pewności działania serwera WWW poniżej widać stworzenie przykładowego dokumentu `html` z przykładowym tekstem oraz efekt w przeglądarce.
 
-![stworzenie testowego index.html](screenshots/03.png)
+![stworzenie testowego index.html](screenshots/03.png =500x0)
 
-![wyświetlenie testowego index.html](screenshots/04.png)
+![wyświetlenie testowego index.html](screenshots/04.png =500x0)
 
 #### Sprawdzić czy serwer FTP (Vsftpd) jest zainstalowany (jeśli nie, zainstalować go) i czy jest uruchomiony (jeśli nie, należy go uruchomić).
 
 Serwer `vsftpd` jest domyślnie niezainstalowany w dystrybucji Manjaro. Pakiet jak i usługa nazywają się tak samo. Na poniższych zrzutach ekranu widać instalację oraz włączenie serwera.
 
-![instalacja i uruchomienie ftp](screenshots/05.png)
+![instalacja i uruchomienie ftp](screenshots/05.png =500x0)
 
-![uruchomiony ftp](screenshots/06.png)
+![uruchomiony ftp](screenshots/06.png =500x0)
 
 Poniżej widać próbę połączenia z serwerem na domyślnych ustawieniach.
 
-![błąd połączenia ftp](screenshots/07.png)
+![błąd połączenia ftp](screenshots/07.png =500x0)
 
 #### Skonfigurować serwer WWW, aby spełniał następujące wymagania:
 * po wpisaniu w przeglądarce adresu: http://nazwa_serwera/ ma się otworzyć plik "index.html", zlokalizowany w katalogu "/www" serwera, w pliku tym należy umieścić swoje dane: imię i nazwisko oraz numer indeksu.
@@ -52,7 +52,7 @@ Poniżej widać próbę połączenia z serwerem na domyślnych ustawieniach.
 
 Do realizacji tego zadania konieczne jest stworzenie wymaganych z treści folderów - `/www` oraz `/www/private` oraz pliku `/www/index.html` z odpowiednią treścią. Dodatkowo stworzony został plik `/www/private/index.html`, aby możliwe było przetestowanie dostępu zabezpieczonego. Na zrzucie poniżej widać użyte komendy, by to zrealizować.
 
-![tworzenie folderów i plików](screenshots/08.png)
+![tworzenie folderów i plików](screenshots/08.png =500x0)
 
 ##### Konfiguracja otwartego dostępu serwera Apache
 
@@ -60,14 +60,16 @@ Domyślne ustawienia serwera realizują politykę opisaną w pierwszy punkcie za
 
 Aby to zrobić należy znaleźć linijkę ustawiającą `DocumentRoot` i zmienić jej wartość na `/www` oraz znaleźć wycinek definiujący ustawienia dla folderu (`<Directory "/srv/http">`) i zmienić jego wartość na `/www`. Na poniższych zrzutach widać oryginalne wartości oraz zmienione wartości.
 
-![oryginalne ustawienia głównego folderu](screenshots/09.png)
-![zmienione ustawienia głównego folderu](screenshots/10.png)
+![oryginalne ustawienia głównego folderu](screenshots/09.png =340x0)
+![zmienione ustawienia głównego folderu](screenshots/10.png =340x0)
+
+<div class="page-break"></div>
 
 Po restarcie usługi `httpd` przeglądarka wyświetla odpowiedni dokument pod adresem http://localhost, co widać na poniższym zrzucie.
 
-![index](screenshots/11.png)
+![index](screenshots/11.png =500x0)
 
-![niezabezpieczony private](screenshots/12.png)
+![niezabezpieczony private](screenshots/12.png =500x0)
 
 Na zrzucie powyżej widać, że katalog `/www/private` jest również dostępny bez żadnych zabezpieczeń pod adresem http://localhost/private.
 
@@ -83,11 +85,11 @@ Następnym, aby dodatkowo podnieść bezpieczeństwo zalecane jest zabranie uży
 
 Wykonanie powyżej opisanych czynności widoczne jest na zrzucie poniżej.
 
-![dodanie użytkownika oraz grupy](screenshots/13.png)
+![dodanie użytkownika oraz grupy](screenshots/13.png =500x0)
 
 Następnym konieczne jest ustawienie w ustawieniach serwera Apache informacji, że dostęp do folderu `/www/private` ma być zabezpieczony hasłem. Aby to zrobić do pliku konfiguracyjnego należy dopisać poniższe linijki.
 
-![ustawienia folderu private](screenshots/14.png)
+![ustawienia folderu private](screenshots/14.png =500x0)
 
 Powyższe ustawienia po kolei znaczą:
 * włączenie zabezpieczenia dostępu
@@ -100,13 +102,15 @@ Powyższe ustawienia po kolei znaczą:
 
 Po zapisaniu tych ustawień oraz restarcie serwera dostęp do strony głównej wciąż jest bez hasła, jednak katalog pod adresem http://localhost/private wymaga podania hasła, oraz po podaniu poprawnego hasła strona się ładuje. Widać to na poniższych zrzutach.
 
-![strona główna](screenshots/15.png)
+![strona główna](screenshots/15.png =500x0)
 
-![monit o hasło](screenshots/16.png)
+![monit o hasło](screenshots/16.png =500x0)
 
-![strona zabezpiecozna](screenshots/17.png)
+![strona zabezpiecozna](screenshots/17.png =500x0)
 
 Informacja od Firefoxa o tym, czy użytkownik chce zapisać hasło, jest dowodem, że druga strona wymagała logowania.
+
+<div class="page-break"></div>
 
 #### Skonfigurować serwera FTP tak, aby spełniał następujące wymagania:
 * w katalogu `/ftp` będą pliki dostępne do odczytu dla wszystkich użytkowników anonimowo po wpisaniu adresu: ftp://nazwa_servera/,
@@ -133,26 +137,26 @@ Z uwagi na moją wątpliwość co do treści zadania, oraz fakt, że dwa ostatni
 
 ##### Po wykonaniu zadania należy przetestować, czy serwer działa zgodnie z wytycznymi. W sprawozdaniu należy zamieścić zrzut z ekranu pokazujący umieszczenie na serwerze sprawozdań z poprzednich laboratoriów.
 
-![logowanie jako anon](screenshots/26.png)
+![logowanie jako anon](screenshots/26.png =580x0)
 _Poprawne zalogowanie jako anonimowy użytkownik i wyświetlenie listy sprawozdań z poprzednich zajęć._
 
-![pobieranie anon](screenshots/23.png)
+![pobieranie anon](screenshots/23.png =580x0)
 _Pobranie pliku z serwera jako anonimowy użytkownik._
 
-![wysyłanie anon](screenshots/24.png)
+![wysyłanie anon](screenshots/24.png =580x0)
 _Próba wysłania pliku na serwer jako anonimowy użytkownik._
 
-![logowanie jako user](screenshots/20.png)
+![logowanie jako user](screenshots/20.png =580x0)
 _Poprawne logowanie na serwer jako użytkownik lokalny._
 
-![poprawne transfery w obie strony jako user](screenshots/21.png)
+![poprawne transfery w obie strony jako user](screenshots/21.png =580x0)
 _Pobranie oraz wysłanie pliku jako użytkownik lokalny._
 
-![logowanie jako anon z hosta](screenshots/25.png)
+![logowanie jako anon z hosta](screenshots/25.png =580x0)
 _Logowanie się jako anon z innego komputera._
 
 Ostatni z powyższych zrzut został zamieszczony tylko, aby pokazać, że jest możliwe podłączenie z innej maszyny. Gdyby pomysł o połączeniu z komputera hosta powstał wcześniej wszystkie zrzuty byłyby w ten sposób zrobione.
 
-![umieszczenie sprawek](screenshots/27.png)
+![umieszczenie sprawek](screenshots/27.png =580x0)
 
 Już po wykonaniu wcześniejszych zrzutów pomyślałem, że "zrzut z ekranu pokazujący umieszczenie na serwerze sprawozdań z poprzednich laboratoriów" może dotyczyć zrzutu przedstawiającego transfer sprawozdań za pomocą ftp (a nie ich obecność w folderze `/ftp`), więc dla pewności zamieszczam ostatni zrzut.
