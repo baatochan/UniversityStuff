@@ -1,0 +1,21 @@
++-----------------------------------------------------------------------[en]-+
+| >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> WARNING <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< |
++ ---------------------------------------------------------------------------+
+| THIS SYSTEM IS RESTRICTED TO AUTHORIZED USERS FOR AUTHORIZED USE ONLY.     |
+| UNAUTHORIZED ACCESS IS STRICTLY PROHIBITED AND MAY BE PUNISHABLE UNDER THE |
+| COMPUTER FRAUD AND ABUSE ACT OF 1986 OR OTHER APPLICABLE LAWS. IF NOT      |
+| AUTHORIZED TO ACCESS THIS SYSTEM, DISCONNECT NOW. BY CONTINUING, YOU       |
+| CONSENT TO YOUR KEYSTROKES AND DATA CONTENT BEING MONITORED. ALL PERSONS   |
+| ARE HEREBY NOTIFIED THAT THE USE OF THIS SYSTEM CONSTITUTES CONSENT TO     |
+| MONITORING AND AUDITING.                                                   |
++-----------------------------------------------------------------------[pl]-+
+| >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> UWAGA <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< |
++ ---------------------------------------------------------------------------+
+| TEN SYSTEM JEST DOSTEPNY WYLACZNIE DLA AUTORYZOWANYCH OSOB, DO WYKONYWANIA |
+| AUTORYZOWANYCH DZIALAN. NIEAUTORYZOWANY DOSTEP JEST ZABRONIONY I MOZE BYC  |
+| KARANY ZGODNIE Z ODPOWIEDNIMI PRZEPISAMI. JEZELI NIE MASZ AUTORYZACJI      |
+| DO JEGO WYKORZYSTANIA, ROZLACZ SIE W TYM MOMENCIE. KONTYNUUJAC POLACZENIE, |
+| PRZYJMUJESZ DO WIADOMOSCI I AKCEPTUJESZ TO, ZE WSZYSTKIE TWOJEJ DZIALANIA  |
+| BEDA MONITOROWANE. WSZYSTKIE OSOBY ZOSTALY NINIEJSZYM UPRZEDZONE, ZE       |
+| WYKORZYSTANIE TEGO SYSTEMU OZNACZA ZGODE NA MONITOROWANIE I AUDYT.         |
++ ---------------------------------------------------------------------------+
