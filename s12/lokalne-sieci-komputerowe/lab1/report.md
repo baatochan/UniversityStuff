@@ -92,3 +92,128 @@ _Odpowiedzi na pytania udzielę więc na podstawie wpisów z instrukcji laborato
 	Bridge ID
 * Jeśli obie wartości są równe na obu portach, co jest następną wartością, którą STP używa do wyboru portu?   
 	Priorytet ścieżki
+
+![](screenshots/ex2/0.png)
+
+### Konfigurowanie Rapid PVST+, PortFast i BPDU Guard
+#### Budowanie sieci oraz konfiguracja podstawowych ustawień urządzeń
+##### Okabluj sieć zgodnie z topologią
+![Topologia](screenshots/ex2/01.png)
+
+##### Skonfiguruj komputery PC
+![Ustawienie IP w komputerze](screenshots/ex2/02.png)
+
+Taka sama konfiguracja została wykonana na `PC-C`.
+
+##### Jeśli to konieczne, zainicjuj i uruchom ponownie przełączniki
+Instrukcja nie wspomina nic o podstawowej konfiguracji switchy, jednak dla ułatwienia dalszej pracy ustawiłem synchroniczne  wypisywanie na konsolę (oraz hostname zamiast S1, S2, ... na zawierający mój indeks - 226105-1, 226105-2, ...; w poprzednim zadaniu o tym zapomniałem).
+
+![Podstawowa konfiguracja switchy](screenshots/ex2/03.png)
+
+Taki sam config został wykonany na S2 i S3.
+
+#### Konfigurowanie sieci VLAN, natywnych sieci VLAN i łączy trunk
+##### Stwórz sieci VLAN
+![Tworzenie VLAN](screenshots/ex2/04.png)
+
+Taki sam config został wykonany na S2 i S3.
+
+##### Włącz porty użytkowników w trybie dostępu i przydziel sieci VLAN
+![Porty użytkowników](screenshots/ex2/06.png)
+
+##### Skonfiguruj porty trunk i przydziel je do natywnej sieci VLAN 99
+Instrukcja nie wspomina nic o konieczności stworzenia VLANu 99, jednak bez tego wykonanie tego zadania jest nie możliwe.
+
+![VLAN Management](screenshots/ex2/07.png)
+
+##### Skonfiguruj interfejs zarządzania na wszystkich przełącznikach
+![VLAN IP](screenshots/ex2/08.png)
+
+##### Sprawdź konfigurację i łączność
+* Jakie są domyślne ustawienia dla trybu drzewa opinającego na przełącznikach Cisco?  
+	PVST
+* Sprawdź połączenie pomiędzy PC-A i PC-C. Czy komunikacja była pomyślna?  
+	![Ping PC-A -> PC-C](screenshots/ex2/10.png)
+
+#### Konfigurowanie mostu głównego i badanie konwergencji PVST+
+##### Określ bieżący most główny
+* Jakie polecenie pozwala użytkownikowi na określenie stanu drzewa opinającego przełącznika Cisco Catalyst dla wszystkich sieci VLAN? Zapisz użyte polecenia w przewidzianym miejscu poniżej  
+	`show spanning-tree`  
+	![Bridge priority](screenshots/ex2/11.png)
+* Jaki jest priorytet mostu przełącznika S1 dla sieci VLAN 1?  
+	32769
+* Jaki jest priorytet mostu przełącznika S2 dla sieci VLAN 1?  
+	32769
+* Jaki jest priorytet mostu przełącznika S3 dla sieci VLAN 1?  
+	32769
+* Który przełącznik jest mostem głównym?  
+	S3
+* Dlaczego ten przełącznik został wybrany na most główny?  
+	Algorytm wybiera główny przełącznik na podstawie Priority number (priority + vlan id). Gdy numer jest taki sam (tak jak tutaj) algorytm wybiera ten przełącznik, który ma najniższy adres MAC.
+
+##### Skonfiguruj podstawowy i drugorzędowy most główny dla wszystkich sieci VLAN
+* Skonfiguruj przełącznik S2 jako podstawowy most główny dla wszystkich istniejących sieci VLAN. Zapisz użyte polecenia w przewidzianym miejscu poniżej.  
+	`spanning-tree vlan 1,10,99 root primary`
+* Skonfiguruj przełącznik S1 jako drugorzędowy most główny dla wszystkich istniejących sieci VLAN. Zapisz użyte polecenia w przewidzianym miejscu poniżej.  
+	`spanning-tree vlan 1,10,99 root secondary`
+* Jaki jest priorytet mostu S1 dla sieci VLAN 1?  
+	28673
+* Jaki jest priorytet mostu S2 dla sieci VLAN 1?  
+	24577
+* Który interfejs w sieci jest w stanie blokowania?  
+	S3 - F0/3
+
+![Primary and secondary bridge configured](screenshots/ex2/12.png)
+
+##### Zmień topologię warstwy 2. i zbadaj konwergencję
+
+![Debug spanning-tree](screenshots/ex2/13.png)
+
+Komenda `debug spanning-tree` jest nie obsługiwana w Packet Tracerze. Zadanie wykonam na podstawie outputu podanego w instrukcji laboratoryjnej.
+
+* Przez które stany portu przechodzi każda sieć VLAN na F0/3 podczas konwergencji sieci?  
+	Listening, learning i forwarding
+* Korzystając ze znacznika czasu debugowania STP z pierwszej i ostatniej wiadomości, oblicz czas (z dokładnością co do sekundy), jaki zajęła sieci konwergencja.  
+	30s
+
+#### Konfigurowanie Rapid PVST+, PortFast, BPDU Guard i badanie konwergencji
+##### Skonfiguruj Rapid PVST+
+* Skonfiguruj S1 dla Rapid PVST+. Zapisz użyte polecenia w przewidzianym miejscu poniżej.  
+	`spanning-tree mode rapid-pvst`
+* Sprawdź konfiguracje za pomocą polecenia `show running-config | include spanning-tree mode`
+	![spanning-tree mode](screenshots/ex2/14.png)
+
+##### Skonfiguruj PortFast i BPDU Guard na portach dostępowych
+* Skonfiguruj interfejs F0/6 na S1 z PortFast. Zapisz użyte polecenia w przewidzianym miejscu poniżej.  
+	```
+(config)#int f0/6
+(config-if)#spanning-tree portfast
+	```
+* Skonfiguruj interfejs F0/6 na S1 z BPDU guard. Zapisz użyte polecenia w przewidzianym miejscu poniżej.  
+	```
+(config)#int f0/6
+(config-if)#spanning-tree bpduguard enable
+	```
+* Skonfiguruj globalnie wszystkie porty nie będące portami trunk na przełączniku S3 z PortFast. Zapisz użyte polecenia w przewidzianym miejscu poniżej.  
+	`spanning-tree portfast default`
+* Skonfiguruj globalnie BPDU guard na wszystkich portach PortFast nie będących portami trunk na przełączniku S3. Zapisz użyte polecenia w przewidzianym miejscu poniżej.  
+	`spanning-tree portfast bpduguard default`  
+	_Note: Wykonanie tej komendy w Packet Tracerze spowodowało błędy na interfejsach ustawionych jako trunk. Wydaje mi się, że jest to błąd Packet Tracera._
+
+![portfast i bpdu guard](screenshots/ex2/15.png)
+
+##### Zbadaj konwergencję Rapid PVST+
+Tak samo jak poprzednio z powodu braku wsparcia dla `debug spanning-tree` to zadanie muszę wykonać na outpucie z instrukcji laboratoryjnej.
+
+* Korzystając ze znacznika czasu debugowania RSTP z pierwszej i ostatniej wiadomości, oblicz czas, jaki zajęła sieci konwergencja.  
+	4s
+
+#### Do przemyślenia
+* Jaka jest główna zaleta korzystania z Rapid PVST+?  
+	Znacząco szybszy czas konwergencji warstwy 2.
+* W jaki sposób skonfigurowanie portu z PortFast pozwala na szybszą konwergencję?  
+	PortFast pozwala portu skonfigurowanemu jako port dostępu na natychmiastową zmianę do stanu forwarding.
+* Jaką ochronę zapewnia BPDU guard?  
+	Zabezpiecza sieć wykorzystującą STP poprzez wyłączenie portów w trybie dostępowym, które otrzymałyby BPDU. BPDU mogłyby zostać użyte w ataku DoS, którego celem byłaby zmiana głównego mostu i przestawienie STP.
+* Wynik `show vlan brief`  
+	![show vlan brief](screenshots/ex2/17.png)
