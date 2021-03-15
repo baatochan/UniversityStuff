@@ -93,8 +93,6 @@ _Odpowiedzi na pytania udzielę więc na podstawie wpisów z instrukcji laborato
 * Jeśli obie wartości są równe na obu portach, co jest następną wartością, którą STP używa do wyboru portu?   
 	Priorytet ścieżki
 
-![](screenshots/ex2/0.png)
-
 ### Konfigurowanie Rapid PVST+, PortFast i BPDU Guard
 #### Budowanie sieci oraz konfiguracja podstawowych ustawień urządzeń
 ##### Okabluj sieć zgodnie z topologią
@@ -217,3 +215,102 @@ Tak samo jak poprzednio z powodu braku wsparcia dla `debug spanning-tree` to zad
 	Zabezpiecza sieć wykorzystującą STP poprzez wyłączenie portów w trybie dostępowym, które otrzymałyby BPDU. BPDU mogłyby zostać użyte w ataku DoS, którego celem byłaby zmiana głównego mostu i przestawienie STP.
 * Wynik `show vlan brief`  
 	![show vlan brief](screenshots/ex2/17.png)
+
+### Konfigurowanie HSRP i GLBP
+#### Tworzenie sieci i weryfikacja połączeń
+##### Okabluj sieć zgodnie z topologią
+![topologia](screenshots/ex3/01.png)
+
+##### Skonfiguruj komputery PC
+![config pc](screenshots/ex3/02.png)
+
+##### Jeśli to konieczne, zainicjuj i uruchom ponownie przełączniki oraz routery
+Nie było to wymagane.
+
+##### Skonfiguruj podstawowe ustawienia dla każdego routera
+![config routerów](screenshots/ex3/03.png)
+
+##### Wykonaj podstawową konfigurację przełączników
+![config switchy](screenshots/ex3/04.png)
+
+##### Sprawdź łączność pomiędzy PC-A i PC-C
+* Wykonaj ping z PC-A do PC-C. Czy test zakończył się sukcesem?  
+	tak  
+	![ping pc](screenshots/ex3/05.png)
+
+##### Skonfiguruj routing
+![routing](screenshots/ex3/06.png)
+
+##### Sprawdź łączność
+* PC-A powinien być w stanie pingować się z każdym interfejsem na R1, R2, R3 i PC-C. Czy wszystkie pingi zakończyły się pomyślnie?  
+	tak
+* PC-C powinien być w stanie pingować się z każdym interfejsem na R1, R2, R3 i PC-A. Czy wszystkie pingi zakończyły się pomyślnie?  
+	tak
+
+![pingi router i switch](screenshots/ex3/07.png)  
+_Wybrane pingi, które zmieściły się na screenie._
+
+#### Konfiguracja First Hop Redundancy przy pomocy HSRP
+##### Określ ścieżkę dla PC-A i PC-C
+![tracert](screenshots/ex3/08.png)
+
+* Jaką ścieżkę z PC-A do 209.165.200.225 dobrały pakiety?  
+	przez 192.168.1.1
+* Jaką ścieżkę z PC-C do 209.165.200.225 dobrały pakiety?  
+	przez 192.168.1.3
+
+##### Rozpocznij sesję ping na PC-A i przerwij połączenie pomiędzy S1 i R1
+![przerwane polaczenie bez hsrp](screenshots/ex3/09.png)
+
+* W trakcie trwania pingowania, odłącz kabel Ethernet z F0/5 na S1. Możesz również wyłączyć interfejs S1 F0/5, co powoduje ten sam rezultat. Co stało się z ruchem ping?  
+	Ping został przerwany i każdy pakiet timeoutował. Dopiero ponowne włączenie portu spowodowało przywrócenie komunikacji, i to po odczekaniu jakiegoś czasu.
+* Powtórz kroki 2a i 2b na PC-C i S3. Odłącz kabel z F0/5 na S3. Jakie były wyniki?  
+	Takie same.
+
+##### Skonfiguruj HSRP na R1 i R3
+![hsrp](screenshots/ex3/10.png)
+
+* Który router jest routerem aktywnym?  
+	R1
+* Jaki jest adres MAC dla wirtualnego adresu IP?  
+	0000.0C07.AC01
+* Jaki jest adres IP i priorytet routera w trybie gotowości?  
+	192.168.1.3; priorytet domyślny czyli 100
+* Zmień adres bramy domyślnej dla PC-A, PC-C, S1 i S3. Jaki adres należy użyć?  
+	192.168.1.254
+* Sprawdź nowe ustawienia. Wydaj polecenie ping z PC-A i PC-C na adres sprzężenia zwrotnego R2. Czy wyniki są pomyślne?  
+	tak
+
+##### Rozpocznij sesję ping na PC-A i przerwij połączenie pomiędzy przełącznikiem, który jest połączony z aktywnym routerem HSRP (R1).
+![przerwane polaczenie z hsrp](screenshots/ex3/11.png)
+
+* W trakcie trwania pingowania, odłącz kabel Ethernet z F0/5 na S1 lub wyłącz interfejs F0/5. Co stało się z ruchem ping?  
+	Następuje chwilowe przerwanie połączenie (2 pakiety utracone), jednak połączenie po chwili samo wraca i ping dalej działa.
+
+##### Sprawdź ustawienia HSRP na R1 i R3
+* Który router jest routerem aktywnym?  
+	Po wyłączeniu F0/5 routerem aktywnym stał się R3.
+
+#### Konfiguracja First Hop Redundancy przy pomocy GLBP
+##### Skonfiguruj GLBP na R1 i R3
+![glbp not recognized](screenshots/ex3/12.png)
+
+Wygląda, że Packet Tracer nie wspiera protokołu GLBP. Na pytania odpowiem bazując na informacjach o tym jak ten protokół powinien działać.
+
+##### Wygeneruj ruch z PC-A i PC-C do interfejsu zwrotnego R2
+Powyższa konfiguracja powoduje, że wybrany router do obsługi naszego zapytania będzie losowy, więc raz jeden, a raz drugi router będzie wybrany.
+
+* Wprowadź polecenie `arp –a` na PC-A. Który adres MAC jest używany dla adresu 192.168.1.254?  
+	Będzie to adres MAC protokołu GLBP dla interfejsu G0/1 na R1 lub R3 w zależności od losowania.
+* Wygeneruj większy ruch do interfejsu zwrotnego R2. Wprowadź kolejne polecenie `arp –a`. Czy zmienił się adres MAC dla adresu bramy domyślnej z 192.168.1.254?  
+	Adres jest wybierany losowo, więc po którymś razie raczej nastąpi zmiana.
+
+##### Rozpocznij sesję ping na PC-A i przerwij połączenie pomiędzy przełącznikiem, który jest połączony z R1
+* W trakcie trwania pingowania, odłącz kabel Ethernet z F0/5 na S1 lub wyłącz interfejs F0/5. Co stało się z ruchem ping?  
+	Tak jak w przypadku HSRP ruch po chwili jest samoczynnie przywracany. W trakcie przełączania routera kilka pakietów może zostać zdropowanych.
+
+#### Do przemyślenia
+* Dlaczego istnieje potrzeba nadmiarowości w sieci LAN?  
+	Ponieważ niesprawna sieć może spowodować wiele problemów oraz narazić firmy czy osoby na spore koszty. Nadmiarowość w sieci zapewnia możliwość szybkiego poradzenia sobie z awarią jakiegoś elementu i zapewnienie jak najmniejszego czasu niedziałania sieci.
+* Gdybyś miał wybór, który protokół wdrożyłbyś do swojej sieci? HSRP czy GLBP? Wyjaśnij swój wybór.  
+	GLBP zapewnia lepsze zarządzanie dostępnym sprzętem. Gdy zapewniamy w sieci nadmiarowość sprzętu warto abyśmy mogli skorzystać z niego do czegoś więcej niż tylko zapewnienia bezpieczeństwa na wypadek awarii, a np wykorzystali go do load balancingu i zwiększyli możliwości naszej sieci.
