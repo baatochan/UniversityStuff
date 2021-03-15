@@ -9,42 +9,39 @@ Data | Tytuł zajęć | Uczestnicy
 ### Budowa sieci przełączanej z połączeniami nadmiarowymi
 #### Budowanie sieci oraz konfiguracja podstawowych ustawień urządzeń
 ##### Okabluj sieć zgodnie z topologią
-![Podłączone kabelki](screenshots/ex1/01.png =400x0)
+![Podłączone kabelki](screenshots/ex1/01.png)
 
 ##### Jeśli to konieczne, zainicjuj i uruchom ponownie przełączniki
 Nie było takiej potrzeby.
 
 ##### Wykonaj podstawową konfigurację przełączników
-![Podstawowa konfiguracja S1](screenshots/ex1/02.png =230x0)
-![Podstawowa konfiguracja S2](screenshots/ex1/03.png =230x0)
-![Podstawowa konfiguracja S3](screenshots/ex1/04.png =230x0)
+![Podstawowa konfiguracja S1](screenshots/ex1/02.png)
+![Podstawowa konfiguracja S2](screenshots/ex1/03.png)
+![Podstawowa konfiguracja S3](screenshots/ex1/04.png)
 
 Dodatkowo, aby vlan 99 działał konieczna była zmiana vlanu dla każdego używanego portu w każdym switchu:
-
-![Zmiana vlanu](screenshots/ex1/05.png =300x0)
+![Zmiana vlanu](screenshots/ex1/05.png)
 
 ##### Test łączności
 ![Działające pingi](screenshots/ex1/06.png)
 
 #### Określenie mostu głównego
 ##### Wyłącz wszystkie porty przełączników
-![Wyłączenie wszystkich portów](screenshots/ex1/07.png =300x0)
+![Wyłączenie wszystkich portów](screenshots/ex1/07.png)
 
 ##### Skonfiguruj podłączone porty jako porty trunk
-![Tryb portów jako trunk](screenshots/ex1/16.png =300x0)
+![Tryb portów jako trunk](screenshots/ex1/16.png)
 
 #### Aktywuj porty F0/2 i F0/4 na wszystkich przełącznikach
-![Aktywacja portów 2 i 4](screenshots/ex1/08.png =300x0)
+![Aktywacja portów 2 i 4](screenshots/ex1/08.png)
 
 #### Wyświetl informacje o drzewie opinającym
-![Spanning tree S1](screenshots/ex1/09.png =230x0)
-![Spanning tree S2](screenshots/ex1/10.png =230x0)
-![Spanning tree S3](screenshots/ex1/11.png =230x0)
-
-<div class="page-break"></div>
+![Spanning tree S1](screenshots/ex1/09.png)
+![Spanning tree S2](screenshots/ex1/10.png)
+![Spanning tree S3](screenshots/ex1/11.png)
 
 #### Pytania
-![Diagram](screenshots/ex1/18.png =400x0)
+![Diagram](screenshots/ex1/18.png)
 
 * Który przełącznik jest mostem głównym?  
 	S1
@@ -64,7 +61,7 @@ Dodatkowo, aby vlan 99 działał konieczna była zmiana vlanu dla każdego używ
 #### Obserwacja wyboru portów STP w oparciu ich koszt
 Nie byłem w stanie wykonać tego ćwiczenia. Wydaję mi się, że jest to błąd Packet Tracera (używam najnowszej wersji - 8.0.0.0212). Mimo zmiany kosztu na interfejsie (komenda przechodzi) koszt nigdy nie jest aktualizowany (mimo odczekania kilku minut).
 
-![Zmiana kosztu](screenshots/ex1/12.png =400x0)
+![Zmiana kosztu](screenshots/ex1/12.png)
 
 ##### Pytania
 _Odpowiedzi na pytania udzielę więc na podstawie wpisów z instrukcji laboratoryjnej._
@@ -74,12 +71,12 @@ _Odpowiedzi na pytania udzielę więc na podstawie wpisów z instrukcji laborato
 
 #### Obserwacja wyboru portów STP w oparciu ich priorytet
 ##### Aktywuj porty F0/1 i F0/3 na wszystkich przełącznikach
-![Aktywacja portów](screenshots/ex1/19.png =500x0)
+![Aktywacja portów](screenshots/ex1/19.png)
 
 ##### Wynik zmian w spanning tree po aktywacji portów
-![Konfiguracja S1](screenshots/ex1/13.png =230x0)
-![Konfiguracja S2](screenshots/ex1/14.png =230x0)
-![Konfiguracja S3](screenshots/ex1/15.png =230x0)
+![Konfiguracja S1](screenshots/ex1/13.png)
+![Konfiguracja S2](screenshots/ex1/14.png)
+![Konfiguracja S3](screenshots/ex1/15.png)
 
 ##### Pytania
 * Jaki port wybrał STP na port główny na każdym przełączniku nie będącym przełącznikiem głównym?  
@@ -96,19 +93,15 @@ _Odpowiedzi na pytania udzielę więc na podstawie wpisów z instrukcji laborato
 * Jeśli obie wartości są równe na obu portach, co jest następną wartością, którą STP używa do wyboru portu?   
 	Priorytet ścieżki
 
-<div class="page-break"></div>
-
 ### Konfigurowanie Rapid PVST+, PortFast i BPDU Guard
 #### Budowanie sieci oraz konfiguracja podstawowych ustawień urządzeń
 ##### Okabluj sieć zgodnie z topologią
-![Topologia](screenshots/ex2/01.png =500x0)
+![Topologia](screenshots/ex2/01.png)
 
 ##### Skonfiguruj komputery PC
-![Ustawienie IP w komputerze](screenshots/ex2/02.png =500x0)
+![Ustawienie IP w komputerze](screenshots/ex2/02.png)
 
 Taka sama konfiguracja została wykonana na `PC-C`.
-
-<div class="page-break"></div>
 
 ##### Jeśli to konieczne, zainicjuj i uruchom ponownie przełączniki
 Instrukcja nie wspomina nic o podstawowej konfiguracji switchy, jednak dla ułatwienia dalszej pracy ustawiłem synchroniczne  wypisywanie na konsolę (oraz hostname zamiast S1, S2, ... na zawierający mój indeks - 226105-1, 226105-2, ...; w poprzednim zadaniu o tym zapomniałem).
@@ -134,20 +127,18 @@ Instrukcja nie wspomina nic o konieczności stworzenia VLANu 99, jednak bez tego
 ##### Skonfiguruj interfejs zarządzania na wszystkich przełącznikach
 ![VLAN IP](screenshots/ex2/08.png)
 
-<div class="page-break"></div>
-
 ##### Sprawdź konfigurację i łączność
 * Jakie są domyślne ustawienia dla trybu drzewa opinającego na przełącznikach Cisco?  
 	PVST
 * Sprawdź połączenie pomiędzy PC-A i PC-C. Czy komunikacja była pomyślna?  
 	tak  
-	![Ping PC-A -> PC-C](screenshots/ex2/10.png =400x0)
+	![Ping PC-A -> PC-C](screenshots/ex2/10.png)
 
 #### Konfigurowanie mostu głównego i badanie konwergencji PVST+
 ##### Określ bieżący most główny
 * Jakie polecenie pozwala użytkownikowi na określenie stanu drzewa opinającego przełącznika Cisco Catalyst dla wszystkich sieci VLAN? Zapisz użyte polecenia w przewidzianym miejscu poniżej  
 	`show spanning-tree`  
-	![Bridge priority](screenshots/ex2/11.png =300x0)
+	![Bridge priority](screenshots/ex2/11.png)
 * Jaki jest priorytet mostu przełącznika S1 dla sieci VLAN 1?  
 	32769
 * Jaki jest priorytet mostu przełącznika S2 dla sieci VLAN 1?  
@@ -224,18 +215,16 @@ Tak samo jak poprzednio z powodu braku wsparcia dla `debug spanning-tree` to zad
 * Jaką ochronę zapewnia BPDU guard?  
 	Zabezpiecza sieć wykorzystującą STP poprzez wyłączenie portów w trybie dostępowym, które otrzymałyby BPDU. BPDU mogłyby zostać użyte w ataku DoS, którego celem byłaby zmiana głównego mostu i przestawienie STP.
 
-<div class="page-break"></div>
-
 #### Wynik `show vlan brief`
 ![show vlan brief](screenshots/ex2/17.png)
 
 ### Konfigurowanie HSRP i GLBP
 #### Tworzenie sieci i weryfikacja połączeń
 ##### Okabluj sieć zgodnie z topologią
-![topologia](screenshots/ex3/01.png =200x0)
+![topologia](screenshots/ex3/01.png)
 
 ##### Skonfiguruj komputery PC
-![config pc](screenshots/ex3/02.png =400x0)
+![config pc](screenshots/ex3/02.png)
 
 ##### Jeśli to konieczne, zainicjuj i uruchom ponownie przełączniki oraz routery
 Nie było to wymagane.
@@ -249,7 +238,7 @@ Nie było to wymagane.
 ##### Sprawdź łączność pomiędzy PC-A i PC-C
 * Wykonaj ping z PC-A do PC-C. Czy test zakończył się sukcesem?  
 	tak  
-	![ping pc](screenshots/ex3/05.png =300x0)
+	![ping pc](screenshots/ex3/05.png)
 
 ##### Skonfiguruj routing
 ![routing](screenshots/ex3/06.png)
@@ -260,7 +249,7 @@ Nie było to wymagane.
 * PC-C powinien być w stanie pingować się z każdym interfejsem na R1, R2, R3 i PC-A. Czy wszystkie pingi zakończyły się pomyślnie?  
 	tak
 
-![pingi router i switch](screenshots/ex3/07.png =300x0)  
+![pingi router i switch](screenshots/ex3/07.png)  
 _Wybrane pingi, które zmieściły się na screenie._
 
 #### Konfiguracja First Hop Redundancy przy pomocy HSRP
@@ -271,8 +260,6 @@ _Wybrane pingi, które zmieściły się na screenie._
 	przez 192.168.1.1
 * Jaką ścieżkę z PC-C do 209.165.200.225 dobrały pakiety?  
 	przez 192.168.1.3
-
-<div class="page-break"></div>
 
 ##### Rozpocznij sesję ping na PC-A i przerwij połączenie pomiędzy S1 i R1
 ![przerwane polaczenie bez hsrp](screenshots/ex3/09.png)
@@ -289,9 +276,6 @@ _Wybrane pingi, które zmieściły się na screenie._
 	R1
 * Jaki jest adres MAC dla wirtualnego adresu IP?  
 	0000.0C07.AC01
-
-<div class="page-break"></div>
-
 * Jaki jest adres IP i priorytet routera w trybie gotowości?  
 	192.168.1.3; priorytet domyślny czyli 100
 * Zmień adres bramy domyślnej dla PC-A, PC-C, S1 i S3. Jaki adres należy użyć?  
