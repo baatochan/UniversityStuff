@@ -131,6 +131,7 @@ Instrukcja nie wspomina nic o konieczności stworzenia VLANu 99, jednak bez tego
 * Jakie są domyślne ustawienia dla trybu drzewa opinającego na przełącznikach Cisco?  
 	PVST
 * Sprawdź połączenie pomiędzy PC-A i PC-C. Czy komunikacja była pomyślna?  
+	tak  
 	![Ping PC-A -> PC-C](screenshots/ex2/10.png)
 
 #### Konfigurowanie mostu głównego i badanie konwergencji PVST+
@@ -184,13 +185,13 @@ Komenda `debug spanning-tree` jest nie obsługiwana w Packet Tracerze. Zadanie w
 ##### Skonfiguruj PortFast i BPDU Guard na portach dostępowych
 * Skonfiguruj interfejs F0/6 na S1 z PortFast. Zapisz użyte polecenia w przewidzianym miejscu poniżej.  
 	```
-(config)#int f0/6
-(config-if)#spanning-tree portfast
+	(config)#int f0/6
+	(config-if)#spanning-tree portfast
 	```
 * Skonfiguruj interfejs F0/6 na S1 z BPDU guard. Zapisz użyte polecenia w przewidzianym miejscu poniżej.  
 	```
-(config)#int f0/6
-(config-if)#spanning-tree bpduguard enable
+	(config)#int f0/6
+	(config-if)#spanning-tree bpduguard enable
 	```
 * Skonfiguruj globalnie wszystkie porty nie będące portami trunk na przełączniku S3 z PortFast. Zapisz użyte polecenia w przewidzianym miejscu poniżej.  
 	`spanning-tree portfast default`
@@ -213,8 +214,9 @@ Tak samo jak poprzednio z powodu braku wsparcia dla `debug spanning-tree` to zad
 	PortFast pozwala portu skonfigurowanemu jako port dostępu na natychmiastową zmianę do stanu forwarding.
 * Jaką ochronę zapewnia BPDU guard?  
 	Zabezpiecza sieć wykorzystującą STP poprzez wyłączenie portów w trybie dostępowym, które otrzymałyby BPDU. BPDU mogłyby zostać użyte w ataku DoS, którego celem byłaby zmiana głównego mostu i przestawienie STP.
-* Wynik `show vlan brief`  
-	![show vlan brief](screenshots/ex2/17.png)
+
+#### Wynik `show vlan brief`
+![show vlan brief](screenshots/ex2/17.png)
 
 ### Konfigurowanie HSRP i GLBP
 #### Tworzenie sieci i weryfikacja połączeń
