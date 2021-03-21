@@ -1,0 +1,33 @@
+enable
+config t
+no ip domain-lookup
+hostname 226105-S1
+service password-encryption
+banner motd $ Nieupoważniony dostęp jest zabroniony! $
+enable secret class
+line con 0
+password cisco
+login
+logging synchronous
+line vty 0 15
+password cisco
+login
+exit
+int range f0/1-24, g0/1-2
+shutdown
+exit
+vlan 99
+name Management
+vlan 10
+name Staff
+exit
+int f0/6
+no shut
+switchport mode access
+switchport access vlan 10
+int vlan 99
+ip address 192.168.99.11 255.255.255.0
+no shut
+exit
+exit
+copy running-config startup-config
