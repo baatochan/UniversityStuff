@@ -11,13 +11,13 @@ Aby wykonać część Linuxową zdecydowałem się "wpuścić" maszynę wirtualn
 
 #### Openfiler NFS
 ##### Create NFS Network ACL
-![acl for local network](screenshots/01.png =500x0)  
+![acl for local network](screenshots/01.png)  
 _Dodanie ACL odpowiedniego do sieci lokalnej._
 
 Powyższa lista ACL umożliwia podłączenie do serwera jedynie hostom z podsieci 192.168.1.0/24, czyli każdemu urządzeniu w mojej domowej sieci lokalnej.
 
 ##### Create NFS Share
-![new share](screenshots/02.png =500x0)  
+![new share](screenshots/02.png)  
 _Dodanie nowego udostępnionego zasobu wewnątrz `file-store`._
 
 ![new share settings](screenshots/03.png)  
@@ -27,7 +27,7 @@ _Ustawienia udostępniania dla zasobu NSF._
 Opcja `root_squash` zapewnia, że pliki stworzone z UID i GID roota mają zmieniony UID i GID na inny (użytkownik `nsfnobody`), aby użytkownik mający roota na lokalnej maszynie nie mógł przejąć uprawnien roota na serwerze (za pomocą plików z setuid).
 
 ##### Start NFS Service
-![nsf service](screenshots/04.png =420x0)  
+![nsf service](screenshots/04.png)  
 _Uruchomiona usługa NSFv3._
 
 #### Linux Client Access
@@ -39,10 +39,8 @@ _Poprawnie działające ręczne zamontowanie zasobu pod Linuxem (dystrybucja Man
 ![fstab file](screenshots/06.png)  
 _Dodanie do pliku `fstab` wpisu punktu montowania zasobu z Openfilera (reszta pliku `fstab` zamazana z uwagi na nieistotność tych wpisów do tego zadania)._
 
-![fstab mount](screenshots/07.png =700x0)  
+![fstab mount](screenshots/07.png)  
 _Poprawne zamontowanie zdalnego zasobu za pomocą danych z `fstab`._
-
-<div class="page-break"></div>
 
 ### Configuring CIFS for Windows Client Access
 #### Openfiler CIFS
@@ -70,23 +68,21 @@ Funkcja browseable kontroluje, czy zasób jest widoczny na liście wszystkich za
 ![cifs service](screenshots/11.png)  
 _Aktywacja usługi CIFS._
 
-<div class="page-break"></div>
-
 #### Windows Client Access
 Do połączenia się z zasobem CISF z poziomu Windows 10 konieczna była aktywacja usługi SMBv1, która od jakiegoś czasu jest wyłączona domyślnie w Windows.
 
-![cifs service](screenshots/12.png =400x0)  
+![cifs service](screenshots/12.png)  
 _Aktywacja usługi SMBv1._
 
 #### Test Access & Mount CIFS Share
-![cifs auth](screenshots/13.png =500x0)  
+![cifs auth](screenshots/13.png)  
 _Próbne połączenie z folderem sieciowym W polu login konieczne było wpisanie `openfiler\admin1`._
 
-![cifs new file](screenshots/14.png =400x0)  
+![cifs new file](screenshots/14.png)  
 _Stworzenie przykładowego pliku w folderze sieciowym._
 
-![network location](screenshots/15.png =400x0)  
+![network location](screenshots/15.png)  
 _Utworzenie mapowania sieciowego dysku._
 
-![cifs service](screenshots/16.png =400x0)  
+![cifs service](screenshots/16.png)  
 _Sieciowy dysk/zasób widoczny w This PC._
