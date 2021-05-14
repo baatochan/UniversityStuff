@@ -18,8 +18,6 @@ Powyższa lista ACL umożliwia podłączenie do serwera jedynie hostom z podsiec
 ![iSCSI service activated](screenshots/02.png)  
 _Akrywowana usługa iSCSI._
 
-<div class="page-break"></div>
-
 ##### Create iSCSI Target
 ![iSCSI target created](screenshots/03.png)  
 _Utworzony target iSCSI._
@@ -32,8 +30,6 @@ _ACL przypisane do odpowiedniego targetu._
 
 ##### Question 1: Click the CHAP Authentication tab. Why would enabling CHAP authentication for iSCSI be beneficial? Would CHAP protect against unauthorized users intercepting sensitive data? What else should you do in order to secure iSCSI?
 Domyślnie protokół iSCSI nie wymaga żadnego uwierzytelniania i wystarcza znajomość adresu IP systemu gdzie działa target. Włączenie CHAP zapewnia podstawowe zabezpieczenie dostępu do systemu wymagając podania przez niego hasła. CHAP nie zabezpiecza jednak przed podsłuchem ruchu sieciowego, ponieważ jedyne co robi to wymaga autoryzacji użytkownika co jakiś czas, pozostawiając ruch sieciowy w żaden sposób nie szyfrowany. W przypadku, gdy musimy postawić zasób iSCSI w sieci, gdzie możemy martwić się o podsłuch transmisji możemy zabezpieczyć dodatkowo same połączenie z iSCSI np. poprzez wykorzystanie SSH.
-
-<div class="page-break"></div>
 
 ### Configuring Linux iSCSI Initiator
 #### iSCSI Software
@@ -51,8 +47,6 @@ _Wykryty target iSCSI._
 ![iSCSI target connected](screenshots/09.png)  
 _Poprawne połączenie z targetem iSCSI._
 
-<div class="page-break"></div>
-
 #### Configure Storage
 ##### Partition iSCSI Device
 ![iSCSI target partitioned](screenshots/10.png)  
@@ -66,8 +60,6 @@ _Zasób iSCSI sformatowany wykorzystując ext3._
 ![iSCSI target mounted](screenshots/12.png)  
 _Zasób iSCSI zamontowany jako `/mnt/iscsi`._
 
-<div class="page-break"></div>
-
 ### iSCSI Software installation and configuration using Microsoft Windows OS
 #### Install & Start iSCSI Software
 Próba uruchomienia narzędzia iSCSI Initiator informuje, że usługa nie jest wystartowana - z poziomu tego komunikatu wystarczy kliknąć yes by ją uruchomić. Usługa może być również uruchomiona ręcznie z poziomu zarządzania usługami.
@@ -76,7 +68,7 @@ Próba uruchomienia narzędzia iSCSI Initiator informuje, że usługa nie jest w
 _Komunikat o nieaktywnej usłudze iSCSI._
 
 #### Discover & Configure IQN
-![iSCSI target connected](screenshots/14.png =460x0)  
+![iSCSI target connected](screenshots/14.png)  
 _Poprawne połączenie z targetem iSCSI._
 
 #### Partition iSCSI Device
@@ -87,11 +79,11 @@ _Zasób iSCSI podzielony na partycje, jeszcze z poziomu Windowsa._
 
 Aby podzielić na partycję z poziomu Windowsa konieczne jest usunięcie istniejącej partycji oraz uruchomienie kreatora tworzenia nowej partycji.
 
-![Creating new partition](screenshots/16.png =620x0)  
+![Creating new partition](screenshots/16.png)  
 _Kreator tworzenia partycji - wybór litery pod jaką partycja będzie zamontowana._
 
 #### Format iSCSI Device
-![Formatting new partition](screenshots/17.png =620x0)  
+![Formatting new partition](screenshots/17.png)  
 _Kreator tworzenia partycji - wybór systemu plików i szczegółów formatowania partycji_
 
 #### Mount iSCSI Device
