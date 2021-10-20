@@ -1,0 +1,150 @@
+enable
+config t
+no ip domain lookup
+enable secret class
+line vty 0 15
+password cisco
+login
+line con 0
+password cisco
+logging synchronous
+login
+exit
+banner motd $ Nieuprawniony dostęp jest zabroniony $
+
+
+
+hostname R1-226105
+int g0/0
+ip address 172.16.0.1 255.255.255.0
+ip ospf message-digest-key 1 md5 Cisco123
+no shutdown
+int g0/1
+ip address 10.0.0.1 255.255.255.0
+ip ospf message-digest-key 1 md5 Cisco321
+no shutdown
+int lo0
+ip address 209.165.200.225 255.255.255.252
+ip ospf message-digest-key 1 md5 Cisco321
+no shut
+exit
+ip route 0.0.0.0 0.0.0.0 lo0
+router ospf 1
+network 172.16.0.0 0.0.0.255 area 0
+network 10.0.0.0 0.0.0.255 area 1
+router-id 1.1.1.1
+area 0 authentication message-digest
+area 1 authentication message-digest
+passive-interface lo0
+default-information originate
+exit
+ipv6 unicast-routing
+int g0/0
+ipv6 address 201:DB8:ACAD:1::1/64
+ipv6 address fe80::1 link-local
+ipv6 ospf 1 area 0
+int g0/1
+ipv6 address 201:DB8:ACAD:2::1/64
+ipv6 address fe80::1 link-local
+ipv6 ospf 1 area 0
+exit
+ipv6 router ospf 1
+router-id 1.1.1.1
+exit
+
+
+hostname R2-226105
+int g0/0
+ip address 172.16.0.2 255.255.255.0
+ip ospf message-digest-key 1 md5 Cisco123
+no shutdown
+int g0/1
+ip address 10.0.1.1 255.255.255.0
+ip ospf message-digest-key 1 md5 Cisco321
+ip ospf cost 10
+no shutdown
+exit
+router ospf 1
+network 172.16.0.0 0.0.0.255 area 0
+network 10.0.1.0 0.0.0.255 area 1
+router-id 2.2.2.2
+area 0 authentication message-digest
+area 1 authentication message-digest
+exit
+ipv6 unicast-routing
+int g0/0
+ipv6 address 201:DB8:ACAD:1::2/64
+ipv6 address fe80::2 link-local
+ipv6 ospf 1 area 0
+int g0/1
+ipv6 address 201:DB8:ACAD:3::1/64
+ipv6 address fe80::2 link-local
+ipv6 ospf 1 area 0
+exit
+ipv6 router ospf 1
+router-id 2.2.2.2
+exit
+
+
+hostname R3-226105
+int g0/0
+ip address 172.16.0.3 255.255.255.0
+ip ospf message-digest-key 1 md5 Cisco123
+no shutdown
+int g0/1
+ip address 192.168.1.1 255.255.255.0
+ip ospf message-digest-key 1 md5 Cisco123
+no shutdown
+exit
+router ospf 1
+network 172.16.0.0 0.0.0.255 area 0
+network 192.168.1.0 0.0.0.255 area 0
+router-id 3.3.3.3
+area 0 authentication message-digest
+passive-interface g0/1
+exit
+ipv6 unicast-routing
+int g0/0
+ipv6 address 201:DB8:ACAD:1::3/64
+ipv6 address fe80::3 link-local
+ipv6 ospf 1 area 0
+int g0/1
+ipv6 address 201:DB8:ACAD:4::1/64
+ipv6 address fe80::3 link-local
+ipv6 ospf 1 area 0
+exit
+ipv6 router ospf 1
+router-id 3.3.3.3
+exit
+
+
+hostname R4-226105
+int g0/0
+ip address 10.0.0.2 255.255.255.0
+ip ospf message-digest-key 1 md5 Cisco321
+no shutdown
+int g0/1
+ip address 10.0.1.2 255.255.255.0
+ip ospf message-digest-key 1 md5 Cisco321
+ip ospf cost 10
+no shutdown
+exit
+router ospf 1
+network 10.0.0.0 0.0.0.255 area 1
+network 10.0.1.0 0.0.0.255 area 1
+router-id 4.4.4.4
+area 1 authentication message-digest
+exit
+ipv6 unicast-routing
+int g0/0
+ipv6 address 201:DB8:ACAD:2::2/64
+ipv6 address fe80::4 link-local
+ipv6 ospf 1 area 0
+int g0/1
+ipv6 address 201:DB8:ACAD:3::2/64
+ipv6 address fe80::4 link-local
+ipv6 ospf 1 area 0
+exit
+ipv6 router ospf 1
+router-id 4.4.4.4
+exit
