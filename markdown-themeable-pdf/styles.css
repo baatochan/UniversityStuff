@@ -1,9 +1,18 @@
 html, body {
 	tab-size: 4;
+	padding: 15px;
 }
 
 p {
 	text-align: justify;
+	font-size: 11px;
+}
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
 }
 
 table > thead > tr > th,
@@ -12,7 +21,7 @@ table > tfoot > tr > th,
 table > thead > tr > td,
 table > tbody > tr > td,
 table > tfoot > tr > td {
-    padding: 4px 8px;
+	padding: 4px 8px;
 }
 
 img + em {
@@ -41,4 +50,8 @@ img + em {
 .small-table + table > tbody > tr > td,
 .small-table + table > tfoot > tr > td {
 	padding: 2px 4px;
+}
+
+.non-justified + p {
+	text-align: left;
 }
